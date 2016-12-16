@@ -1,3 +1,5 @@
 config.js
 .DS_STORE
 node_modules
+public/dist/scripts
+public/dist/styles
