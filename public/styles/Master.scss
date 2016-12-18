@@ -1,0 +1,58 @@
+$font: 'Monteserrat', sans-serif;
+$black: rgb(38, 38, 38);
+$grey: rgb(219,219,219);
+$medGrey: rgb(178,178,178);
+$darkGrey: rgb(153,153,153);
+$blue: rgb(56,151,240);
+$blueActive: rgba(56,151,240,.5);
+$footerBlue: rgb(0, 53, 105);
+$footerBlueActive: rgba(0, 53, 105, .5);
+$white: #fff;
+$spriteUrl: 'http://instagramstatic-a.akamaihd.net/h1/sprites/core/37402f.png';
+
+body {
+    background-color: rgb(250,250,250);
+    font-family: $font;
+    letter-spacing: -.5px;
+}
+
+input {
+    display: block;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 8px 8px 7px;
+    border: 1px solid $grey;
+    letter-spacing: -.5px;
+}
+
+input:focus {
+    outline: none;
+    border-color: $medGrey;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.button {
+    letter-spacing: -.5px;
+    background-color: $blue;
+    border-radius: 3px;
+    font-weight: bolder;
+    font-size: 13.5px;
+    line-height: 30px;
+    padding: 0 11px;
+    cursor: pointer;
+    border: none;
+    color: $white;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:active {
+    background-color: $blueActive;
+}
