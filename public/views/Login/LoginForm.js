@@ -3,10 +3,6 @@ import React from 'react';
 export default class LoginForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: '',
-            password: ''
-        }
     }
 
     handleUserNameChange(event) {
@@ -26,11 +22,13 @@ export default class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="login">
-                <input onChange={event => this.handleUserNameChange(event)} type="text" placeholder="Username"/>
-                <input onChange={event => this.handlePassWordChange(event)} type="password" placeholder="Password"/>
-                <button onClick={() => this.handleSubmit()}>Log in</button>
-
+            <div className='login'>
+                <h1 className='spriteLogo'></h1>
+                <form>
+                    <input onChange={this.handleUserNameChange.bind(this)} type="text" placeholder="Username"/>
+                    <input onChange={this.handlePassWordChange.bind(this)} type="password" placeholder="Password"/>
+                    <button className='button' onClick={this.handleSubmit.bind(this)}>Log in</button>
+                </form>
             </div>
         )
     }
