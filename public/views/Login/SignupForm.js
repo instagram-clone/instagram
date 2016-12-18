@@ -1,19 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class SignupForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-			mobile: '',
-			fullname: '',
-            username: '',
-            password: ''
-        }
     }
 
 	handleContactChange(event){
 		console.log(event.target.value);
-		this.setState({mobile: event.target.value});
+		this.setState({contact: event.target.value});
 	}
 
 	handleFullNameChange(event){
@@ -32,7 +27,7 @@ export default class SignupForm extends React.Component {
 	}
 
 	handleSubmit(){
-		console.log(this.state.mobile);
+		console.log(this.state.contact);
 		console.log(this.state.fullname);
 		console.log(this.state.username);
 		console.log(this.state.password);
@@ -40,12 +35,30 @@ export default class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="signup">
-				<input onChange={event => this.handleContactChange(event)} type="text" placeholder="Mobile Number or Email"/>
-				<input onChange={event => this.handleFullNameChange(event)} type="text" placeholder="Full Name"/>
-                <input onChange={event => this.handleUserNameChange(event)} type="text" placeholder="Username"/>
-                <input onChange={event => this.handlePassWordChange(event)} type="password" placeholder="Password"/>
-                <button onClick={() => this.handleSubmit()}>Log in</button>
+            <div className='signup'>
+                <h1 className='spriteLogo'></h1>
+                <div className='subHead'>
+                    Sign up to see photos and videos from your friends.
+                </div>
+                <form>
+                    <button className='button'>
+                        <span className='facebookSprite'></span>
+                        Log in with Facebook
+                    </button>
+                    <div className='split'>
+                        <div className='line lineLeft'></div>
+                        <div>OR</div>
+                        <div className='line lineRight'></div>
+                    </div>
+    				<input onChange={this.handleContactChange.bind(this)} type="text" placeholder="Mobile Number or Email"/>
+    				<input onChange={this.handleFullNameChange.bind(this)} type="text" placeholder="Full Name"/>
+                    <input onChange={this.handleUserNameChange.bind(this)} type="text" placeholder="Username"/>
+                    <input onChange={this.handlePassWordChange.bind(this)} type="password" placeholder="Password"/>
+                    <button className='button' onClick={this.handleSubmit.bind(this)}>Continue</button>
+                    <div className='loginFooter'>
+                        By signing up, you agree to our <Link to='#'>Terms</Link> & <Link to='#'>Privacy Policy</Link>
+                    </div>
+                </form>
 
             </div>
         )

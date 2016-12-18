@@ -1,1 +1,241 @@
 @import 'master';
+
+.loginView {
+    padding-bottom: 60px;
+    min-height: 100vh;
+    position: relative;
+
+    .switchFormContainer {
+        color: $black;
+        text-align: center;
+        padding: 25px;
+        margin-top: 15px;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+
+        a {
+            color: $blue;
+        }
+
+        a:active {
+            color: $blueActive;
+        }
+    }
+
+    .spriteLogo {
+        background-image: url($spriteUrl);
+        background-size: 352px 311px;
+        background-position: -176px -36px;
+        height: 51px;
+        width: 175px;
+        background-position: 0 0;
+        margin: 22px auto 8px;
+    }
+
+    .loginSpacing {
+        margin-top: 100px;
+    }
+
+    .appLinks {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .appText {
+            color: $black;
+            font-size: 14px;
+            line-height: 18px;
+            margin: 20px 20px 2px;
+        }
+
+        .appImagesContainer {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            flex-direction: row;
+
+            .android {
+                margin-left: 10px;
+            }
+
+            img {
+                height: 40px;
+                margin-bottom: 15px;
+            }
+
+            img:active {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+.login,
+.signup {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(250,250,250);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    .facebookSprite {
+        background-image: url($spriteUrl);
+        background-size: 352px 311px;
+        background-position: -132px -273px;
+        height: 16px;
+        width: 16px;
+        top: 2px;
+        display: inline-block;
+        margin-right: 8px;
+        position: relative;
+    }
+
+    .button {
+        width: 80%;
+        margin: 10px 6px;
+    }
+
+    input {
+        text-align: left;
+        width: 80%;
+        margin: 5px auto;
+    }
+
+    .subHead {
+        font-size: 17px;
+        line-height: 20px;
+        margin: 0 40px 10px;
+        color: $darkGrey;
+        font-weight: bolder;
+    }
+
+    .split {
+        font-weight: bolder;
+        color: $darkGrey;
+        display: flex;
+        flex-direction: row;
+        line-height: 30%;
+        margin-top: 15px;
+        font-size: 13px;
+        width: 80%;
+        margin-bottom: 22px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+    }
+
+    .line {
+        width: 40%;
+        height: 1px;
+        background-color: #c7c7c7;
+    }
+
+    .loginFooter {
+        margin-top: 5px;
+        letter-spacing: 0.1px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 18px;
+        color: $darkGrey;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+
+        a {
+            font-weight: bold;
+        }
+    }
+}
+
+footer {
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+
+    ul {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    li {
+        margin-bottom: 7px;
+        margin-right: 16px;
+    }
+
+    a {
+        text-transform: uppercase;
+        color: $footerBlue;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    a:active {
+        color: $footerBlueActive;
+    }
+
+    .copyright {
+        color: $darkGrey;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+}
+@media(min-width:450px) {
+    .loginView {
+        padding-top: 40px;
+        background-color: rgb(250, 250, 250);
+
+        .switchFormContainer {
+            margin-top: 10px;
+        }
+
+        .appLinks {
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+
+            .appText {
+                margin-bottom: 5px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .login,
+    .signup,
+    .switchFormContainer {
+        background-color: rgb(255,255,255);
+        border: 1px solid rgb(239,239,239);
+        max-width: 350px;
+        border-radius: 1px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .loginFooter {
+            width: 60%;
+        }
+    }
+
+    .login {
+        margin-top: 12vh;
+    }
+}
+@media(min-width:735px) {
+    .loginView {
+        .button {
+            font-size: 16px;
+        }
+    }
+}
