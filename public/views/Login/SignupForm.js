@@ -33,12 +33,14 @@ export default class SignupForm extends React.Component {
 		console.log(this.state.fullname);
 		console.log(this.state.username);
 		console.log(this.state.password);
-        bcrypt.hash(this.state.password, 10, function(err, hash){
+        bcrypt.hash(this.state.password, 10, (err, hash) =>{
             axios.post(`/api/signup`, {
                 contact: this.state.contact,
                 fullname: this.state.fullname,
                 username: this.state.username,
                 password: hash,
+            }).then(function(response){
+                console.log(response,"login work?");
             })
         })
 
