@@ -4,6 +4,8 @@ import SignupForm from './SignupForm';
 import Footer from './Footer';
 import Carousel from './Carousel';
 
+import axios from 'axios';
+
 export default class LoginView extends React.Component {
     constructor(props) {
         super(props);
