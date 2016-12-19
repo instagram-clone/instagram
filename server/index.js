@@ -7,6 +7,8 @@ const session = require('express-session');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
 
+const createAccount = require('./controllers/account/createAccountController.js');
+const loginController = require('./controllers/account/loginController');
 
 const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
@@ -47,11 +49,9 @@ app.get('/user', function(req, res){
 
 mongoose.connect(config.mongo);
 mongoose.connection.once('open',() => console.log('Connected to Mongo'));
-// app.use(session({secret: 'some-random-string'})); //must come before initialize and session
-// app.use(passport.initialize());// must come before app.use(passport.session)
-// app.use(passport.session());
-var createAccount = require('./controllers/account/createAccountController.js');
+
 app.post('/api/signup', createAccount.signup);
+app.get('/api/login', loginController.login);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
