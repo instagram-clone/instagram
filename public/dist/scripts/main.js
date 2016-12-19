@@ -26739,16 +26739,20 @@
 	    }, {
 	        key: 'handleSubmit',
 	        value: function handleSubmit() {
+	            var _this2 = this;
+
 	            console.log(this.state.contact);
 	            console.log(this.state.fullname);
 	            console.log(this.state.username);
 	            console.log(this.state.password);
 	            _bcryptjs2.default.hash(this.state.password, 10, function (err, hash) {
 	                _axios2.default.post('/api/signup', {
-	                    contact: this.state.contact,
-	                    fullname: this.state.fullname,
-	                    username: this.state.username,
+	                    contact: _this2.state.contact,
+	                    fullname: _this2.state.fullname,
+	                    username: _this2.state.username,
 	                    password: hash
+	                }).then(function (response) {
+	                    console.log(response, "login work?");
 	                });
 	            });
 	        }
