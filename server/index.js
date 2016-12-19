@@ -8,7 +8,7 @@ const config = require ('../config.js');
 // const config = require('./config.js');
 // const passport = require('passport');
 
-let app = module.exports = express();
+const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
 app.use(bodyParser.json());
 mongoose.connect(config.mongo);
