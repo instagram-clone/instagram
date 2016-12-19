@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
+import config from '../../../config';
 
 export default class SignupForm extends React.Component {
     constructor(props) {
@@ -46,6 +47,12 @@ export default class SignupForm extends React.Component {
 
 	}
 
+  handleFacebookLogin(){
+    window.location.href = config.baseDomain + "/auth/facebook";
+    console.log('clicked!');
+
+  }
+
     render() {
         return (
             <div className='signup'>
@@ -54,10 +61,10 @@ export default class SignupForm extends React.Component {
                     Sign up to see photos and videos from your friends.
                 </div>
                 <form>
-                    <button className='button'>
+                    <a href={`/auth/facebook`} className='button'>
                         <span className='facebookSprite'></span>
                         Log in with Facebook
-                    </button>
+                    </a>
                     <div className='split'>
                         <div className='line lineLeft'></div>
                         <div>OR</div>
