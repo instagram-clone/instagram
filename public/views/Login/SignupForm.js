@@ -54,7 +54,7 @@ export default class SignupForm extends React.Component {
     				<input onChange={this.handleFullNameChange.bind(this)} type="text" placeholder="Full Name"/>
                     <input onChange={this.handleUserNameChange.bind(this)} type="text" placeholder="Username"/>
                     <input onChange={this.handlePassWordChange.bind(this)} type="password" placeholder="Password"/>
-                    <button className='button' onClick={this.handleSubmit.bind(this)}>Continue</button>
+                    <button className='button' onClick={this.handleSubmit.bind(this)}>Sign up</button>
                     <div className='loginFooter'>
                         By signing up, you agree to our <Link to='#'>Terms</Link> & <Link to='#'>Privacy Policy</Link>
                     </div>
