@@ -6,7 +6,7 @@ const cors = require('cors');
 // const config = require('./config.js');
 // const passport = require('passport');
 
-let app = module.exports = express();
+const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
 app.use(bodyParser.json());
 // app.use(session({secret: 'some-random-string'})); //must come before initialize and session
