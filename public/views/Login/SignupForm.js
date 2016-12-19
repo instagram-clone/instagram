@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import config from '../../../config';
+import Cookies from 'js-cookie';
 
 export default class SignupForm extends React.Component {
     constructor(props) {
@@ -29,29 +30,35 @@ export default class SignupForm extends React.Component {
 		this.setState({password: event.target.value});
 	}
 
-	handleSubmit(){
-		console.log(this.state.contact);
-		console.log(this.state.fullname);
-		console.log(this.state.username);
-		console.log(this.state.password);
+	handleSubmit(event){
+        event.preventDefault();
+        console.log('submitting');
         bcrypt.hash(this.state.password, 10, (err, hash) =>{
+            console.log(this.state.username);
             axios.post(`/api/signup`, {
                 contact: this.state.contact,
                 fullname: this.state.fullname,
                 username: this.state.username,
                 password: hash,
-            }).then(function(response){
-                console.log(response,"login work?");
+            }).then((response) => {
+                console.log('setting cookie');
+                console.log(response.data);
+                Cookies.set('user', {
+                    username: response.data.username
+                }, {
+                    expires: 1,
+                    path: '/'
+                });
+                window.location.href = '#/feed';
+            }).catch(function(err){
+                console.log(err);
+                if(err){
+                    alert('That username is already taken.');
+                }
             })
         })
 
 	}
-
-  handleFacebookLogin(){
-    window.location.href = config.baseDomain + "/auth/facebook";
-    console.log('clicked!');
-
-  }
 
     render() {
         return (
@@ -61,10 +68,12 @@ export default class SignupForm extends React.Component {
                     Sign up to see photos and videos from your friends.
                 </div>
                 <form>
-                    <a href={`/auth/facebook`} className='button'>
-                        <span className='facebookSprite'></span>
-                        Log in with Facebook
-                    </a>
+                    <form action='/auth/facebook'>
+                        <button className='button'>
+                            <span className='facebookSprite'></span>
+                            Log in with Facebook
+                        </button>
+                    </form>
                     <div className='split'>
                         <div className='line lineLeft'></div>
                         <div>OR</div>
