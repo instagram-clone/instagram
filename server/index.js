@@ -12,6 +12,9 @@ app.use(bodyParser.json());
 // app.use(session({secret: 'some-random-string'})); //must come before initialize and session
 // app.use(passport.initialize());// must come before app.use(passport.session)
 // app.use(passport.session());
+var createAccount = require('./controllers/createAccount.js');
+app.get('/api/signup', createAccount.signup);
+
 app.listen(3000, function(){
   console.log('listening on port 3000');
 });
