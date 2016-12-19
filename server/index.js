@@ -6,8 +6,16 @@ const config = require ('../config.js');
 const session = require('express-session');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
+const AWS = require('aws-sdk');
 
+//Amazon S3
+//creating amazon bucket
+const s3 = new AWS.S3();
+const bucketParams = {Bucket: 'igBucket'};
+s3.createBucket(bucketParams);
 
+//adding photos to bucket
+//Amzon S3
 const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
 app.use(bodyParser.json());

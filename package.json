@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/instagram-clone/instagram#readme",
   "dependencies": {
+    "aws-sdk": "^2.7.15",
     "axios": "^0.15.3",
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
