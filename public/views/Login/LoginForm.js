@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+import bcrypt from 'bcryptjs';
+import Cookies from 'js-cookie';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
@@ -6,19 +9,41 @@ export default class LoginForm extends React.Component {
     }
 
     handleUserNameChange(event) {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         this.setState({username: event.target.value});
     }
 
-	handlePassWordChange(event) {
-		console.log(event.target.value);
-		this.setState({password: event.target.value});
-	}
+    handlePassWordChange(event) {
+        // console.log(event.target.value);
+        this.setState({password: event.target.value});
+    }
 
-	handleSubmit(){
-		console.log(this.state.username);
-		console.log(this.state.password);
-	}
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state.username);
+        console.log(this.state.password);
+
+        axios.get('/api/login?username=' + this.state.username).then((response) => {
+            console.log(response);
+            if (response.data.length === 0) {
+                alert('No user found');
+            } else {
+                bcrypt.compare(this.state.password, response.data[0].password, function(err, res) {
+                    if (res) {
+                        Cookies.set('user', {
+                            username: response.data.username
+                        }, {
+                            expires: 1,
+                            path: '/'
+                        });
+                        window.location.href = '#/feed'
+                    } else {
+                        alert('Incorrect password and username combination');
+                    }
+                })
+            }
+        });
+    }
 
     render() {
         return (
