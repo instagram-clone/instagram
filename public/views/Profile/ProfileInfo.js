@@ -1,11 +1,13 @@
 import React from 'react';
 
 export default class ProfileInfo extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state ={
-      
     }
+  }
+  componentWillMount(){
+    
   }
   render(){
     return(
