@@ -14,7 +14,7 @@ import Reset from '../styles/Reset.scss';
 import Master from '../styles/Master.scss';
 import EditProfileStyle from '../styles/EditProfile.scss';
 import FeedStyle from '../styles/Feed.scss';
-import FeedPhotoStyle from '../styles/FeedPhoto.scss';
+import PhotoCardStyle from '../styles/PhotoCard.scss';
 import LoginStyle from '../styles/Login.scss';
 import NavStyle from '../styles/Nav.scss';
 import ProfileStyle from '../styles/Profile.scss';

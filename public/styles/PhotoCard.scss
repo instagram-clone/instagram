@@ -1,0 +1,166 @@
+@import 'master';
+
+.photoCard {
+    background-color: $darkBackground;
+    display:flex;
+    flex-direction: column;
+    a{
+        color:$black;
+    }
+    a:active{
+        color:$blackActive;
+    }
+    .lineContainer{
+        background-color:$white;
+        .line{
+            background-color: $photoCardBorderColor;
+            height:1px;
+            width:90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .photoHeader {
+        display: flex;
+        flex-direction: row;
+        height: 64px;
+        padding: 14px 20px;
+        align-items: center;
+        justify-content: space-between;
+
+        .leftSide {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            img {
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+                margin-left: 5px;
+            }
+
+            .nameContainer {
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                line-height: 17px;
+                text-overflow: ellipsis;
+
+                .profileLink {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .timestamp {
+            color: $darkGrey;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            margin-top: -22px;
+        }
+    }
+
+    .photoContainer{
+        position: relative;
+        img{
+            top:0;
+            left:0;
+            width:100%;
+        }
+    }
+
+    .commentDisplay{
+        background-color:$darkBackground;
+        padding:24px;
+        padding-bottom:25px;
+        margin-top:-3px;
+        .postInfo{
+            margin-bottom:10px;
+        }
+        .bold, .username{
+            margin-bottom:7px;
+            font-weight: 600;
+            font-size:15px;
+            margin-bottom:7px;
+            line-height:18px;
+        }
+        .username{
+            margin-right:.3em;
+        }
+    }
+
+    .commentBar{
+        padding-left:24px;
+        padding-left:24px;
+        padding-top:15px;
+        padding-bottom:15px;
+        background-color:$darkBackground;
+        min-height:68px;
+        display:flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        .sprite{
+            background-image:url($spriteUrl);
+            background-size:352px 311px;
+            height:26px;
+            width:26px;
+            margin-top:2px;
+            margin-right:10px;
+        }
+        .sprite:hover{
+            cursor:pointer;
+        }
+        .favoriteSprite{
+            background-position: -314px -176px;
+        }
+        .alreadyFavoritedSprite{
+            background-position: -151px -224px;
+        }
+        .infoSprite{
+            background-position:-56px -176px;
+            height:44px;
+            width:44px;
+        }
+        input{
+            font-size:15px;
+            line-height:18px;
+            background-color:$darkBackground;
+            border:none;
+            width:90%;
+        }
+    }
+
+}
+
+@media(min-width:600px) {
+    .photoCard{
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .photoHeader {
+            background-color: $lightBackground;
+            border: 1px solid $photoCardBorderColor;
+            border-radius: 3px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .commentDisplay{
+            background-color: $lightBackground;
+            border:1px solid $photoCardBorderColor;
+            border-bottom:none;
+        }
+        .commentBar{
+            background-color: $lightBackground;
+            border:1px solid $photoCardBorderColor;
+            border-top:none;
+            input{
+                background-color:$lightBackground
+            }
+        }
+    }
+}
