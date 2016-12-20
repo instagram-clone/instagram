@@ -29,9 +29,10 @@ export default class LoginForm extends React.Component {
                 alert('No user found');
             } else {
                 bcrypt.compare(this.state.password, response.data[0].password, function(err, res) {
+                    console.log(response.data);
                     if (res) {
                         Cookies.set('user', {
-                            username: response.data.username
+                            username: response.data[0].username
                         }, {
                             expires: 1,
                             path: '/'
