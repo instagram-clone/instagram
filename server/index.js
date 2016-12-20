@@ -20,6 +20,7 @@ AWS.config.update({
 const createAccount = require('./controllers/account/createAccountController.js');
 const loginController = require('./controllers/account/loginController');
 const editProfileController = require('./controllers/account/editProfileController');
+const getProfileInfo = require('./controllers/account/getProfileInfo');
 
 const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
@@ -76,6 +77,7 @@ app.post('/api/signup', createAccount.signup);
 app.get('/api/login', loginController.login);
 app.get('/api/currentUser/:username', editProfileController.getUser);
 app.post('/api/currentUser', editProfileController.postUser);
+app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
