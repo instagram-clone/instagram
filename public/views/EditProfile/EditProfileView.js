@@ -1,11 +1,20 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
+import axios from 'axios';
+import getLoggedInUser from '../../utils/getLoggedInUser';
+
 
 export default class EditProfileView extends React.Component{
-
+  constructor(){
+    super();
+    this.state={
+      fullname: '',
+      username: '',
+    };
+  }
   handleNameChange(event){
     console.log(event.target.value);
-    this.setState({name: event.target.value});
+    this.setState({fullname: event.target.value});
   }
 
   handleUsernameChange(event){
@@ -33,6 +42,21 @@ export default class EditProfileView extends React.Component{
     this.setState({number: event.target.value});
   }
 
+  handleSubmitChange(event){
+    event.preventDefault();
+    axios.post('/api/currentUser', this.state).then(response => {
+      console.log(response);
+    })
+  }
+
+  componentWillMount(){
+    const username = getLoggedInUser.getLoggedInUser().username;
+    axios.get('/api/currentUser/' + username).then(response => {
+      console.log(response);
+      this.setState(response.data);
+    })
+  }
+
 
 
   render(){
@@ -47,11 +71,11 @@ export default class EditProfileView extends React.Component{
       </div>
 
       <div>
-      <span>Name <input onChange={this.handleNameChange.bind(this)} type="text"/></span>
+      Name <input value={this.state.fullname} onChange={this.handleNameChange.bind(this)} type="text"/>
       </div>
 
       <div>
-      Username <input onChange={this.handleUsernameChange.bind(this)} type="text"/>
+      Username <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
       </div>
 
       <div>
@@ -87,7 +111,7 @@ export default class EditProfileView extends React.Component{
       </div>
 
       <div>
-      <button>Submit</button><a href="#">Temporarily disable my account</a>
+      <button onClick={this.handleSubmitChange.bind(this)}>Submit</button><a href="#">Temporarily disable my account</a>
       </div>
 
       </div>
