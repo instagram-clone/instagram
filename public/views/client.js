@@ -7,6 +7,8 @@ import FeedView from  './Feed/FeedView';
 import ProfileView from './Profile/ProfileView';
 import UploadView from './Upload/UploadView';
 
+import EditProfileView from './EditProfile/EditProfileView';
+
 import Reset from '../styles/Reset.scss';
 import Master from '../styles/Master.scss';
 import EditProfileStyle from '../styles/EditProfile.scss';
@@ -18,6 +20,7 @@ import ProfileStyle from '../styles/Profile.scss';
 import SearchStyle from '../styles/Search.scss';
 import UploadStyle from '../styles/Upload.scss';
 
+
 class App extends React.Component{
 	render() {
 		return (
@@ -26,6 +29,7 @@ class App extends React.Component{
 					<Route path="/feed" component={FeedView}/>
 					<Route path="/profile" component={ProfileView}/>
 					<Route path="/upload"	component={UploadView}/>
+					<Route path="/editProfile" component={EditProfileView}/>
 			</Router>
 		)
 	}
