@@ -6,6 +6,9 @@ import LoginView from './Login/LoginView';
 import FeedView from  './Feed/FeedView';
 import ProfileView from './Profile/ProfileView';
 import UploadView from './Upload/UploadView';
+import EditProfileView from './EditProfile/EditProfileView';
+
+import auth from '../utils/getLoggedInUser';
 
 import Reset from '../styles/Reset.scss';
 import Master from '../styles/Master.scss';
@@ -18,14 +21,43 @@ import ProfileStyle from '../styles/Profile.scss';
 import SearchStyle from '../styles/Search.scss';
 import UploadStyle from '../styles/Upload.scss';
 
+
+//checks if a user is logged in, if they are not
+//logged in, this redirects them to the
+//login/signup page
+function requireAuth(nextState, replace) {
+	if (!auth.getLoggedInUser()){
+	    replace({
+	        pathname: '/',
+	        state: {
+	            nextPathname: nextState.location.pathname
+	        }
+	    });
+	}
+}
+
+//checks if a user is logged in, if they are, redirects them
+//to the feed page (this is only used on the login page)
+function requireNotLoggedIn(nextState, replace) {
+    if (auth.getLoggedInUser()){
+        replace({
+            pathname: '/feed',
+            state: {
+                nextPathname: nextState.location.pathname
+            }
+        });
+	}
+}
+
 class App extends React.Component{
 	render() {
 		return (
 			<Router history={hashHistory}>
-					<Route path="/" component={LoginView}/>
-					<Route path="/feed" component={FeedView}/>
-					<Route path="/profile" component={ProfileView}/>
-					<Route path="/upload"	component={UploadView}/>
+					<Route path="/" component={LoginView} onEnter={requireNotLoggedIn}/>
+					<Route path="/feed" component={FeedView} onEnter={requireAuth}/>
+					<Route path="/profile" component={ProfileView} />
+					<Route path="/upload"	component={UploadView} onEnter={requireAuth}/>
+					<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
 			</Router>
 		)
 	}

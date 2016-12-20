@@ -14,10 +14,7 @@ AWS.config.update({
   accessKeyId: config.accessKeyId,
   secretAccessKey: config.secretAccessKey,
   region: config.region,
-})
-const s3 = new AWS.S3();
-
-
+});
 //adding photos to bucket
 //Amzon S3
 const createAccount = require('./controllers/account/createAccountController.js');
@@ -63,28 +60,12 @@ app.get('/user', function(req, res){
 mongoose.connect(config.mongo);
 mongoose.connection.once('open',() => console.log('Connected to Mongo'));
 //amazon post
-app.post('/api/s3', function(req, res, next){
-  console.log(req.body);
-  var buf = new Buffer(req.body.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
-
-  // bucketName var below crates a "folder" for each user
-  var bucketName = 'ig-clone';
-  var params = {
-      Bucket: bucketName
-    , Key: req.body.imageName
-    , Body: buf
-    , ContentType: 'image/' + req.body.imageExtension
-    , ACL: 'public-read'
-  };
-
-  s3.upload(params, function (err, data) {
-    console.log(err, data);
-    if (err) return res.status(500).send(err);
-
-    // TODO: save data to mongo
-    res.json(data);
-  });
-});
+app.use('/s3', require('react-s3-uploader/s3router')({
+  bucket: 'ig-clone',
+  region: 'us-east-1',
+  headers: {'Access-Control-Allow-Origin': '*'},
+  ACL: 'private'
+}));
 
 app.post('/api/signup', createAccount.signup);
 app.get('/api/login', loginController.login);

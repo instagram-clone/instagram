@@ -67,13 +67,13 @@ export default class SignupForm extends React.Component {
                 <div className='subHead'>
                     Sign up to see photos and videos from your friends.
                 </div>
+                <form action='/auth/facebook'>
+                    <button className='button'>
+                        <span className='facebookSprite'></span>
+                        Log in with Facebook
+                    </button>
+                </form>
                 <form>
-                    <form action='/auth/facebook'>
-                        <button className='button'>
-                            <span className='facebookSprite'></span>
-                            Log in with Facebook
-                        </button>
-                    </form>
                     <div className='split'>
                         <div className='line lineLeft'></div>
                         <div>OR</div>
