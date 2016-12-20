@@ -13,14 +13,17 @@ export default class ProfileView extends React.Component{
   componentWillMount(){
     const user = this.props.params.username;
     console.log(user);
-    getProfileInfo(user);
+    getProfileInfo(user).then(response => {
+      console.log(response);
+      this.setState(response.data);
+    })
   }
   render(){
     return(
       <div>
       <Nav/>
         This is the Profile View! Dude!
-      <ProfileInfo/>
+      <ProfileInfo {...this.state}/>
       </div>
     )
   }
