@@ -10,6 +10,10 @@ export default class EditProfileView extends React.Component{
     this.state={
       fullname: '',
       username: '',
+      website: '',
+      bio: '',
+      contact: '',
+      gender: '',
     };
   }
   handleNameChange(event){
@@ -34,12 +38,12 @@ export default class EditProfileView extends React.Component{
 
   handleEmailChange(event){
     console.log(event.target.value);
-    this.setState({email: event.target.value});
+    this.setState({contact: event.target.value});
   }
 
-  handleNumberChange(event){
+  handleGenderChange(event){
     console.log(event.target.value);
-    this.setState({number: event.target.value});
+    this.setState({gender: event.target.value});
   }
 
   handleSubmitChange(event){
@@ -67,7 +71,7 @@ export default class EditProfileView extends React.Component{
         <h2>This is the Edit Profile View!</h2>
 
       <div>
-      <img height="20" width="20" alt="" src="https://instagram.faqa1-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg"/>USERNAME HERE
+      <img height="20" width="20" alt="" src="https://instagram.faqa1-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg"/>{this.state.username}
       </div>
 
       <div>
@@ -79,26 +83,23 @@ export default class EditProfileView extends React.Component{
       </div>
 
       <div>
-      Website <input onChange={this.handleWebsiteChange.bind(this)} type="text"/>
+      Website <input value={this.state.website} onChange={this.handleWebsiteChange.bind(this)} type="text"/>
       </div>
 
       <div>
-      Bio <input onChange={this.handleBioChange.bind(this)} type="text"/>
+      Bio <input value={this.state.bio} onChange={this.handleBioChange.bind(this)} type="text"/>
       </div>
 
       PRIVATE INFORMATION
 
       <div>
-      Email <input onChange={this.handleEmailChange.bind(this)} type="text"/>
-      </div>
-
-      <div>
-      Phone Number <input onChange={this.handleNumberChange.bind(this)} type="number"/>
+      Email <input value={this.state.contact} onChange={this.handleEmailChange.bind(this)} type="text"/>
       </div>
 
       <div>
       Gender
-      <select name="gender">
+      <select value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
+        <option value="Not Specified">Not Specified</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>
