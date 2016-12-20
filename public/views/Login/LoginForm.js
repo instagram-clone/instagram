@@ -28,6 +28,10 @@ export default class LoginForm extends React.Component {
             if (response.data.length === 0) {
                 alert('No user found');
             } else {
+
+              console.log(response.data[0]);
+
+
                 bcrypt.compare(this.state.password, response.data[0].password, function(err, res) {
                     console.log(response.data);
                     if (res) {

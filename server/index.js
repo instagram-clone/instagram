@@ -19,6 +19,7 @@ AWS.config.update({
 //Amzon S3
 const createAccount = require('./controllers/account/createAccountController.js');
 const loginController = require('./controllers/account/loginController');
+const editProfileController = require('./controllers/account/editProfileController');
 
 const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
@@ -69,6 +70,8 @@ app.use('/s3', require('react-s3-uploader/s3router')({
 
 app.post('/api/signup', createAccount.signup);
 app.get('/api/login', loginController.login);
+app.get('/api/currentUser/:username', editProfileController.getUser);
+app.post('/api/currentUser', editProfileController.postUser);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
