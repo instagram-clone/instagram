@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class PhotoHeader extends React.Component{
     constructor(props){
@@ -8,10 +9,10 @@ export default class PhotoHeader extends React.Component{
         return(
             <div className='photoHeader'>
                 <div className='leftSide'>
-                    <img src={this.props.profilepic} />
+                    <Link to={`profile/${this.props.username}`}><img src={this.props.profilepic} /></Link>
                     <div className='nameContainer'>
-                        <a className='profileLink' href={`/profile/${this.props.username}`}>{this.props.username}</a>
-                        <a className='locationLink' href={`/search/${this.props.location}`}>{this.props.location}</a>
+                        <Link className='profileLink' to={`profile/${this.props.username}`}>{this.props.username}</Link>
+                        <Link className='locationLink' to={`search/${this.props.location}`}>{this.props.location}</Link>
                     </div>
                 </div>
                 <span className='timestamp'>{this.props.timestamp}</span>
