@@ -1,1 +1,114 @@
 @import 'master';
+
+header {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid $grey;
+    height: 77px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    text-align: right;
+    padding: 26px 40px;
+
+    .search {
+        display: none;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 77px;
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 35vw;
+        justify-content: space-between;
+        max-width: 130px;
+    }
+
+    .spriteLogo {
+        background-image: url($spriteUrl);
+        background-size: 352px 311px;
+        background-position: -176px 0;
+        height: 35px;
+        width: 176px;
+        transform: scale(.8);
+        margin-left: -43px;
+    }
+
+    .spriteDiscover {
+        background-image: url($spriteUrl);
+        background-position: -326px -224px;
+        background-size: 352px 311px;
+        height: 24px;
+        width: 24px;
+    }
+
+    .spriteNotifs {
+        background-image: url($spriteUrl);
+        background-position: -176px -224px;
+        background-size: 352px 311px;
+        height: 24px;
+        width: 24px;
+    }
+
+    .spriteProfile {
+        background-image: url($spriteUrl);
+        background-position: -26px -224px;
+        background-size: 352px 311px;
+        height: 24px;
+        width: 24px;
+    }
+
+    .spriteSearch {
+        background-image: url($spriteUrl);
+        background-position: -228px -112px;
+        background-size: 352px 311px;
+        position: absolute;
+        top: 9px;
+        left: 11px;
+        height: 10px;
+        height: 10px;
+    }
+}
+@media(min-width:600px) {
+    .nav {
+        .spriteLogo {
+            margin-left: 0;
+        }
+        max-width: 1010px;
+
+        .search {
+            display: inline;
+            height: 28px;
+            width: 215px;
+            min-width: 125px;
+            margin-left: -40px;
+
+            .searchField {
+                height: 100%;
+                width: 100%;
+                border-radius: 3px;
+                color: $black;
+                border: 1px solid $grey;
+            }
+        }
+    }
+}
+@media(min-width:770px) {
+    .nav {
+        .spriteLogo {
+            transform: scale(1);
+        }
+    }
+}
