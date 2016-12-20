@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
 import getLoggedInUser from '../../utils/getLoggedInUser';
+import Cookies from 'js-cookie';
 
 
 export default class EditProfileView extends React.Component{
@@ -14,6 +15,7 @@ export default class EditProfileView extends React.Component{
       bio: '',
       contact: '',
       gender: '',
+      initialusername: getLoggedInUser.getLoggedInUser().username,
     };
   }
   handleNameChange(event){
@@ -48,16 +50,35 @@ export default class EditProfileView extends React.Component{
 
   handleSubmitChange(event){
     event.preventDefault();
+      console.log('HELLOOO');
+
     axios.post('/api/currentUser', this.state).then(response => {
       console.log(response);
+      console.log('1');
+
+      if (this.state.username !== this.state.initialusername) {
+          Cookies.remove('user');
+          console.log(this.state.username);
+          Cookies.set('user', {
+              username: this.state.username
+          }, {
+              expires: 1,
+              path: '/'
+          });
+
+      } else {
+          alert('Cookie Did not change');
+      }
+
     })
   }
 
-  componentWillMount(){
+
+  componentDidMount(){
     const username = getLoggedInUser.getLoggedInUser().username;
-    axios.get('/api/currentUser/' + username).then(response => {
-      console.log(response);
-      this.setState(response.data);
+        axios.get('/api/currentUser/' + username).then(response => {
+        console.log(response);
+        this.setState(response.data);
     })
   }
 

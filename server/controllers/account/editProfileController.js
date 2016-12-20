@@ -9,8 +9,11 @@ module.exports = {
     },
     postUser: function(req, res, next){
       User.findByIdAndUpdate(req.body._id, req.body, (err, updatedUser) => {
+        if(err) return res.status(500).json(err);
+        //delete console logs when complete
         console.log("Error: ", err)
         console.log(updatedUser);
+        return res.status(200).json(updatedUser);
       } )
     }
 }
