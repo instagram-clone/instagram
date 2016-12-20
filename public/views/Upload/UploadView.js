@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
 import ReactS3Uploader from 'react-s3-uploader';
+import PhotoPreview from './PhotoPreview';
 
 export default class UploadView extends React.Component{
   onProgress(){
@@ -14,11 +15,17 @@ export default class UploadView extends React.Component{
     return(
       <div>
         <Nav/>
-        <h1>This is the Upload View!</h1>
-        <ReactS3Uploader 
-          signingUrl='/s3/sign'
-          accept="image/*"
-          />
+        <div className="upload">
+          <br />
+          <h1>Upload</h1>
+          <br />
+          <br/>
+            <ReactS3Uploader id="picinput"
+              signingUrl='/s3/sign'
+              accept="image/*"
+            />
+        </div>
+        <PhotoPreview />
       </div>
     )
   }

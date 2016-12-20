@@ -1,1 +1,20 @@
 @import 'master';
+
+.upload{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+.preview{
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+}
+#picinput{
+    margin: auto;
+}
