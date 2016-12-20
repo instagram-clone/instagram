@@ -1,13 +1,14 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
+import PhotoCard from './FeedPhoto/PhotoCard';
 
-export default class FeedView extends React.Component{
-  render(){
-    return(
-      <div>
-        <Nav/>
-      <h1>This is the FeedView</h1>
-      </div>
-    )
-  }
+export default class FeedView extends React.Component {
+    render() {
+        return (
+            <div>
+                <Nav/>
+                <PhotoCard/>
+            </div>
+        )
+    }
 }

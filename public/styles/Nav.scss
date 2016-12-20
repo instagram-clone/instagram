@@ -82,6 +82,9 @@ header {
     }
 }
 @media(min-width:600px) {
+    header{
+        margin-bottom:60px;
+    }
     .nav {
         .spriteLogo {
             margin-left: 0;
