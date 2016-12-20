@@ -13,14 +13,24 @@ export default class EditProfileView extends React.Component{
     this.setState({username: event.target.value});
   }
 
-  handleEmailChange(event){
+  handleWebsiteChange(event){
     console.log(event.target.value);
-    this.setState({email: event.target.value});
+    this.setState({website: event.target.value});
   }
 
   handleBioChange(event){
     console.log(event.target.value);
     this.setState({bio: event.target.value});
+  }
+
+  handleEmailChange(event){
+    console.log(event.target.value);
+    this.setState({email: event.target.value});
+  }
+
+  handleNumberChange(event){
+    console.log(event.target.value);
+    this.setState({number: event.target.value});
   }
 
 
@@ -45,7 +55,7 @@ export default class EditProfileView extends React.Component{
       </div>
 
       <div>
-      Website <input onChange={this.handleEmailChange.bind(this)} type="text"/>
+      Website <input onChange={this.handleWebsiteChange.bind(this)} type="text"/>
       </div>
 
       <div>
@@ -55,11 +65,11 @@ export default class EditProfileView extends React.Component{
       PRIVATE INFORMATION
 
       <div>
-      Email <input/>
+      Email <input onChange={this.handleEmailChange.bind(this)} type="text"/>
       </div>
 
       <div>
-      Phone Number <input/>
+      Phone Number <input onChange={this.handleNumberChange.bind(this)} type="number"/>
       </div>
 
       <div>
