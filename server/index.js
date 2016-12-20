@@ -67,6 +67,10 @@ app.use('/s3', require('react-s3-uploader/s3router')({
   headers: {'Access-Control-Allow-Origin': '*'},
   ACL: 'private'
 }));
+app.get('/s3/img/(.*)', function(req, res, next){
+  console.log('server reached');
+  res.send(data);
+})
 
 app.post('/api/signup', createAccount.signup);
 app.get('/api/login', loginController.login);
