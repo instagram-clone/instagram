@@ -10,12 +10,19 @@ const AWS = require('aws-sdk');
 
 //Amazon S3
 //creating amazon bucket
+AWS.config.update({
+  accessKeyId: config.accessKeyId,
+  secretAccessKey: config.secretAccessKey,
+  region: config.region,
+})
 const s3 = new AWS.S3();
-const bucketParams = {Bucket: 'igBucket'};
-s3.createBucket(bucketParams);
+
 
 //adding photos to bucket
 //Amzon S3
+const createAccount = require('./controllers/account/createAccountController.js');
+const loginController = require('./controllers/account/loginController');
+
 const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
 app.use(bodyParser.json());
@@ -55,11 +62,32 @@ app.get('/user', function(req, res){
 
 mongoose.connect(config.mongo);
 mongoose.connection.once('open',() => console.log('Connected to Mongo'));
-// app.use(session({secret: 'some-random-string'})); //must come before initialize and session
-// app.use(passport.initialize());// must come before app.use(passport.session)
-// app.use(passport.session());
-var createAccount = require('./controllers/account/createAccountController.js');
+//amazon post
+app.post('/api/s3', function(req, res, next){
+  console.log(req.body);
+  var buf = new Buffer(req.body.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+
+  // bucketName var below crates a "folder" for each user
+  var bucketName = 'ig-clone';
+  var params = {
+      Bucket: bucketName
+    , Key: req.body.imageName
+    , Body: buf
+    , ContentType: 'image/' + req.body.imageExtension
+    , ACL: 'public-read'
+  };
+
+  s3.upload(params, function (err, data) {
+    console.log(err, data);
+    if (err) return res.status(500).send(err);
+
+    // TODO: save data to mongo
+    res.json(data);
+  });
+});
+
 app.post('/api/signup', createAccount.signup);
+app.get('/api/login', loginController.login);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
