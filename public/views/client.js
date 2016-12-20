@@ -55,7 +55,7 @@ class App extends React.Component{
 			<Router history={hashHistory}>
 					<Route path="/" component={LoginView} onEnter={requireNotLoggedIn}/>
 					<Route path="/feed" component={FeedView} onEnter={requireAuth}/>
-					<Route path="/profile" component={ProfileView} />
+					<Route path="/profile/:username" component={ProfileView} />
 					<Route path="/upload"	component={UploadView} onEnter={requireAuth}/>
 					<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
 			</Router>
