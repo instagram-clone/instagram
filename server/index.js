@@ -96,14 +96,10 @@ app.get('/api/login', loginController.login);
 app.get('/api/currentUser/:username', editProfileController.getUser);
 app.post('/api/currentUser', editProfileController.postUser);
 app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo);
-<<<<<<< HEAD
 app.post('/api/changePassword', changePasswordController.postPassword);
-=======
 app.get('/api/postcount/:id', getProfileInfo.getPostCount);
 app.post('/api/postPhoto', postCtrl.postPhoto);
 
-
->>>>>>> master
 app.listen(3000, function(){
   console.log('listening on port 3000');
 });
