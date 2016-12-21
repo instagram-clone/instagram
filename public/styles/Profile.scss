@@ -1,1 +1,22 @@
 @import 'master';
+.profile-container {
+    margin-right: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 3px;
+
+  }
+  .profilePhoto {
+    border-radius: 100%;
+
+  }
+
+
+@media(min-width:735px) {
+
+
+}

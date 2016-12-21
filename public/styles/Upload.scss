@@ -1,20 +1,82 @@
 @import 'master';
 
-.upload{
-    width: 500px;
-    margin: auto;
-    text-align: center;
-}
-.preview{
-    border: 1px solid black;
-    width: 500px;
-    height: 500px;
-    display: flex;
+.uploadView{
+    display:flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-top: 50px;
+
+    input[type='file']{
+        display:none;
+    }
+
+    .upload{
+        text-align: center;
+        padding-top:20vh;
+
+        .uploadHeader{
+            margin:20px 0;
+            color:$black;
+            font-weight:600;
+            font-size:40px;
+        }
+
+        .button{
+            margin:20px 0;
+            font-size:25px;
+        }
+    }
+    .submitArea{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top:10px;
+        input[type='text']{
+            font-size:15px;
+            line-height:18px;
+            background-color:$darkBackground;
+            border:none;
+            width:74%;
+            margin:10px 0px;
+        }
+        button{
+            width:24%;
+        }
+    }
+
+    .preview{
+        background-color:$lightBackground;
+        color:$darkGrey;
+        border:1px solid $photoCardBorderColor;
+        border-radius:3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        height:100vw;
+
+        img{
+            height:inherit;
+            width:inherit;
+            border-radius: 3px;
+            width:100%;
+        }
+    }
 }
-#picinput{
-    margin: auto;
+@media(min-width:600px){
+    .uploadView{
+        margin-left: auto;
+        margin-right: auto;
+        width:600px;
+        .submitArea{
+            margin-top:-30px;
+        }
+        .upload{
+            margin-top:-30px;
+        }
+        .preview{
+            height:600px;
+            width:600px;
+        }
+    }
 }
