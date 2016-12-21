@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router";
 
 export default class ProfileInfo extends React.Component{
   constructor(props){
@@ -16,25 +17,32 @@ export default class ProfileInfo extends React.Component{
     return(
       <div>
 
-        <div className="profile-container">
-          <div >
+        <div className="profileInfoContainer">
+          <div className="profilePhotoBox">
               <img className="profilePhoto" src={this.props.user.profilepic}/>
           </div>
-          <div>{this.props.user.username}</div>
+          <div className="profileInfo">
+          <div className="profile-username">{this.props.user.username}</div>
           <div>
-            <button>Edit Profile</button>
+            <Link to="/editProfile">
+            <span className="button">Edit Profile</span>
+          </Link>
           </div>
-          <button> Dot Dot Dot Image</button>
           <div>
+            <span className="button"> . . . </span>
+          </div>
+          <div className="counters">
             <ul>
-              <li>{this.props.posts.length} posts</li>
-              <li>{this.props.user.followers ? this.props.user.followers.length : 0} followers</li>
-              <li>{this.props.user.following ? this.props.user.following.length : 0} following</li>
+              <li><span className="bold-profile">{this.props.posts.length}</span> posts</li>
+              <li><span className="bold-profile">{this.props.user.followers ? this.props.user.followers.length : 0}</span> followers</li>
+              <li><span className="bold-profile">{this.props.user.following ? this.props.user.following.length : 0}</span> following</li>
             </ul>
           </div>
+          <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}</div>
         </div>
 
       </div>
+    </div>
     )
   }
 }
