@@ -7,6 +7,7 @@ import FeedView from  './Feed/FeedView';
 import ProfileView from './Profile/ProfileView';
 import UploadView from './Upload/UploadView';
 import EditProfileView from './EditProfile/EditProfileView';
+import SearchView from './Search/SearchView';
 
 import auth from '../utils/getLoggedInUser';
 
@@ -58,6 +59,7 @@ class App extends React.Component{
 					<Route path="/profile/:username" component={ProfileView} />
 					<Route path="/upload"	component={UploadView} onEnter={requireAuth}/>
 					<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
+					<Route path="/search" component={SearchView}/>
 			</Router>
 		)
 	}

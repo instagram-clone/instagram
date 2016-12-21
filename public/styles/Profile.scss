@@ -14,7 +14,35 @@
     border-radius: 100%;
 
   }
-
+  .photoGrid{
+    border: 1px solid red;
+    width: 935px;
+    height: 1436px;
+    margin: auto;
+  }
+  .picItem{
+    width: 293px;
+    height: 293px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .load-more{
+    border: 2px solid #3897F0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 100px;
+    margin-top: 60px;
+    cursor: pointer;
+  }
+  .load-more p{
+    color: #3897F0;
+  }
 
 @media(min-width:735px) {
 
