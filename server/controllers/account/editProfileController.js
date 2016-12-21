@@ -14,6 +14,6 @@ module.exports = {
         console.log("Error: ", err)
         console.log(updatedUser);
         return res.status(200).json(updatedUser);
-      } )
+      })
     }
 }

@@ -60,3 +60,18 @@ a {
 .button:active {
     background-color: $blueActive;
 }
+
+.buttonClear{
+    border:1px solid $blue;
+    color:$blue;
+    background-color:$lightBackground;
+    padding: 5 11px;
+    line-height:29px;
+    font-size:16px;
+    font-weight:600;
+}
+.buttonClear:active{
+    border-color:$blueActive;
+    color:$blueActive;
+    background-color:$lightBackground;
+}
