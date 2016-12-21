@@ -47,6 +47,10 @@ export default class Nav extends React.Component {
                         <span className='spriteSearch'></span>
                     </div>
                     <div className='right'>
+                        <Link to='upload'>
+                            <img src='http://i.imgur.com/xlrhCMf.png' className='plus'>
+                            </img>
+                        </Link>
                         <Link to='feed'>
                             <div className='spriteDiscover'>
                             </div>
