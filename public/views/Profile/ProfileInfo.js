@@ -29,8 +29,8 @@ export default class ProfileInfo extends React.Component{
           <div>
             <ul>
               <li>posts</li>
-              <li>{this.props.followers.length} followers</li>
-              <li>{this.props.following.length} following</li>
+              <li>{this.props.followers ? this.props.followers.length : 0} followers</li>
+              <li>{this.props.following ? this.props.following.length : 0} following</li>
             </ul>
           </div>
 
