@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {getLoggedInUser} from '../../utils/getLoggedInUser';
+import loggedInUser from '../../utils/getLoggedInUser';
+
+
 export default class Nav extends React.Component {
     constructor(props) {
         super(props);
@@ -8,7 +10,8 @@ export default class Nav extends React.Component {
             searchStyle: {
                 backgroundColor: 'rgb(250,250,250)',
                 textAlign: 'center'
-            }
+            },
+            loggedInUserName: loggedInUser.getLoggedInUser().username
         }
     }
     onSearchActive() {
@@ -52,7 +55,7 @@ export default class Nav extends React.Component {
                             <div className='spriteNotifs'>
                             </div>
                         </Link>
-                        <Link to='#'>
+                        <Link to={this.state.loggedInUserName ? `profile/${this.state.loggedInUserName}` : '#'}>
                             <div className='spriteProfile'>
                             </div>
                         </Link>

@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
 import getLoggedInUser from '../../utils/getLoggedInUser';
+import Cookies from 'js-cookie';
 
 
 export default class EditProfileView extends React.Component{
@@ -10,6 +11,11 @@ export default class EditProfileView extends React.Component{
     this.state={
       fullname: '',
       username: '',
+      website: '',
+      bio: '',
+      contact: '',
+      gender: '',
+      initialusername: getLoggedInUser.getLoggedInUser().username,
     };
   }
   handleNameChange(event){
@@ -34,26 +40,45 @@ export default class EditProfileView extends React.Component{
 
   handleEmailChange(event){
     console.log(event.target.value);
-    this.setState({email: event.target.value});
+    this.setState({contact: event.target.value});
   }
 
-  handleNumberChange(event){
+  handleGenderChange(event){
     console.log(event.target.value);
-    this.setState({number: event.target.value});
+    this.setState({gender: event.target.value});
   }
 
   handleSubmitChange(event){
     event.preventDefault();
+      console.log('HELLOOO');
+
     axios.post('/api/currentUser', this.state).then(response => {
       console.log(response);
+      console.log('1');
+
+      if (this.state.username !== this.state.initialusername) {
+          Cookies.remove('user');
+          console.log(this.state.username);
+          Cookies.set('user', {
+              username: this.state.username
+          }, {
+              expires: 1,
+              path: '/'
+          });
+
+      } else {
+          alert('Cookie Did not change');
+      }
+
     })
   }
 
-  componentWillMount(){
+
+  componentDidMount(){
     const username = getLoggedInUser.getLoggedInUser().username;
-    axios.get('/api/currentUser/' + username).then(response => {
-      console.log(response);
-      this.setState(response.data);
+        axios.get('/api/currentUser/' + username).then(response => {
+        console.log(response);
+        this.setState(response.data);
     })
   }
 
@@ -67,7 +92,7 @@ export default class EditProfileView extends React.Component{
         <h2>This is the Edit Profile View!</h2>
 
       <div>
-      <img height="20" width="20" alt="" src="https://instagram.faqa1-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg"/>USERNAME HERE
+      <img height="20" width="20" alt="" src="https://instagram.faqa1-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg"/>{this.state.username}
       </div>
 
       <div>
@@ -79,26 +104,23 @@ export default class EditProfileView extends React.Component{
       </div>
 
       <div>
-      Website <input onChange={this.handleWebsiteChange.bind(this)} type="text"/>
+      Website <input value={this.state.website} onChange={this.handleWebsiteChange.bind(this)} type="text"/>
       </div>
 
       <div>
-      Bio <input onChange={this.handleBioChange.bind(this)} type="text"/>
+      Bio <input value={this.state.bio} onChange={this.handleBioChange.bind(this)} type="text"/>
       </div>
 
       PRIVATE INFORMATION
 
       <div>
-      Email <input onChange={this.handleEmailChange.bind(this)} type="text"/>
-      </div>
-
-      <div>
-      Phone Number <input onChange={this.handleNumberChange.bind(this)} type="number"/>
+      Email <input value={this.state.contact} onChange={this.handleEmailChange.bind(this)} type="text"/>
       </div>
 
       <div>
       Gender
-      <select name="gender">
+      <select value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
+        <option value="Not Specified">Not Specified</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>

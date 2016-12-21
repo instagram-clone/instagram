@@ -1,1 +1,138 @@
 @import 'master';
+
+.feedView {
+    footer {
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .welcomeCard {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $darkBackground;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 55px 30px;
+        margin-bottom: 20px;
+        border-radius: 3px;
+
+        .homeSprite {
+            background-image: url($spriteUrl);
+            background-position: 0 -176px;
+            background-size: 352px 311px;
+            height: 47px;
+            width: 55px;
+        }
+
+        .welcomeHeader {
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: $black;
+        }
+
+        .welcomeSubHead {
+            font-size: 15px;
+        }
+    }
+
+    .addProfileImg {
+        background-color: $lightBackground;
+        border-bottom:1px solid $photoCardBorderColor;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 20px;
+
+        .addArea {
+            padding: 0 0 15px;
+
+            .addSprite {
+                background-image: url($spriteUrl);
+                background-size: 352px 311px;
+                background-position: -93px -52px;
+                width: 80px;
+                height: 80px;
+                margin: 15px auto;
+            }
+
+            .addText {
+                color: $blue;
+                letter-spacing: 0.1px;
+            }
+        }
+
+        .addArea:hover {
+            cursor: pointer;
+        }
+
+        .closeLink {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 36px;
+            height: 36px;
+            background-color: $darkBackground;
+            outline: none;
+            border: none;
+        }
+
+        .closeLink::before {
+            background-color: $darkBackground;
+            content: '\00D7';
+            font-weight: 100;
+            font-size: 36px;
+            line-height: 36px;
+            display: block;
+            color: $darkGrey;
+            position: absolute;
+            padding-right: 10px;
+            top: 0;
+            right: 0;
+            font-weight: 300;
+        }
+
+        .closeLink:hover {
+            cursor: pointer;
+        }
+    }
+}
+@media(min-width:600px) {
+    .feedView {
+        .welcomeCard {
+            width: 600px;
+            background-color: $lightBackground;
+            border: 1px solid $photoCardBorderColor;
+
+            .welcomeSubHead {
+                font-size: 16px;
+                letter-spacing: 0.1px;
+            }
+        }
+
+        .addProfileImg {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: $lightBackground;
+            border: 1px solid $photoCardBorderColor;
+
+            .closeLink {
+                background-color: $lightBackground;
+            }
+
+            .closeLink::before {
+                background-color: $lightBackground;
+                content: '\00D7';
+                font-size: 36px;
+                line-height: 36px;
+                display: block;
+            }
+        }
+    }
+}
