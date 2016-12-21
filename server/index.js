@@ -94,7 +94,7 @@ app.post('/api/signup', createAccount.signup);
 app.get('/api/login', loginController.login);
 app.get('/api/currentUser/:username', editProfileController.getUser);
 app.post('/api/currentUser', editProfileController.postUser);
-app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo
+app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo);
 app.get('/api/postcount/:id', getProfileInfo.getPostCount);
 app.post('/api/postPhoto', postCtrl.postPhoto);
 
