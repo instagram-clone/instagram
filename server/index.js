@@ -24,8 +24,10 @@ const createAccount = require('./controllers/account/createAccountController.js'
 const loginController = require('./controllers/account/loginController');
 const editProfileController = require('./controllers/account/editProfileController');
 const getProfileInfo = require('./controllers/account/getProfileInfo');
+const postCtrl = require('./controllers/photos/postCtrl');
 
 const app = module.exports = express();
+
 app.use(express.static(__dirname + './../public/dist'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
@@ -93,6 +95,7 @@ app.get('/api/login', loginController.login);
 app.get('/api/currentUser/:username', editProfileController.getUser);
 app.post('/api/currentUser', editProfileController.postUser);
 app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo);
+app.post('/api/postPhoto', postCtrl.postPhoto);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
