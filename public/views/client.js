@@ -7,11 +7,8 @@ import FeedView from  './Feed/FeedView';
 import ProfileView from './Profile/ProfileView';
 import UploadView from './Upload/UploadView';
 import EditProfileView from './EditProfile/EditProfileView';
-<<<<<<< HEAD
 import SearchView from './Search/SearchView';
-=======
 import ChangePasswordView from './EditProfile/ChangePasswordView';
->>>>>>> master
 
 import auth from '../utils/getLoggedInUser';
 
