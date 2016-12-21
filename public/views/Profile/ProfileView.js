@@ -38,6 +38,7 @@ export default class ProfileView extends React.Component{
         <div className="load-more">
         <p>Load More</p>
         </div>
+        <Footer />
       </div>
     )
   }
