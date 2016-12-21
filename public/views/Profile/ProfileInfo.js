@@ -16,10 +16,25 @@ export default class ProfileInfo extends React.Component{
     return(
       <div>
         Here is the profile info!
-        <div>
+
+
+          <div>
+              <img src={this.props.profilepic}/>
+          </div>
           <div>{this.props.username}</div>
-          <img src={this.props.profilepic}/>
-        </div>
+          <div>
+            <button>Edit Profile</button>
+          </div>
+          <div> Dot Dot Dot Image</div>
+          <div>
+            <ul>
+              <li>posts</li>
+              <li>{this.props.followers.length} followers</li>
+              <li>{this.props.following.length} following</li>
+            </ul>
+          </div>
+
+
       </div>
     )
   }
