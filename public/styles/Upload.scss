@@ -31,6 +31,7 @@
         justify-content: center;
         align-items: center;
         margin-top:10px;
+        margin-bottom:10px;
         input[type='text']{
             font-size:15px;
             line-height:18px;
@@ -43,7 +44,6 @@
             width:24%;
         }
     }
-
     .preview{
         background-color:$lightBackground;
         color:$darkGrey;
@@ -53,7 +53,6 @@
         justify-content: center;
         align-items: center;
         width:100%;
-        height:100vw;
 
         img{
             height:inherit;
@@ -62,21 +61,50 @@
             width:100%;
         }
     }
+
+    .filterContainer{
+        padding-right:5px;
+        overflow:scroll;
+        width:100%;
+        margin-top:20px;
+        display:flex;
+        flex-direction: row;
+        text-align: center;
+        .filterPreview{
+            margin:3px 5px;
+            transition:transform .3s ease-out;
+            figure{
+                margin-top:5px;
+            }
+            .filterName{
+                text-transform: capitalize;
+                color:$darkGrey;
+                font-size:13px;
+                margin-bottom:3px;
+            }
+            img{
+                width:70px;
+            }
+        }
+        .filterPreview:active{
+            transform:scale(.9);
+        }
+    }
+    .filterContainer::-webkit-scrollbar {
+        display: none;
+    }
 }
 @media(min-width:600px){
     .uploadView{
         margin-left: auto;
         margin-right: auto;
         width:600px;
-        .submitArea{
-            margin-top:-30px;
-        }
-        .upload{
-            margin-top:-30px;
+        .filterContainer{
+            width:600px;
         }
         .preview{
-            height:600px;
-            width:600px;
+            max-width:600px;
+            margin-top:-30px;
         }
     }
 }
