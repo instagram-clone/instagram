@@ -4,11 +4,7 @@ const Post = mongoose.Schema({
   author: {type: mongoose.Schema.Types.ObjectId, ref:"User"},
   photourl: {type: String, required: true},
   timestamp: {type: Date, required: true},
-  likes: [
-    {
-      user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-    }
-  ],
+  likes: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
   comments: [
       {
         user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
