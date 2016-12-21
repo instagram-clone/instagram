@@ -15,9 +15,9 @@
 
   }
   .photoGrid{
-    border: 1px solid red;
-    width: 935px;
-    height: 1436px;
+    // border: 1px solid red;
+    width: 965px;
+    height: auto;
     margin: auto;
   }
   .picItem{
@@ -39,9 +39,48 @@
     border-radius: 100px;
     margin-top: 60px;
     cursor: pointer;
+    margin-bottom: 85px;
   }
   .load-more p{
     color: #3897F0;
+  }
+  .profileView {
+    footer {
+      position: relative;
+    }
+  }
+  .picItem {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    cursor: pointer;
+  }
+  .picItem img{
+    max-height: 293px;
+    position: relative;
+    left: -40%;
+  }
+  .hover-box:hover{
+    opacity: .4;
+  }
+  .hover-box:hover p{
+    opacity: 1;
+  }
+  .hover-box{
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+    width: 293px;
+    height: 293px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hover-box p{
+    color:white;
   }
 
 @media(min-width:735px) {
