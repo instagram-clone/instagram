@@ -30,7 +30,6 @@ export default class ProfileView extends React.Component{
     return(
       <div>
       <Nav/>
-        This is the Profile View! Dude!
       <ProfileInfo user={this.state.user} posts={this.state.posts}/>
       </div>
     )
