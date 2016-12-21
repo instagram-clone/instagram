@@ -15,6 +15,7 @@ export default class EditProfileView extends React.Component{
       bio: '',
       contact: '',
       gender: '',
+      profilepic: '',
       initialusername: getLoggedInUser.getLoggedInUser().username,
     };
   }
@@ -92,7 +93,7 @@ export default class EditProfileView extends React.Component{
         <h2>This is the Edit Profile View!</h2>
 
       <div>
-      <img height="20" width="20" alt="" src="https://instagram.faqa1-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg"/>{this.state.username}
+      <img height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
       </div>
 
       <div>
