@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const AWS = require('aws-sdk');
+const s3ExpressRouter = require('express-s3-router');
 
 //Amazon S3
 //creating amazon bucket
@@ -17,6 +18,8 @@ AWS.config.update({
 });
 //adding photos to bucket
 //Amzon S3
+const s3 = new AWS.S3();
+
 const createAccount = require('./controllers/account/createAccountController.js');
 const loginController = require('./controllers/account/loginController');
 const editProfileController = require('./controllers/account/editProfileController');
@@ -24,7 +27,8 @@ const getProfileInfo = require('./controllers/account/getProfileInfo');
 
 const app = module.exports = express();
 app.use(express.static(__dirname + './../public/dist'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -62,13 +66,28 @@ app.get('/user', function(req, res){
 mongoose.connect(config.mongo);
 mongoose.connection.once('open',() => console.log('Connected to Mongo'));
 //amazon post
-app.use('/s3', require('react-s3-uploader/s3router')({
-  bucket: 'ig-clone',
-  region: 'us-east-1',
-  headers: {'Access-Control-Allow-Origin': '*'},
-  ACL: 'private'
-}));
+app.post('/api/s3', function(req, res, next){
+  var buf = new Buffer(req.body.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
+  var params = {
+      Bucket: 'ig-clone'
+    , Key: req.body.imageName
+    , Body: buf
+    , ContentType: req.body.imageExtension
+    , ACL: 'public-read'
+  };
+  s3.upload(params, function (err, data) {
+    console.log(err, data);
+    if (err) return res.status(500).send(err);
+
+    // TODO: save data to mongo
+    res.json(data);
+  });
+})
+
+// app.post('/api/s3test', (req, res) => {
+//   console.log(req.body);
+// })
 app.post('/api/signup', createAccount.signup);
 app.get('/api/login', loginController.login);
 app.get('/api/currentUser/:username', editProfileController.getUser);
