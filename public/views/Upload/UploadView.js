@@ -8,12 +8,16 @@ import {getLoggedInUser} from '../../utils/getLoggedInUser';
 export default class UploadView extends React.Component {
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            displayPreview: false
+        }
     }
+
     handleCaptionChange(e) {
         this.setState({caption: e.target.value});
         console.log(this.state.caption);
     }
+
     handleImageChange(e) {
         e.preventDefault();
 
@@ -21,9 +25,7 @@ export default class UploadView extends React.Component {
         let file = e.target.files[0];
         console.log(file);
 
-        this.setState({
-            date: file.lastModifiedDate
-        });
+        this.setState({date: file.lastModifiedDate});
 
         reader.onloadend = (loadEvent) => {
             this.setState({file: file, imgUrl: reader.result});
@@ -36,24 +38,21 @@ export default class UploadView extends React.Component {
                 console.log(response);
                 this.setState({
                     imgUrl: response.data.Location,
+                    displayPreview: true
                 });
             });
         }
 
         reader.readAsDataURL(file)
     }
-    handleSubmit(e){
-        this.setState({
-            author: getLoggedInUser().username
-        })
 
+    handleSubmit(e) {
+        this.setState({author: getLoggedInUser().username})
         //had to use settimeout because otherwise the
         //post would be made before the author name was set
         window.setTimeout(() => {
-            axios.post('/api/postPhoto', {
-                data : this.state
-            }).then(response => {
-                if(response.status === 200){
+            axios.post('/api/postPhoto', {data: this.state}).then(response => {
+                if (response.status === 200) {
                     window.location.href = '/#/feed';
                 }
             });
@@ -65,13 +64,18 @@ export default class UploadView extends React.Component {
             <div>
                 <Nav/>
                 <div className='uploadView'>
-                    <div className="upload">
+                    {this.state.displayPreview ? null : <div className="upload">
                         <div className='uploadHeader'>Upload</div>
-                        <input type="file" onChange={this.handleImageChange.bind(this)}/>
-                    </div>
-                    <PhotoPreview url={this.state.imgUrl}/>
-                    <input className='caption' placeholder='caption' onChange={this.handleCaptionChange.bind(this)}/>
-                    <button className='button' onClick={this.handleSubmit.bind(this)}>Post</button>
+                        <label for='file-upload' className='button buttonClear'>
+                            <input id='file-upload' type="file" onChange={this.handleImageChange.bind(this)}/>
+                            Choose Photo
+                        </label>
+                    </div>}
+                    {this.state.displayPreview ? <div className='submitArea'>
+                        <input type='text' className='caption' placeholder='Write a caption...' onChange={this.handleCaptionChange.bind(this)}/>
+                        <button className='button buttonClear' onClick={this.handleSubmit.bind(this)}>Post</button>
+                    </div> : null}
+                    {this.state.displayPreview ? <PhotoPreview url={this.state.imgUrl}/> : null }
                 </div>
             </div>
         )
