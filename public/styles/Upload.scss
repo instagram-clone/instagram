@@ -1,20 +1,58 @@
 @import 'master';
 
-.upload{
-    width: 500px;
-    margin: auto;
-    text-align: center;
-}
-.preview{
-    border: 1px solid black;
-    width: 500px;
-    height: 500px;
-    display: flex;
+.uploadView{
+    display:flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-top: 50px;
+
+    input[type='file']{
+        margin-left:auto;
+        margin-right:auto;
+        background-color:$lightBackground;
+        color:$darkGrey;
+        font-weight:600;
+    }
+
+    .upload{
+        text-align: center;
+        margin-top:-30px;
+        .uploadHeader{
+            color:$black;
+            font-weight:600;
+            font-size:35px;
+        }
+    }
+
+    .preview{
+        background-color:$lightBackground;
+        color:$darkGrey;
+        border:1px solid $photoCardBorderColor;
+        border-radius:3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 50px;
+        height: inherit;
+        width:inherit;
+
+        img{
+            height:inherit;
+            width:inherit;
+            border-radius: 3px;
+            width:100%;
+        }
+    }
 }
-#picinput{
-    margin: auto;
+@media(min-width:600px){
+    .uploadView{
+        margin-left: auto;
+        margin-right: auto;
+        width:600px;
+
+        .preview{
+            height:600px;
+            width:600px;
+        }
+    }
 }
