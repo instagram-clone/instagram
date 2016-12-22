@@ -32,7 +32,7 @@ export default class FeedView extends React.Component {
             window.setTimeout(() => {
                 this.setState({feed, feedSet: true})
                 console.log(feed);
-            }, 200)
+            }, 80)
         });
     }
     render() {
