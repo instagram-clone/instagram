@@ -1,22 +1,117 @@
 @import 'master';
-.profile-container {
-    margin-right: 300px;
-    text-align: center;
+.profileInfoContainer {
+    // margin-right: 280px;
+    // text-align: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    border-radius: 3px;
-
+    justify-content: space-around;;
+    // margin-bottom: 20px;
+    // border-radius: 3px;
+  }
+  .profileInfo{
+    display: flex;
+    flex-direction: column;
   }
   .profilePhoto {
     border-radius: 100%;
 
   }
+  .photoGrid{
+    // border: 1px solid red;
+    width: 965px;
+    height: auto;
+    margin: auto;
+  }
+  .picItem{
+    width: 293px;
+    height: 293px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .load-more{
+    border: 2px solid #3897F0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 100px;
+    margin-top: 60px;
+    cursor: pointer;
+    margin-bottom: 85px;
+  }
+  .load-more p{
+    color: #3897F0;
+  }
+  .profileView {
+    footer {
+      position: relative;
+    }
+  }
+  .picItem {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    cursor: pointer;
+  }
+  .picItem img{
+    max-height: 293px;
+    position: relative;
+    left: -40%;
+  }
+  .hover-box:hover{
+    opacity: .4;
+  }
+  .hover-box:hover p{
+    opacity: 1;
+  }
+  .hover-box{
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+    width: 293px;
+    height: 293px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hover-box p{
+    color:white;
+  }
+  .profilePhotoBox{
+    float: left;
+  }
 
+  .profile-username {
+    font-size: 34px;
+    text-align: left;
+    font-weight: lighter;
 
-@media(min-width:735px) {
+  }
+  .counters {
 
+    font-size: 17px;
+
+  }
+  .counters li {
+    display: inline-block;
+    margin-right: 40px;
+  }
+  .bold-profile {
+    font-weight: bold;
+  }
+@media(max-width:735px) {
+    .profilePhoto{
+      transform: scale(.6);
+    }
+    .profile-username {
+      font-size: 21px;
+    }
 
 }

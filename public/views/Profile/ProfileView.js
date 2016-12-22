@@ -4,6 +4,8 @@ import ProfileInfo from './ProfileInfo';
 import {getProfileInfo} from './ProfileResource';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getPostCount} from './ProfileResource';
+import PhotoGrid from './PhotoGrid';
+import Footer from './../Login/Footer';
 
 export default class ProfileView extends React.Component{
   constructor(){
@@ -28,10 +30,15 @@ export default class ProfileView extends React.Component{
   }
   render(){
     return(
-      <div>
-      <Nav/>
-        This is the Profile View! Dude!
-      <ProfileInfo user={this.state.user} posts={this.state.posts}/>
+      <div className="profileView">
+        <Nav/>
+          This is the Profile View! Dude!
+        <ProfileInfo user={this.state.user} posts={this.state.posts}/>
+        <PhotoGrid/>
+        <div className="load-more">
+        <p>Load More</p>
+        </div>
+        <Footer id="profileFooter"/>
       </div>
     )
   }
