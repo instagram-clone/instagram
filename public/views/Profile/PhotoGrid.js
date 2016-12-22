@@ -2,53 +2,38 @@ import React from 'react';
 import PhotoGridItem from './PhotoGridItem';
 
 export default class PhotoGrid extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
     }
   }
   componentWillReceiveProps(nextProps){
-    console.log(nextProps, 'photo grid');
+    console.log(nextProps.posts, 'photo grid');
     this.setState({
-      // picInfo: nextProps.posts
-    })
+      picInfo: nextProps.posts
+    }, () => {console.log(this.state, 'state')});
+    
   }
   render(){
-    
+    let posts = [];
+    if(this.state.picInfo){
+      posts = this.state.picInfo;
+    }
+    console.log(posts);
+    const imgList = posts.map(post => (
+      <PhotoGridItem
+        author={post.author}
+        comments={post.comments}
+        likes={post.likes}
+        description={post.description}
+        filter={post.toaster}
+        photourl={post.photourl}
+        timestamp={post.timestamp}
+        />
+    ) );
     return(
       <div className="photoGrid">
-        <PhotoGridItem
-          // author={this.state.picInfo.author}
-          // photourl={this.state.picInfo.photourl}
-          // timestamp={this.state.picInfo.timestamp}
-          // likes={this.state.picInfo.likes}
-          // comments={this.state.picInfo.comments}
-          // description={this.state.picInfo.description}
-        />
-        <PhotoGridItem
-          // author={this.state.picInfo.author}
-          // photourl={this.state.picInfo.photourl}
-          // timestamp={this.state.picInfo.timestamp}
-          // likes={this.state.picInfo.likes}
-          // comments={this.state.picInfo.comments}
-          // description={this.state.picInfo.description}
-        />
-        <PhotoGridItem
-          // author={this.state.picInfo.author}
-          // photourl={this.state.picInfo.photourl}
-          // timestamp={this.state.picInfo.timestamp}
-          // likes={this.state.picInfo.likes}
-          // comments={this.state.picInfo.comments}
-          // description={this.state.picInfo.description}
-        />
-        <PhotoGridItem
-          // author={this.state.picInfo.author}
-          // photourl={this.state.picInfo.photourl}
-          // timestamp={this.state.picInfo.timestamp}
-          // likes={this.state.picInfo.likes}
-          // comments={this.state.picInfo.comments}
-          // description={this.state.picInfo.description}
-        />
+        {imgList}
       </div>
     )
   }

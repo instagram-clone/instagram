@@ -22,14 +22,6 @@
     height: auto;
     margin: auto;
   }
-  .picItem{
-    width: 293px;
-    height: 293px;
-    background-color: green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .load-more{
     border: 2px solid #3897F0;
     width: 120px;
@@ -52,6 +44,9 @@
     }
   }
   .picItem {
+    width: 293px;
+    height: 293px;
+    background-color:#FAFAFA;
     overflow: hidden;
     position: relative;
     display: inline-block;
@@ -59,30 +54,64 @@
     margin-bottom: 28px;
     cursor: pointer;
   }
-  .picItem img{
-    max-height: 293px;
+  .picItem #imgPost{
+    max-width: 293px;
     position: relative;
-    left: -40%;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
-  .hover-box:hover{
-    opacity: .4;
+  #bg{
+    position: absolute;
+    left: 0px;
+    z-index: 3;
+    width: 293px;
+    height: 293px;
+    background-color: black;
+    opacity: 0;
+  }
+  .picItem:hover #bg{
+    opacity: .3;
+  }
+  .picItem:hover .img-icon{
+    opacity: 1 !important;
   }
   .hover-box:hover p{
-    opacity: 1;
+    opacity: 1 !important;
   }
   .hover-box{
-    background-color: black;
     position: absolute;
     z-index: 2;
     width: 293px;
     height: 293px;
-    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .hover-box p{
-    color:white;
+  #icon-box{
+    // border: 1px solid red;
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #icon-box img{
+    position: relative;
+    z-index: 4;
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+    margin-right: 10px;
+    opacity: 0;
+  }
+  #icon-box p{
+    position: relative;
+    z-index: 4;
+    color: white;
+    margin-right: 10px;
+    opacity: 0;
   }
   .profilePhotoBox{
     float: left;
