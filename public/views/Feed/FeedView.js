@@ -19,11 +19,15 @@ export default class FeedView extends React.Component {
         let feed = [];
         axios.get('/api/feed?username=' + getLoggedInUser().username).then(response => {
             feed = response.data.map(userGrouping => {
-                return userGrouping.photo.map(photo => {
-                    return <PhotoCard user={userGrouping.user} photo={photo}/>
+                return userGrouping.photo.map((photo, i) => {
+                    return <PhotoCard key = {photo._id + i} user={userGrouping.user} photo={photo}/>
                 })
-            }).reduce((a, b) => {
-                return a.concat(b);
+            }).reduce((fullArr, innerArr) => {
+                return fullArr.concat(innerArr);
+            }).sort((a, b) => {
+                a = new Date(a.props.photo.timestamp)
+                b = new Date(b.props.photo.timestamp);
+                return a > b ? -1 : a < b ? 1 : 0;
             })
             window.setTimeout(() => {
                 this.setState({feed, feedSet: true})

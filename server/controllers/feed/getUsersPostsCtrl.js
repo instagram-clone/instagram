@@ -19,7 +19,7 @@ module.exports = {
                     post.user = user;
                 }).then(() => {
                     Post.find({author : followedUser}, (err, posts) => {
-                        let postArr = posts;
+                        let postArr = [];
                         posts.forEach(post => {
                             postArr.push(post);
                         })
