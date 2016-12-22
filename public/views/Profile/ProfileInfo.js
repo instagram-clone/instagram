@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router";
 
+
 export default class ProfileInfo extends React.Component{
   constructor(props){
     super(props);
@@ -12,7 +13,10 @@ export default class ProfileInfo extends React.Component{
   }
   componentWillReceiveProps(nextProps){
     console.log(nextProps, "this is the child");
+
   }
+
+
   render(){
     return(
       <div>
@@ -25,12 +29,24 @@ export default class ProfileInfo extends React.Component{
           <div className="profile-username">{this.props.user.username}
 
             <div>
+              {this.props.currentuser ?
               <Link to="/editProfile">
               <span className="button">Edit Profile</span>
             </Link>
+              : null}
+              {this.props.showfollow ?
+
+              <span className="button" onClick={this.props.clickFollowHandler}>Follow</span>
+
+              : null}
+              {this.props.showfollowing ?
+
+              <span className="button">Following</span>
+
+              : null}
             </div>
             <div>
-              <span className="button"> . . . </span>
+              <span className="button"> ... </span>
             </div>
 
 
