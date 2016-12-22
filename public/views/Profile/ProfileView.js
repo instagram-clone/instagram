@@ -34,7 +34,7 @@ export default class ProfileView extends React.Component{
         <Nav/>
           This is the Profile View! Dude!
         <ProfileInfo user={this.state.user} posts={this.state.posts}/>
-        <PhotoGrid/>
+        <PhotoGrid posts={this.state.posts}/>
         <div className="load-more">
         <p>Load More</p>
         </div>
