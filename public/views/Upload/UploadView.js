@@ -16,7 +16,6 @@ export default class UploadView extends React.Component {
 
     handleCaptionChange(e) {
         this.setState({caption: e.target.value});
-        console.log(this.state.caption);
     }
 
     handleImageChange(e) {
@@ -26,7 +25,7 @@ export default class UploadView extends React.Component {
         let file = e.target.files[0];
         console.log(file);
 
-        this.setState({date: file.lastModifiedDate});
+        this.setState({date: new Date()});
 
         reader.onloadend = (loadEvent) => {
             this.setState({file: file, imgUrl: reader.result});
@@ -43,7 +42,6 @@ export default class UploadView extends React.Component {
                 });
             });
         }
-
         reader.readAsDataURL(file)
     }
 
@@ -64,6 +62,7 @@ export default class UploadView extends React.Component {
         this.setState({
             filter
         });
+        console.log(this.state.date);
     }
 
     render() {
