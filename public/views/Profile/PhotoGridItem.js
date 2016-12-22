@@ -1,10 +1,18 @@
 import React from 'react';
 
+
 export default class PhotoGridItem extends React.Component{
   constructor(props){
     super(props);
   }
   render(){
+    var bgImg = {
+      backgroundImage: 'url(' + this.props.photourl +')',
+      backgroundSize: 'cover',
+      width: '293px',
+      height: '293px',
+      backgroundPosition: 'center'
+    }
     return(
       <div className="picItem">
         <div className="hover-box">
@@ -17,8 +25,9 @@ export default class PhotoGridItem extends React.Component{
           <p>{this.props.comments.length}</p>
           </div>
         </div>
-        <figure id="imgPost" className={this.props.filter}>
-        <img src={this.props.photourl}/>
+        <figure id="imgPost" className={this.props.filter} >
+          <div style={bgImg}>
+          </div>
         </figure>
       </div>
     )

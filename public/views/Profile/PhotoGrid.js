@@ -25,6 +25,7 @@ export default class PhotoGrid extends React.Component{
         author={post.author}
         comments={post.comments}
         likes={post.likes}
+        key={post.$$hashKey}
         description={post.description}
         filter={post.filter}
         photourl={post.photourl}
