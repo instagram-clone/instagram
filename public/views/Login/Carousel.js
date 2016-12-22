@@ -16,12 +16,10 @@ export default class Carousel extends React.Component {
         }
         window.setTimeout(() => {
             this.setState({displayImg: newDisplayImg})
-        }, 3800)
-    }
-    componentDidMount(){
-        this.changePhotos();
+        }, 3200)
     }
     render() {
+        this.changePhotos();
         return (
             <div className='carousel'>
                 <img className={this.state.displayImg == 0 ? 'activeImg' : this.state.displayImg == 1 ? 'prevActiveImg' : '' } src='https://instagramstatic-a.akamaihd.net/h1/images/homepage/screenshot1-2x.jpg/2debbd5aaab8.jpg' />
