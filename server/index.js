@@ -27,6 +27,7 @@ const getProfileInfo = require('./controllers/account/getProfileInfo');
 const changePasswordController = require('./controllers/account/changePasswordController');
 const postCtrl = require('./controllers/photos/postCtrl');
 const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
+const favoriteCtrl = require('./controllers/photos/favoriteCtrl');
 
 const app = module.exports = express();
 
@@ -100,6 +101,8 @@ app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo);
 app.post('/api/changePassword', changePasswordController.postPassword);
 app.get('/api/postcount/:id', getProfileInfo.getPostCount);
 app.post('/api/postPhoto', postCtrl.postPhoto);
+app.post('/api/favorite', favoriteCtrl.favorite);
+app.post('/api/unfavorite', favoriteCtrl.unfavorite);
 app.get('/api/feed', feedCtrl.getFeed);
 
 app.listen(3000, function(){

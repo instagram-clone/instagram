@@ -4,7 +4,6 @@ const Post = require('../../models/Post');
 
 module.exports = {
     postPhoto : function(req, res, next){
-        console.log(req.body);
         User.findOne({username: req.body.data.author}, (err, user) => {
             const newPost = new Post({
                 author: user._id,
