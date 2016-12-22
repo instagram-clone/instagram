@@ -7,7 +7,9 @@ export default class PhotoContainer extends React.Component{
     render(){
         return (
             <div className='photoContainer'>
-                <img src={this.props.photoUrl} />
+                <figure className={this.props.filter}>
+                    <img src={this.props.photoUrl} />
+                </figure>
             </div>
         )
     }

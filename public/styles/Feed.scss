@@ -77,13 +77,13 @@
             right: 0;
             width: 36px;
             height: 36px;
-            background-color: $darkBackground;
+            background-color: $lightBackground;
             outline: none;
             border: none;
         }
 
         .closeLink::before {
-            background-color: $darkBackground;
+            background-color: $lightBackground;
             content: '\00D7';
             font-weight: 100;
             font-size: 36px;
