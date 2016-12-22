@@ -32,6 +32,7 @@
     "mongoose": "^4.7.3",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
+    "q": "^1.4.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0",
