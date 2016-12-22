@@ -3,10 +3,8 @@ import React from 'react';
 export default class PhotoGridItem extends React.Component{
   constructor(props){
     super(props);
-
     this.state = {
-      maxWidth: '293px',
-      maxHeight: '293px'
+    
     }
   }
   render(){
