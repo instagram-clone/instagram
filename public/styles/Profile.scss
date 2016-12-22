@@ -1,6 +1,6 @@
 @import 'master';
 .profileInfoContainer {
-    // margin-right: 280px;
+    margin-right: 280px;
     // text-align: center;
     display: flex;
     flex-direction: row;
@@ -11,25 +11,42 @@
   .profileInfo{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;;
+    margin-right: 435px;
+    font-weight: lighter;
+
   }
 
   .profilePhoto {
     border-radius: 100%;
+    height: 150px;
+    width: 150px;
+
 
   }
   .profilePhotoBox{
     float: left;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 500px;
+    // margin-right: 80px;
   }
 
   .profile-username {
     font-size: 34px;
     text-align: left;
     font-weight: lighter;
+    display: flex;
+    flex-direction: row;
+    line-height: 40px;
+    margin-bottom: 20px;
+
 
   }
   .counters {
 
     font-size: 17px;
+    margin-bottom: 20px;
 
   }
   .counters li {
