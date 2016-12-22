@@ -22,15 +22,20 @@ export default class ProfileInfo extends React.Component{
               <img className="profilePhoto" src={this.props.user.profilepic}/>
           </div>
           <div className="profileInfo">
-          <div className="profile-username">{this.props.user.username}</div>
-          <div>
-            <Link to="/editProfile">
-            <span className="button">Edit Profile</span>
-          </Link>
+          <div className="profile-username">{this.props.user.username}
+
+            <div>
+              <Link to="/editProfile">
+              <span className="button">Edit Profile</span>
+            </Link>
+            </div>
+            <div>
+              <span className="button"> . . . </span>
+            </div>
+
+
           </div>
-          <div>
-            <span className="button"> . . . </span>
-          </div>
+
           <div className="counters">
             <ul>
               <li><span className="bold-profile">{this.props.posts.length}</span> posts</li>
