@@ -26,8 +26,7 @@ export default class PhotoGridItem extends React.Component{
           </div>
         </div>
         <figure id="imgPost" className={this.props.filter} >
-          <div style={bgImg}>
-          </div>
+          <div style={bgImg}></div>
         </figure>
       </div>
     )
