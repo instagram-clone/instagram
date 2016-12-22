@@ -17,7 +17,7 @@ export default class PhotoGrid extends React.Component{
   render(){
     let posts = [];
     if(this.state.picInfo){
-      posts = this.state.picInfo;
+      posts = this.state.picInfo.reverse();
     }
     console.log(posts);
     const imgList = posts.map(post => (
