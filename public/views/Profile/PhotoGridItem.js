@@ -3,9 +3,6 @@ import React from 'react';
 export default class PhotoGridItem extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-    
-    }
   }
   render(){
     return(
@@ -20,7 +17,9 @@ export default class PhotoGridItem extends React.Component{
           <p>{this.props.comments.length}</p>
           </div>
         </div>
-        <img id="imgPost" src={this.props.photourl} mode="fit"/>
+        <figure id="imgPost" className={this.props.filter}>
+        <img src={this.props.photourl}/>
+        </figure>
       </div>
     )
   }
