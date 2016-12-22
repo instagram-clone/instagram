@@ -1,13 +1,31 @@
 import React from 'react';
 import { Link } from "react-router";
+import getLoggedInUser from '../../utils/getLoggedInUser';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 export default class ProfileInfo extends React.Component{
   constructor(props){
     super(props);
     this.state ={
+      showLogout: false,
     }
   }
+
+  toggleLogout(){
+    this.setState({
+      showLogout: !this.state.showLogout
+    });
+  }
+
+  logout(){
+    event.preventDefault();
+    Cookies.remove('user');
+
+    window.location.href = '#/'
+  }
+
   componentWillMount(){
 
   }
@@ -20,6 +38,16 @@ export default class ProfileInfo extends React.Component{
   render(){
     return(
       <div>
+        {this.state.showLogout ? <div className="logoutOverlay"> <div>
+        <ul className="logoutUl">
+        <li className="logoutLi">
+        <button onClick={this.logout.bind(this)} className="logoutButton">Log out</button>
+        </li>
+        <li className="logoutLi">
+        <button onClick={this.toggleLogout.bind(this)} className="logoutButton">Cancel</button>
+        </li>
+        </ul>
+        </div></div> : null}
 
         <div className="profileInfoContainer">
           <div className="profilePhotoBox">
@@ -31,7 +59,7 @@ export default class ProfileInfo extends React.Component{
             <div>
               {this.props.currentuser ?
               <Link to="/editProfile">
-              <span className="button">Edit Profile</span>
+              <button className="button">Edit Profile</button>
             </Link>
               : null}
               {this.props.showfollow ?
@@ -46,9 +74,13 @@ export default class ProfileInfo extends React.Component{
               : null}
             </div>
             <div>
-              <span className="button"> ... </span>
+
+              <button onClick={this.toggleLogout.bind(this)} className="button">...</button>
+
             </div>
 
+            <div className={`appLinks ${this.state.showLogout ? "loginSpacing" : null}`}>
+            </div>
 
           </div>
 

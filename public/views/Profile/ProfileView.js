@@ -4,8 +4,13 @@ import ProfileInfo from './ProfileInfo';
 import {getProfileInfo} from './ProfileResource';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getPostCount} from './ProfileResource';
+<<<<<<< HEAD
 import axios from 'axios';
 // import {followUser} from './ProfileResource';
+=======
+import PhotoGrid from './PhotoGrid';
+import Footer from './../Login/Footer';
+>>>>>>> master
 
 export default class ProfileView extends React.Component{
   constructor(){
@@ -60,9 +65,16 @@ export default class ProfileView extends React.Component{
   render(){
 
     return(
-      <div>
-      <Nav/>
-      <ProfileInfo clickFollowHandler={this.clickFollowHandler.bind(this)} {...this.state}/>
+      <div className="profileView">
+        <Nav/>
+          This is the Profile View! Dude!
+        <ProfileInfo clickFollowHandler={this.clickFollowHandler.bind(this)} {...this.state}/>
+        <PhotoGrid/>
+        <div className="load-more">
+        <p>Load More</p>
+        </div>
+        <Footer id="profileFooter"/>
+
       </div>
     )
   }

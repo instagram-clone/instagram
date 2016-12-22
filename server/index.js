@@ -27,6 +27,8 @@ const getProfileInfo = require('./controllers/account/getProfileInfo');
 const changePasswordController = require('./controllers/account/changePasswordController');
 const postCtrl = require('./controllers/photos/postCtrl');
 const followUserCtrl = require('./controllers/feed/followUserCtrl');
+const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
+
 
 const app = module.exports = express();
 
@@ -102,6 +104,7 @@ app.get('/api/postcount/:id', getProfileInfo.getPostCount);
 app.post('/api/postPhoto', postCtrl.postPhoto);
 app.put('/api/followuser/:username', followUserCtrl.followUser);
 app.put('/api/addfollower/:username', followUserCtrl.addFollower);
+app.get('/api/feed', feedCtrl.getFeed);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');

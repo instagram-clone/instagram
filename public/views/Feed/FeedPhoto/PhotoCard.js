@@ -6,8 +6,6 @@ import CommentDisplay from './CommentDisplay';
 import CommentBar from './CommentBar';
 
 export default class PhotoCard extends React.Component{
-    constructor(props){
-        super(props);
         //make request to database to get all posts by users that
         //the logged in user follows. Then .map them all onto photoCard components
         //PhotoHeader props will be like this => {
@@ -19,23 +17,25 @@ export default class PhotoCard extends React.Component{
         //      caption: 'here is a photo',
         //      comments : [array of objects with keys for username and comment text]
         //  }}
+    constructor(props){
+        super(props);
     }
     render(){
         return (
             <div className='photoCard'>
-                <PhotoHeader profilepic='https://instagram.faqa1-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'
-                             username='account100'
-                             location='Yosemite'
-                             timestamp='12h'/>
-                <PhotoContainer photoUrl='https://scontent-sjc2-1.cdninstagram.com/t51.2885-15/e35/15624267_1759251814336779_197713120049758208_n.jpg?ig_cache_key=MTQwODI3ODEzNjcxODU3NjI2OQ%3D%3D.2' />
-                <CommentDisplay commentData ={{
-                    'likes': 102,
-                    'username' : 'account100',
-                    'caption': 'yosemite national park',
-                    'comments': [
-                        {user:'user11', comment: 'cool'},
-                        {user:'usernamehere', comment: 'cool ok'}
-                ]}} />
+                <PhotoHeader profilepic={this.props.user[0].profilepic}
+                             username={this.props.user[0].username}
+                             location=''
+                             timestamp={this.props.photo.timestamp}/>
+                <PhotoContainer filter={this.props.photo.filter} photoUrl= {this.props.photo.photourl} />
+                <CommentDisplay commentData = {{
+                    likes: this.props.photo.likes.length,
+                    username : this.props.user[0].username,
+                    caption: this.props.photo.description,
+                    comments: [
+                        this.props.photo.comments
+                    ]
+                }} />
                 <div className='lineContainer'>
                     <div className='line'>
                     </div>

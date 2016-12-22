@@ -16,13 +16,120 @@
     font-weight: lighter;
 
   }
-
   .profilePhoto {
     border-radius: 100%;
     height: 150px;
     width: 150px;
 
 
+  }
+ //  Position absolute or relative. Top 0 right 0 . GIve div classname with styles Logout add button here.
+  .logoutOverlay {
+    background-color: rgba(0,0,0,0.5);
+    color: red;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logoutUl {
+    width: 515px;
+  }
+  .logoutLi {
+    border-bottom: 1px solid #dbdbdb;
+    width: 515px;
+  }
+
+  .logoutButton {
+    font-family: $font;
+    background-color: white;
+    border: none;
+    color: #262626;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 50px;
+    margin: 0;
+    padding: 0 16px;
+    text-align: center;
+    width: 515px;
+    letter-spacing: 1px;
+  }
+
+  .photoGrid{
+    // border: 1px solid red;
+    width: 965px;
+    height: auto;
+    margin: auto;
+  }
+  .picItem{
+    width: 293px;
+    height: 293px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .load-more{
+    border: 2px solid #3897F0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 100px;
+    margin-top: 60px;
+    cursor: pointer;
+    margin-bottom: 85px;
+  }
+  .load-more p{
+    color: #3897F0;
+  }
+  .profileView {
+    footer {
+      position: relative;
+    }
+  }
+  .picItem {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    cursor: pointer;
+  }
+  .picItem img{
+    max-height: 293px;
+    position: relative;
+    left: -40%;
+  }
+  .hover-box:hover{
+    opacity: .4;
+  }
+  .hover-box:hover p{
+    opacity: 1;
+  }
+  .hover-box{
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+    width: 293px;
+    height: 293px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hover-box p{
+    color:white;
   }
   .profilePhotoBox{
     float: left;
