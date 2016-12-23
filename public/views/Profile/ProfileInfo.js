@@ -37,6 +37,7 @@ export default class ProfileInfo extends React.Component{
 
   render(){
     return(
+
       <div>
         {this.state.showLogout ? <div className="logoutOverlay"> <div>
         <ul className="logoutUl">
@@ -68,8 +69,11 @@ export default class ProfileInfo extends React.Component{
 
               : null}
               {this.props.showfollowing ?
+              <div>
+              <span className="button" onClick={this.props.clickUnfollowHandler}>Following</span>
+              <span><img className=" button followingarrow" src="http://image.flaticon.com/icons/png/512/60/60995.png"/></span>
+              </div>
 
-              <span className="button">Following</span>
 
               : null}
             </div>
@@ -91,11 +95,13 @@ export default class ProfileInfo extends React.Component{
               <li><span className="bold-profile">{this.props.user.following ? this.props.user.following.length : 0}</span> following</li>
             </ul>
           </div>
-          <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}</div>
+          <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}
+        </div>
         </div>
 
       </div>
     </div>
+
     )
   }
 }
