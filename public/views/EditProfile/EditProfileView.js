@@ -16,6 +16,7 @@ export default class EditProfileView extends React.Component{
       contact: '',
       gender: '',
       profilepic: '',
+      initialprofilepic: getLoggedInUser.getLoggedInUser().profilepic,
       initialusername: getLoggedInUser.getLoggedInUser().username,
     };
   }
@@ -49,6 +50,11 @@ export default class EditProfileView extends React.Component{
     this.setState({gender: event.target.value});
   }
 
+  handleProfilePicChange(event){
+    console.log(event.target.value);
+    this.setState({profilepic: event.target.value});
+  }
+
   handleSubmitChange(event){
     event.preventDefault();
       console.log('HELLOOO');
@@ -68,10 +74,11 @@ export default class EditProfileView extends React.Component{
           });
 
       } else {
-          alert('Cookie Did not change');
+
       }
 
     })
+    window.location.href = '#/profile/' + this.state.username;
   }
 
 
@@ -90,51 +97,68 @@ export default class EditProfileView extends React.Component{
 
       <div>
       <Nav/>
-        <h2>This is the Edit Profile View!</h2>
 
-      <div>
-      <img height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
-      </div>
+      <div className="editProfileContainer">
 
-      <div>
-      Name <input value={this.state.fullname} onChange={this.handleNameChange.bind(this)} type="text"/>
-      </div>
+        <div className="editProfileLinks">
+          <ul>
+            <li className="ulLink"><a>Edit Profile</a></li>
+            <li className="ulLink"><a>Change Password</a></li>
+          </ul>
+        </div>
 
-      <div>
-      Username <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
-      </div>
 
-      <div>
-      Website <input value={this.state.website} onChange={this.handleWebsiteChange.bind(this)} type="text"/>
-      </div>
+        <div className="editProfileContents">
+          <div>
+            <img className="profilePic" height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
+          </div>
 
-      <div>
-      Bio <input value={this.state.bio} onChange={this.handleBioChange.bind(this)} type="text"/>
-      </div>
+          <div>
+            Name <input value={this.state.fullname} onChange={this.handleNameChange.bind(this)} type="text"/>
+          </div>
 
-      PRIVATE INFORMATION
+          <div>
+            Username <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
+          </div>
 
-      <div>
-      Email <input value={this.state.contact} onChange={this.handleEmailChange.bind(this)} type="text"/>
-      </div>
+          <div>
+            Profile Image <input onChange={this.handleProfilePicChange.bind(this)} type="text"/>
+          </div>
 
-      <div>
-      Gender
-      <select value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
-        <option value="Not Specified">Not Specified</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      </div>
+          <div>
+            Website <input value={this.state.website} onChange={this.handleWebsiteChange.bind(this)} type="text"/>
+          </div>
 
-      <div>
-      Similar Account Suggestions
-      <input type="checkbox"/>
-      Include your account when recommending similar accounts people might want to follow.<a href="#">[?]</a>
-      </div>
+          <div>
+            Bio <input className="bioInput" value={this.state.bio} onChange={this.handleBioChange.bind(this)} type="text"/>
+          </div>
 
-      <div>
-      <button onClick={this.handleSubmitChange.bind(this)}>Submit</button><a href="#">Temporarily disable my account</a>
+          PRIVATE INFORMATION
+
+          <div>
+            Email <input value={this.state.contact} onChange={this.handleEmailChange.bind(this)} type="text"/>
+          </div>
+
+          <div>
+            Gender
+            <select value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
+            <option value="Not Specified">Not Specified</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          </div>
+
+          <div>
+            Similar Account Suggestions
+            <input type="checkbox"/>
+            Include your account when recommending similar accounts people might want to follow.<a href="#">[?]</a>
+          </div>
+
+          <div>
+            <button onClick={this.handleSubmitChange.bind(this)}>Submit</button><a href="#">Temporarily disable my account</a>
+          </div>
+        </div>
+
       </div>
 
       </div>
