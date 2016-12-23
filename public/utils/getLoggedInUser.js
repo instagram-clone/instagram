@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie';
+import axios from 'axios';
+
 
 module.exports = {
     getLoggedInUser: function(){
@@ -8,5 +10,8 @@ module.exports = {
         }else{
             return false;
         }
+    },
+    getAllUserData: function(){
+        return axios.get('/api/currentUser/' + JSON.parse(Cookies.get('user')).username);
     }
 }
