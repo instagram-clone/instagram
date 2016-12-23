@@ -214,9 +214,17 @@
     max-width: 500px;
   }
   .expanded-view img{
-    max-width: 500px;
+    max-width: 600px;
     position: relative;
     z-index: 9;
+  }
+  .expand-comments{
+    position: relative;
+    z-index: 9;
+  }
+  #expanded-content{
+    display: flex;
+    flex-direction: row;
   }
   .expanded-bg{
     height: 100%;
