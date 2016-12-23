@@ -28,6 +28,10 @@ export default class ProfileView extends React.Component{
        this.setState({
          currentuser: true,
        })
+     } else {
+       this.setState({
+         currentuser: false,
+       })
      }
      getProfileInfo(user).then(response => {
        let found = false;
