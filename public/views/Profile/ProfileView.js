@@ -68,7 +68,7 @@ export default class ProfileView extends React.Component{
         <Nav/>
           This is the Profile View! Dude!
         <ProfileInfo clickFollowHandler={this.clickFollowHandler.bind(this)} {...this.state}/>
-        <PhotoGrid/>
+        <PhotoGrid posts={this.state.posts}/>
         <div className="load-more">
         <p>Load More</p>
         </div>
