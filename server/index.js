@@ -27,6 +27,7 @@ const getProfileInfo = require('./controllers/account/getProfileInfo');
 const changePasswordController = require('./controllers/account/changePasswordController');
 const postCtrl = require('./controllers/photos/postCtrl');
 const followUserCtrl = require('./controllers/feed/followUserCtrl');
+const unfollowUserCtrl = require('./controllers/feed/unfollowUserCtrl');
 const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
 const favoriteCtrl = require('./controllers/photos/favoriteCtrl');
 const commentCtrl = require('./controllers/photos/postCommentCtrl');
@@ -108,6 +109,8 @@ app.post('/api/favorite', favoriteCtrl.favorite);
 app.post('/api/unfavorite', favoriteCtrl.unfavorite);
 app.put('/api/followuser/:username', followUserCtrl.followUser);
 app.put('/api/addfollower/:username', followUserCtrl.addFollower);
+app.put('/api/unfollowuser/:username', unfollowUserCtrl.unfollowUser);
+app.put('/api/removefollower/:username', unfollowUserCtrl.removeFollower)
 app.get('/api/feed', feedCtrl.getFeed);
 app.post('/api/postComment', commentCtrl.postComment);
 
