@@ -4,6 +4,7 @@ import getLoggedInUser from '../../utils/getLoggedInUser';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+
 export default class ProfileInfo extends React.Component{
   constructor(props){
     super(props);
@@ -30,7 +31,10 @@ export default class ProfileInfo extends React.Component{
   }
   componentWillReceiveProps(nextProps){
     console.log(nextProps, "this is the child");
+
   }
+
+
   render(){
     return(
       <div>
@@ -53,12 +57,26 @@ export default class ProfileInfo extends React.Component{
           <div className="profile-username">{this.props.user.username}
 
             <div>
+              {this.props.currentuser ?
               <Link to="/editProfile">
               <button className="button">Edit Profile</button>
             </Link>
+              : null}
+              {this.props.showfollow ?
+
+              <span className="button" onClick={this.props.clickFollowHandler}>Follow</span>
+
+              : null}
+              {this.props.showfollowing ?
+
+              <span className="button">Following</span>
+
+              : null}
             </div>
             <div>
+
               <button onClick={this.toggleLogout.bind(this)} className="button">...</button>
+
             </div>
 
             <div className={`appLinks ${this.state.showLogout ? "loginSpacing" : null}`}>
