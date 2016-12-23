@@ -5,6 +5,7 @@ const Post = mongoose.Schema({
   photourl: {type: String, required: true},
   timestamp: {type: Date, required: true},
   likes: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
+  location: {type: String, required: false},
   comments: [
       {
         username: {type: String, required: true},

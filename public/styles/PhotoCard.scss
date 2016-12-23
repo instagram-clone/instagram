@@ -41,6 +41,9 @@
                 margin-right: 10px;
                 margin-left: 5px;
             }
+            img:active{
+                opacity:.5;
+            }
 
             .nameContainer {
                 display: flex;
@@ -59,8 +62,7 @@
             color: $darkGrey;
             font-weight: bold;
             font-size: 14px;
-            line-height: 17px;
-            margin-top: -22px;
+            line-height: 18px;
         }
     }
 
