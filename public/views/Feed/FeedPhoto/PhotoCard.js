@@ -11,7 +11,9 @@ import {getAllUserData} from '../../../utils/getLoggedInUser';
 export default class PhotoCard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            comments: this.props.photo.comments
+        };
     }
 
     componentDidMount() {
@@ -50,6 +52,24 @@ export default class PhotoCard extends React.Component {
         })
     }
 
+    postComment(comment) {
+        // console.log(this.state.userData)
+        axios.post('/api/postComment', {
+            comment,
+            userid: this.state.userData.data._id,
+            photoid: this.props.photo._id,
+            username: this.state.userData.data.username
+        })
+        let newComments = this.state.comments;
+        newComments.push({
+            username: this.state.userData.data.username,
+            comment
+        })
+        this.setState({
+            comments : newComments
+        })
+    }
+
     render() {
         return (
             <div className='photoCard'>
@@ -63,14 +83,15 @@ export default class PhotoCard extends React.Component {
                     likes: this.state.likesCount,
                     username: this.props.user[0].username,
                     caption: this.props.photo.description,
-                    comments: [this.props.photo.comments]
+                    comments: this.state.comments
                 }}/>
                 <div className='lineContainer'>
                     <div className='line'></div>
                 </div>
                 <CommentBar alreadyFavorited={this.state.alreadyLiked}
                             favorite={this.addFavorite.bind(this)}
-                            unfavorite={this.removeFavorite.bind(this)}/>
+                            unfavorite={this.removeFavorite.bind(this)}
+                            postComment = {this.postComment.bind(this)}/>
             </div>
         )
     }

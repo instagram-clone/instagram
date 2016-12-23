@@ -7,7 +7,7 @@ export default class Carousel extends React.Component {
             displayImg: 0
         }
     }
-    changePhotos() {
+    changePhotos(){
         var newDisplayImg;
         if(this.state.displayImg <= 3){
             newDisplayImg = this.state.displayImg + 1;
