@@ -10,7 +10,8 @@ module.exports = {
                 filter: req.body.data.filter,
                 photourl: req.body.data.imgUrl,
                 timestamp: req.body.data.date,
-                description: req.body.data.caption
+                description: req.body.data.caption,
+                location: req.body.data.location
             });
             newPost.save((err, post) => {
                 if(err) return res.status(500).json(err);
