@@ -5,7 +5,7 @@ module.exports = {
 
   followUser: function(req, res, next){
     if(req.params.username){
-    User.findOne({username: req.body.username}, (err, followedOne) =>{
+    User.findOne({username: req.body.username}, (err, followedOne) =>{ 
       User.findOneAndUpdate({username: req.params.username }, {$addToSet: {following: followedOne._id}}, {new: true})
         .populate('following')
         .exec((err, user) => {
