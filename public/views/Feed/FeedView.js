@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {getLoggedInUser} from '../../utils/getLoggedInUser';
+import {getLoggedInUser, getAllUserData} from '../../utils/getLoggedInUser';
 
 import Nav from '../Nav/Nav';
 import PhotoCard from './FeedPhoto/PhotoCard';
@@ -12,7 +12,8 @@ export default class FeedView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            feedSet: false
+            feedSet: false,
+            default: 'https://scontent-fra3-1.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'
         }
     }
     componentDidMount() {
@@ -32,14 +33,19 @@ export default class FeedView extends React.Component {
             window.setTimeout(() => {
                 this.setState({feed, feedSet: true})
                 console.log(feed);
-            }, 80)
+            }, 100)
         });
+        getAllUserData().then(res => {
+            this.setState({
+                profPic : res.data.profilepic
+            })
+        })
     }
     render() {
         return (
             <div className='feedView'>
                 <Nav/>
-                <AddProfileImg/>
+                {this.state.profPic === this.state.default ? <AddProfileImg/> : null}
                 {this.state.feedSet && this.state.feed.length > 0 ? null : <WelcomeCard/> }
                 {this.state.feedSet ? this.state.feed : null}
                 <Footer/>

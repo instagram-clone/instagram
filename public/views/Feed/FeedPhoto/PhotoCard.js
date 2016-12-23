@@ -20,12 +20,13 @@ export default class PhotoCard extends React.Component {
         getAllUserData().then(res => {
             let alreadyLiked = false;
             if (this.props.photo.likes.length > 0) {
-                alreadyLiked = this.props.photo.likes.filter(id => {
+                this.props.photo.likes.forEach(id => {
                     if (id === res.data._id) {
-                        return true;
+                        alreadyLiked = true;
                     }
                 });
             }
+            console.log(alreadyLiked)
             this.setState({alreadyLiked, userData: res, likesCount: this.props.photo.likes.length});
         });
     }
@@ -53,7 +54,6 @@ export default class PhotoCard extends React.Component {
     }
 
     postComment(comment) {
-        // console.log(this.state.userData)
         axios.post('/api/postComment', {
             comment,
             userid: this.state.userData.data._id,
@@ -68,6 +68,7 @@ export default class PhotoCard extends React.Component {
         this.setState({
             comments : newComments
         })
+        console.log(this.state);
     }
 
     render() {
@@ -75,7 +76,7 @@ export default class PhotoCard extends React.Component {
             <div className='photoCard'>
                 <PhotoHeader profilepic={this.props.user[0].profilepic}
                              username={this.props.user[0].username}
-                             location=''
+                             location={this.props.photo.location}
                              timestamp={this.props.photo.timestamp}/>
                 <PhotoContainer filter={this.props.photo.filter}
                                 photoUrl={this.props.photo.photourl}/>

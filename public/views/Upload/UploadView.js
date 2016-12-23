@@ -17,6 +17,9 @@ export default class UploadView extends React.Component {
     handleCaptionChange(e) {
         this.setState({caption: e.target.value});
     }
+    handleLocationChange(e) {
+        this.setState({location: e.target.value});
+    }
 
     handleImageChange(e) {
         e.preventDefault();
@@ -80,6 +83,7 @@ export default class UploadView extends React.Component {
                     {this.state.displayPreview ? <PhotoPreview filter={this.state.filter} url={this.state.imgUrl}/> : null }
                     {this.state.displayPreview ? <FilterContainer setFilter={this.setFilter.bind(this)} url={this.state.imgUrl} /> : null }
                     {this.state.displayPreview ? <div className='submitArea'>
+                        <input type='text' className='caption' placeholder='Add a Location...' onChange={this.handleLocationChange.bind(this)}/>
                         <input type='text' className='caption' placeholder='Write a caption...' onChange={this.handleCaptionChange.bind(this)}/>
                         <button className='button buttonClear' onClick={this.handleSubmit.bind(this)}>Post</button>
                     </div> : null}
