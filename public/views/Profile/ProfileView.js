@@ -4,13 +4,12 @@ import ProfileInfo from './ProfileInfo';
 import {getProfileInfo} from './ProfileResource';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getPostCount} from './ProfileResource';
-<<<<<<< HEAD
 import axios from 'axios';
 // import {followUser} from './ProfileResource';
-=======
+
 import PhotoGrid from './PhotoGrid';
 import Footer from './../Login/Footer';
->>>>>>> master
+
 
 export default class ProfileView extends React.Component{
   constructor(){
