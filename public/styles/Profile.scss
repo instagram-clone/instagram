@@ -198,6 +198,41 @@
   .bold-profile {
     font-weight: bold;
   }
+  #follow{
+    cursor: pointer;
+  }
+  .expanded-view{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .expanded-view figure{
+    max-width: 500px;
+  }
+  .expanded-view img{
+    max-width: 500px;
+    position: relative;
+    z-index: 9;
+  }
+  .expanded-bg{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: .5;
+  }
+  .expanded-view span{
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    z-index: 9;
+    top: 10px;
+    right: 10px;
+  }
 @media(max-width:735px) {
     .profilePhoto{
       transform: scale(.6);

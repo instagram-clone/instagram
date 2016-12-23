@@ -87,8 +87,8 @@ export default class ProfileInfo extends React.Component{
           <div className="counters">
             <ul>
               <li><span className="bold-profile">{this.props.posts.length}</span> posts</li>
-              <li><span className="bold-profile">{this.props.user.followers ? this.props.user.followers.length : 0}</span> followers</li>
-              <li><span className="bold-profile">{this.props.user.following ? this.props.user.following.length : 0}</span> following</li>
+              <li id="follow" onClick={this.props.followViewHandle}><span className="bold-profile">{this.props.user.followers ? this.props.user.followers.length : 0}</span> followers</li>
+              <li id="follow" onClick={this.props.followViewHandle}><span className="bold-profile">{this.props.user.following ? this.props.user.following.length : 0}</span> following</li>
             </ul>
           </div>
           <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}</div>

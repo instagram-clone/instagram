@@ -14,7 +14,7 @@ export default class PhotoGridItem extends React.Component{
       backgroundPosition: 'center'
     }
     return(
-      <div className="picItem">
+      <div className="picItem" onClick={() => {this.props.testFunc(this.props)}}>
         <div className="hover-box">
         <div id="icon-box">
         <div id="bg">
