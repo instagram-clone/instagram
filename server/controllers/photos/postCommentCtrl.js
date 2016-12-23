@@ -9,7 +9,8 @@ module.exports = {
                         userid: req.body.userid,
                         comment: req.body.comment
                     }}}, (err, post) => {
-                        console.log(post);
+                        if(err) return res.status(500).json(err);
+                        return res.status(200).json(post);
                     })
     }
 }
