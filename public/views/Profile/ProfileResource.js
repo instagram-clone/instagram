@@ -7,3 +7,7 @@ export function getProfileInfo(user){
 export function getPostCount(userId){
   return axios.get(`/api/postcount/${userId}`);
 }
+
+// export function followUser(user, targetUser){
+//   return axios.put(`/api/followuser/${user}`, targetUser);
+// }
