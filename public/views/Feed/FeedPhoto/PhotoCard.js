@@ -20,12 +20,13 @@ export default class PhotoCard extends React.Component {
         getAllUserData().then(res => {
             let alreadyLiked = false;
             if (this.props.photo.likes.length > 0) {
-                alreadyLiked = this.props.photo.likes.filter(id => {
+                this.props.photo.likes.forEach(id => {
                     if (id === res.data._id) {
-                        return true;
+                        alreadyLiked = true;
                     }
                 });
             }
+            console.log(alreadyLiked)
             this.setState({alreadyLiked, userData: res, likesCount: this.props.photo.likes.length});
         });
     }
