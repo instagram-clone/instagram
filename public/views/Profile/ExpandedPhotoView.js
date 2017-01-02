@@ -2,6 +2,7 @@ import React from 'react';
 import CommentDisplay from './../Feed/FeedPhoto/CommentDisplay';
 import CommentBar from './../Feed/FeedPhoto/CommentBar';
 import {getAllUserData} from './../../utils/getLoggedInUser';
+import axios from 'axios';
 
 export default class ExpandedPhotoView extends React.Component{
   constructor(props){
@@ -94,6 +95,7 @@ componentDidMount() {
                     comments: this.props.info.comments
                 }}
           />
+          <div id="comment-container">
           <div className='lineContainer'>
                     <div className='line'></div>
           </div>
@@ -103,6 +105,7 @@ componentDidMount() {
           unfavorite={this.removeFavorite.bind(this)}
           postComment = {this.postComment.bind(this)}
           />
+          </div>
           </div>
         
         </div>

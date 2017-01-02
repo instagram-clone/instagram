@@ -243,9 +243,10 @@
   }
   #profile-comment-display{
     margin-top: 20px;
-    height: 68%;
+    height: 60%;
   }
   #profile-heart{
+    cursor: pointer;
     background-image:url($spriteUrl);
     background-size: 106px 108px;
     background-position: 0px -18px;
@@ -264,6 +265,7 @@
     margin-right:10px;
   }
   #comment-info-container{
+    height: 66%;
     overflow-y: scroll;
   }
   #comment-profile{
@@ -272,11 +274,6 @@
     position: relative;
     top: 0px;
     right: -10px;
-  }
-  .expand-comments{
-    position: relative;
-    z-index: 9;
-    width: 30vw;
   }
   #profile-input{
     width: 100%;
@@ -302,11 +299,17 @@
     top: 10px;
     right: 10px;
   }
+  #comment-container{
+    position: relative;
+    bottom: -10%;
+  }
   .expand-comments{
     background-color:$darkBackground;
     padding:24px;
     padding-bottom:25px;
-    margin-top:-3px;
+    position: relative;
+    z-index: 9;
+    width: 30vw;
 
     img{
       border-radius: 100px;

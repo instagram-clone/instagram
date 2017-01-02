@@ -52,7 +52,8 @@ export default class PhotoGrid extends React.Component{
         <div>
         {
           this.state.expandImg 
-          ? <ExpandedPhotoView 
+          ? <ExpandedPhotoView
+              photo={this.state.expandImg._id}
               info={this.state.expandImg} 
               photourl={this.state.expandImg.photourl} 
               filter={this.state.expandImg.filter}
