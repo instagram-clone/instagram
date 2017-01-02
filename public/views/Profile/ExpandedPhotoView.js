@@ -73,21 +73,30 @@ componentDidMount() {
     return(
       <div className="expanded-view">
         <span onClick={() => {this.props.close()}}>x</span>
-        <div className="expanded-bg"></div>
+        <div className="expanded-bg" onClick={() => {this.props.close()}}></div>
         <div id="expanded-content">
         <figure className={this.props.filter}>
           <img src={this.props.photourl} />
         </figure>
           <div className="expand-comments">
-          
-          <CommentDisplay 
+            <div id="user-row">
+            <img src={this.props.info.author.profilepic}/>
+            <p>{this.props.info.author.username}</p>
+            </div>
+          <div className='lineContainer'>
+                    <div className='line'></div>
+          </div>
+          <p>{this.props.timestamp}</p>
+          <CommentDisplay className="expand-comment-display"
           commentData={{
                     likes: this.props.info.likes.length,
-                    username: this.props.info.author.username,
                     caption: this.props.info.description,
                     comments: this.props.info.comments
                 }}
           />
+          <div className='lineContainer'>
+                    <div className='line'></div>
+          </div>
           <CommentBar 
           alreadyFavorited={this.state.alreadyLiked}
           favorite={this.addFavorite.bind(this)}
