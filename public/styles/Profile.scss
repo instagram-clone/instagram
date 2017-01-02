@@ -1,32 +1,142 @@
 @import 'master';
-.profileInfoContainer {
-    margin-right: 280px;
-    // text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;;
-    // margin-bottom: 20px;
-    // border-radius: 3px;
-  }
-  .profileInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;;
-    margin-right: 435px;
-    font-weight: lighter;
 
-  }
-  .profilePhoto {
-    border-radius: 100%;
-    height: 150px;
-    width: 150px;
+.profileInfo {
+    .profileInfoRow {
+        display: flex;
+        flex-direction: row;
+        margin: 30px 20px 24px;
 
+        .profilePhoto {
+            border-radius: 100%;
+            height: 77px;
+            width: 77px;
+            margin-right: 28px;
+        }
 
-  }
- //  Position absolute or relative. Top 0 right 0 . GIve div classname with styles Logout add button here.
-  .logoutOverlay {
+        .profileInfoRight {
+            display: flex;
+            flex-direction: column;
+            font-weight: lighter;
+            margin-top: -5px;
+
+            .showOnMobile {
+                display: block;
+            }
+
+            .hideOnMobile {
+                display: none;
+            }
+
+            .buttonClear {
+                color: $darkGrey;
+                border-color: $darkGrey;
+                font-size: 14px;
+                padding: 0 9px;
+                line-height: 24px;
+            }
+
+            .buttonClear:active {
+                color: rgba(153,153,153, .5);
+                border-color: rgba(153,153,153, .5);
+            }
+
+            .profileTopRow {
+                display: flex;
+                flex-direction: row;
+                margin-top: 0;
+                border:1px solid red;
+
+                .following{
+                    line-height: 29px;
+                    font-size:16px;
+                    padding:0 11px;
+                    font-weight: 600;
+                    background-color: rgb(112, 192, 80);
+                }
+                .arrowSprite{
+                    background-image: url($spriteUrl);
+                    background-size: 352px 311px;
+                    height: 6px;
+                    width: 9px;
+                    background-position: -302px -103px;
+                    cursor: pointer;
+                    padding:15px 0;
+                }
+
+                .username {
+                    font-size: 21px;
+                    text-align: left;
+                    font-weight: lighter;
+                    line-height: 44px;
+                }
+
+                .optionsSprite {
+                    background-image: url($spriteUrl);
+                    background-size: 352px 311px;
+                    height: 44px;
+                    width: 44px;
+                    background-position: -56px -176px;
+                    cursor: pointer;
+                }
+            }
+
+            .counters {
+                display: none;
+                font-size: 17px;
+                margin-bottom: 20px;
+                flex-direction: row;
+            }
+
+            .bioContainer {
+                display: none;
+
+                .name {
+                    font-weight: bold;
+                    margin-right:6px;
+                }
+            }
+        }
+    }
+
+    .mobileBioContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        font-size: 14px;
+
+        .name {
+            margin-right: 6px;
+            font-weight: bold;
+        }
+        margin: 0 20px 12px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid $grey;
+    }
+
+    .mobileCounters {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+        font-size: 14px;
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            color: $darkGrey;
+            font-weight: 600;
+
+            .label {
+                color: $black;
+                text-align: center;
+            }
+        }
+    }
+}
+//  Position absolute or relative. Top 0 right 0 . GIve div classname with styles Logout add button here.
+
+.logoutOverlay {
     background-color: rgba(0,0,0,0.5);
-    color: red;
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -37,41 +147,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  .logoutUl {
-    width: 515px;
-  }
-  .logoutLi {
-    border-bottom: 1px solid #dbdbdb;
-    width: 515px;
-  }
+    .logoutUl {
+        width: 515px;
+    }
 
-  .logoutButton {
-    font-family: $font;
-    background-color: white;
-    border: none;
-    color: #262626;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 50px;
-    margin: 0;
-    padding: 0 16px;
-    text-align: center;
-    width: 515px;
-    letter-spacing: 1px;
-  }
+    .logoutLi {
+        border-bottom: 1px solid #dbdbdb;
+        width: 515px;
+    }
 
-  .photoGrid{
+    .logoutButton {
+        font-family: $font;
+        background-color: white;
+        border: none;
+        color: #262626;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 50px;
+        margin: 0;
+        padding: 0 16px;
+        text-align: center;
+        width: 515px;
+        letter-spacing: 1px;
+    }
+
+    .logoutButton:active {
+        background-color: #dbdbdb;
+        color: $blackActive;
+    }
+
+    .logoutButton:focus {
+        outline: 0;
+    }
+}
+
+.photoGrid {
     // border: 1px solid red;
     width: 965px;
     height: auto;
-    margin: auto;
-    margin-top: 44px;
+    margin: 44px auto auto;
     flex-shrink: 0;
-  }
-  .load-more{
+}
+
+.load-more {
     border: 2px solid #3897F0;
     width: 120px;
     height: 120px;
@@ -83,19 +203,22 @@
     margin-top: 60px;
     cursor: pointer;
     margin-bottom: 85px;
-  }
-  .load-more p{
+}
+
+.load-more p {
     color: #3897F0;
-  }
-  .profileView {
+}
+
+.profileView {
     footer {
-      position: relative;
+        position: relative;
     }
-  }
-  .picItem {
+}
+
+.picItem {
     width: 293px;
     height: 293px;
-    background-color:#FAFAFA;
+    background-color: #FAFAFA;
     overflow: hidden;
     position: relative;
     display: inline-block;
@@ -103,37 +226,44 @@
     margin-right: 28px;
     margin-bottom: 28px;
     cursor: pointer;
-  }
-  #imgPost{
+}
+
+#imgPost {
     max-width: 100%;
     position: relative;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-  }
-  #imgPost img{
+}
+
+#imgPost img {
     max-width: 100%;
-  }
-  #bg{
+}
+
+#bg {
     position: absolute;
-    left: 0px;
+    left: 0;
     z-index: 3;
     width: 100%;
     height: 100%;
     background-color: black;
     opacity: 0;
-  }
-  .picItem:hover #bg{
-    opacity: .3;
-  }
-  .picItem:hover .img-icon{
+}
+
+.picItem:hover #bg {
+    opacity: 0.3;
+}
+
+.picItem:hover .img-icon {
     opacity: 1 !important;
-  }
-  .hover-box:hover p{
+}
+
+.hover-box:hover p {
     opacity: 1 !important;
-  }
-  .hover-box{
+}
+
+.hover-box {
     position: absolute;
     z-index: 2;
     width: 293px;
@@ -141,16 +271,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  #icon-box{
+}
+
+#icon-box {
     // border: 1px solid red;
     width: auto;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  #icon-box img{
+}
+
+#icon-box img {
     position: relative;
     z-index: 4;
     width: 30px;
@@ -158,59 +290,98 @@
     filter: invert(100%);
     margin-right: 10px;
     opacity: 0;
-  }
-  #icon-box p{
+}
+
+#icon-box p {
     position: relative;
     z-index: 4;
     color: white;
     margin-right: 10px;
     opacity: 0;
-  }
-  .profilePhotoBox{
-    float: left;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 500px;
-    // margin-right: 80px;
-  }
+}
 
-  .profile-username {
-    font-size: 34px;
-    text-align: left;
-    font-weight: lighter;
-    display: flex;
-    flex-direction: row;
-    line-height: 40px;
-    margin-bottom: 20px;
-
-
-  }
-  .counters {
-
-    font-size: 17px;
-    margin-bottom: 20px;
-
-  }
-  .counters li {
-    display: inline-block;
-    margin-right: 40px;
-  }
-  .bold-profile {
-    font-weight: bold;
-  }
-  .followingarrow{
-    width: 32px;
-
-  }
-@media(max-width:735px) {
-    .profilePhoto{
-      transform: scale(.6);
+@media(min-width:600px){
+    .profileInfo{
+        margin-top:-30px;
     }
-    .profile-username {
-      font-size: 21px;
+}
+@media(min-width:735px) {
+    .profileInfo {
+        margin-top:0px;
+        padding-left: 40px;
+        max-width: 935px;
+        align-items: stretch;
+        margin-left: auto;
+        margin-right: auto;
+
+        .mobileCounters {
+            display: none;
+        }
+
+        .mobileBioContainer {
+            display: none;
+        }
+
+        .profileInfoRow {
+            .profilePhoto {
+                height: 152px;
+                width: 152px;
+            }
+
+            .profileInfoRight {
+                padding-left: 50px;
+
+                .counters {
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    font-weight: 400;
+
+                    .count {
+                        font-weight: 600;
+                    }
+                }
+
+                .profileTopRow {
+                    align-items: center;
+                    margin-bottom: 20px;
+
+                    .username {
+                        font-weight: lighter;
+                        font-size: 34px;
+                        line-height: 40px;
+                    }
+
+                    button {
+                        margin-left: 20px;
+                        font-size: 16px;
+                        line-height: 29px;
+                        padding: 0 11px;
+                    }
+                }
+
+                .showOnMobile {
+                    display: none;
+                }
+
+                .hideOnMobile {
+                    display: inline;
+                }
+
+                .bioContainer {
+                    display: flex;
+                }
+
+                .counters {
+                    display: flex;
+                }
+            }
+        }
     }
+
     .picItem {
-    margin-right: 3px;
-    margin-bottom: 3px;
+        margin-right: 3px;
+        margin-bottom: 3px;
     }
 }
