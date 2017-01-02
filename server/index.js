@@ -26,7 +26,12 @@ const editProfileController = require('./controllers/account/editProfileControll
 const getProfileInfo = require('./controllers/account/getProfileInfo');
 const changePasswordController = require('./controllers/account/changePasswordController');
 const postCtrl = require('./controllers/photos/postCtrl');
+const followUserCtrl = require('./controllers/feed/followUserCtrl');
+const unfollowUserCtrl = require('./controllers/feed/unfollowUserCtrl');
 const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
+const favoriteCtrl = require('./controllers/photos/favoriteCtrl');
+const commentCtrl = require('./controllers/photos/postCommentCtrl');
+
 
 const app = module.exports = express();
 
@@ -100,7 +105,14 @@ app.get('/api/profileinfo/:username', getProfileInfo.readProfileInfo);
 app.post('/api/changePassword', changePasswordController.postPassword);
 app.get('/api/postcount/:id', getProfileInfo.getPostCount);
 app.post('/api/postPhoto', postCtrl.postPhoto);
+app.post('/api/favorite', favoriteCtrl.favorite);
+app.post('/api/unfavorite', favoriteCtrl.unfavorite);
+app.put('/api/followuser/:username', followUserCtrl.followUser);
+app.put('/api/addfollower/:username', followUserCtrl.addFollower);
+app.put('/api/unfollowuser/:username', unfollowUserCtrl.unfollowUser);
+app.put('/api/removefollower/:username', unfollowUserCtrl.removeFollower)
 app.get('/api/feed', feedCtrl.getFeed);
+app.post('/api/postComment', commentCtrl.postComment);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');

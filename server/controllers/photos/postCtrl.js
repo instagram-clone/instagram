@@ -4,14 +4,14 @@ const Post = require('../../models/Post');
 
 module.exports = {
     postPhoto : function(req, res, next){
-        console.log(req.body);
         User.findOne({username: req.body.data.author}, (err, user) => {
             const newPost = new Post({
                 author: user._id,
                 filter: req.body.data.filter,
                 photourl: req.body.data.imgUrl,
                 timestamp: req.body.data.date,
-                description: req.body.data.caption
+                description: req.body.data.caption,
+                location: req.body.data.location
             });
             newPost.save((err, post) => {
                 if(err) return res.status(500).json(err);

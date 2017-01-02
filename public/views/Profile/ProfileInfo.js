@@ -4,6 +4,7 @@ import getLoggedInUser from '../../utils/getLoggedInUser';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+
 export default class ProfileInfo extends React.Component{
   constructor(props){
     super(props);
@@ -30,9 +31,13 @@ export default class ProfileInfo extends React.Component{
   }
   componentWillReceiveProps(nextProps){
     console.log(nextProps, "this is the child");
+
   }
+
+
   render(){
     return(
+
       <div>
         {this.state.showLogout ? <div className="logoutOverlay"> <div>
         <ul className="logoutUl">
@@ -53,12 +58,29 @@ export default class ProfileInfo extends React.Component{
           <div className="profile-username">{this.props.user.username}
 
             <div>
+              {this.props.currentuser ?
               <Link to="/editProfile">
               <button className="button">Edit Profile</button>
             </Link>
+              : null}
+              {this.props.showfollow ?
+
+              <span className="button" onClick={this.props.clickFollowHandler}>Follow</span>
+
+              : null}
+              {this.props.showfollowing ?
+              <div>
+              <span className="button" onClick={this.props.clickUnfollowHandler}>Following</span>
+              <span><img className=" button followingarrow" src="http://image.flaticon.com/icons/png/512/60/60995.png"/></span>
+              </div>
+
+
+              : null}
             </div>
             <div>
+
               <button onClick={this.toggleLogout.bind(this)} className="button">...</button>
+
             </div>
 
             <div className={`appLinks ${this.state.showLogout ? "loginSpacing" : null}`}>
@@ -73,11 +95,13 @@ export default class ProfileInfo extends React.Component{
               <li><span className="bold-profile">{this.props.user.following ? this.props.user.following.length : 0}</span> following</li>
             </ul>
           </div>
-          <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}</div>
+          <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}
+        </div>
         </div>
 
       </div>
     </div>
+
     )
   }
 }
