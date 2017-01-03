@@ -52,30 +52,42 @@ export default class ProfileInfo extends React.Component {
                         <div className='profileTopRow'>
                             <span className='username'>{this.props.user.username}</span>
                                 {this.props.currentuser
-                                    ? <Link to="/editProfile">
-                                            <button className="hideOnMobile button buttonClear">Edit Profile</button>
-                                        </Link>
+                                    ?
+                                        <span>
+                                            <Link to="/editProfile">
+                                                <button className="hideOnMobile button buttonClear">Edit Profile</button>
+                                            </Link>
+                                        </span>
                                     : null}
                                 {this.props.showfollow
-                                    ? <span className="button buttonClear" onClick={this.props.clickFollowHandler}>Follow</span>
-
+                                    ?  <div className='row'>
+                                            <div className="button buttonBlue buttonClear" onClick={this.props.clickFollowHandler}>Follow</div>
+                                            <div className='button buttonClear buttonBlue followSpacing followSprite'>
+                                                <div className="arrowSpriteFollow"> </div>
+                                            </div>
+                                        </div>
                                     : null}
                                 {this.props.showfollowing
-                                    ?<div className="following button" onClick={this.props.clickUnfollowHandler}>Following</div>
+                                    ?  <span className='row'>
+                                            <div className="following button followSpacing" onClick={this.props.clickUnfollowHandler}>Following</div>
+                                            <div className='following button followSprite'>
+                                                <div className="arrowSpriteFollowing"> </div>
+                                            </div>
+                                        </span>
                                     : null}
-                                {this.props.showfollowing
-                                    ?<div className='following button'>
-                                        <div className="arrowSprite"></div>
-                                    </div>
-                                    : null}
-                                <div onClick={this.toggleLogout.bind(this)} className='optionsSprite'></div>
+                                {this.props.current}<span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
                             <div className={`appLinks ${this.state.showLogout
                                 ? "loginSpacing"
                                 : null}`}></div>
                         </div>
-                        <Link className='showOnMobile' to="/editProfile">
-                            <button className="button buttonClear">Edit Profile</button>
-                        </Link>
+                        {this.props.currentuser
+                            ?
+                            <div>
+                              <Link className='showOnMobile' to="/editProfile">
+                                <button className="button buttonClear">Edit Profile</button>
+                              </Link>
+                            </div>
+                             : null}
                         <div className='counters'>
                             <span>
                                 <span className="count">{this.props.posts.length + ' '}

@@ -42,34 +42,9 @@
 
             .profileTopRow {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 margin-top: 0;
-                border:1px solid red;
-
-                .following{
-                    line-height: 29px;
-                    font-size:16px;
-                    padding:0 11px;
-                    font-weight: 600;
-                    background-color: rgb(112, 192, 80);
-                }
-                .arrowSprite{
-                    background-image: url($spriteUrl);
-                    background-size: 352px 311px;
-                    height: 6px;
-                    width: 9px;
-                    background-position: -302px -103px;
-                    cursor: pointer;
-                    padding:15px 0;
-                }
-
-                .username {
-                    font-size: 21px;
-                    text-align: left;
-                    font-weight: lighter;
-                    line-height: 44px;
-                }
-
+                align-items: center;
                 .optionsSprite {
                     background-image: url($spriteUrl);
                     background-size: 352px 311px;
@@ -77,6 +52,61 @@
                     width: 44px;
                     background-position: -56px -176px;
                     cursor: pointer;
+                }
+                .followSpacing{
+                    margin-right:5px;
+                    margin-left:-10px;
+                }
+                .following{
+                    line-height: 29px;
+                    padding-top:10px;
+                    font-size:16px;
+                    padding:0 11px;
+                    font-weight: 600;
+                    background-color: rgb(112, 192, 80);
+                }
+
+                .row{
+                    align-items: center;
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                .followSprite{
+                    padding:11.5px 11px;
+                }
+
+                .buttonBlue{
+                    line-height: 29px;
+                    border:1px solid $blue;
+                    color:$blue;
+                    margin-right:20px;
+                }
+                .buttonBlue:active{
+                    border-color:$blueActive;
+                    color:$blueActive;
+                }
+                .arrowSpriteFollowing{
+                    background-image: url($spriteUrl);
+                    background-size: 352px 311px;
+                    height:6px;
+                    width: 9px;
+                    background-position: -322px -103px;
+                    cursor: pointer;
+                }
+                .arrowSpriteFollow{
+                    background-image: url($spriteUrl);
+                    background-size: 352px 311px;
+                    height:6px;
+                    width: 9px;
+                    background-position: -312px -103px;
+                    cursor: pointer;
+                }
+                .username {
+                    font-size: 21px;
+                    text-align: left;
+                    font-weight: lighter;
+                    line-height: 44px;
                 }
             }
 
@@ -305,7 +335,7 @@
         margin-top:-30px;
     }
 }
-@media(min-width:735px) {
+@media(min-width:800px) {
     .profileInfo {
         margin-top:0px;
         padding-left: 40px;
@@ -321,7 +351,6 @@
         .mobileBioContainer {
             display: none;
         }
-
         .profileInfoRow {
             .profilePhoto {
                 height: 152px;
@@ -331,6 +360,11 @@
             .profileInfoRight {
                 padding-left: 50px;
 
+                .buttonClear{
+                    font-size:16px;
+                    padding:0 11px;
+                    line-height: 29px;
+                }
                 .counters {
                     display: flex;
                     align-items: stretch;
@@ -344,20 +378,15 @@
                 }
 
                 .profileTopRow {
-                    align-items: center;
+                    flex-direction: row;
+                    justify-content:space-between;
                     margin-bottom: 20px;
 
                     .username {
                         font-weight: lighter;
                         font-size: 34px;
                         line-height: 40px;
-                    }
-
-                    button {
-                        margin-left: 20px;
-                        font-size: 16px;
-                        line-height: 29px;
-                        padding: 0 11px;
+                        margin-right:20px;
                     }
                 }
 
