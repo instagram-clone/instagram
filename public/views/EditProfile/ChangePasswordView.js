@@ -62,13 +62,9 @@ export default class EditProfileView extends React.Component {
                     } else {
                       console.log('nope');
                     }
-
-
-
                 })
             });
     }
-
 
     componentDidMount() {
         const username = getLoggedInUser.getLoggedInUser().username;
@@ -79,7 +75,9 @@ export default class EditProfileView extends React.Component {
 
 
     render() {
-        return ( <div>
+        return(
+
+            <div>
 
             <Nav/>
             <h2> This is the Change Password View! </h2>
