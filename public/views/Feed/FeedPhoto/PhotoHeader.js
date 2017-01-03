@@ -4,7 +4,6 @@ import {Link} from 'react-router';
 export default class PhotoHeader extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             relativeDate: this.getDate()
         }
@@ -30,7 +29,7 @@ export default class PhotoHeader extends React.Component {
         } else if (daysBetween < 7) {
             relativeDate = daysBetween + 'd';
         } else if (daysBetween >= 7 && daysBetween <= 14) {
-            relativeDate = '1 week ago'
+            relativeDate = '1w'
         } else {
             relativeDate = Math.round(daysBetween / 7) + 'w'
         }
