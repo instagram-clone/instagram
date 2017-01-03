@@ -4,7 +4,10 @@ import getLoggedInUser from '../../utils/getLoggedInUser';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-export default class ProfileInfo extends React.Component {
+import {removeUser} from '../../ducks/userDuck';
+import {connect} from 'react-redux';
+
+class ProfileInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,6 +24,7 @@ export default class ProfileInfo extends React.Component {
     logout() {
         event.preventDefault();
         Cookies.remove('user');
+        this.props.dispatch(removeUser());
         window.location.href = '#/'
     }
 
@@ -149,3 +153,4 @@ export default class ProfileInfo extends React.Component {
         )
     }
 }
+export default connect(state => ({user: state.user}))(ProfileInfo);
