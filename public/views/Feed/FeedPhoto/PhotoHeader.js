@@ -11,19 +11,32 @@ export default class PhotoHeader extends React.Component {
     getDate() {
         let date = this.props.timestamp.split('T')[0].split('-');
         date = date.join('/');
-        let photo = new Date(date);
+        let photo = Date.parse(this.props.timestamp);
         let today = new Date();
         let daysBetween = Math.floor((today - photo) / 86400000);
         let relativeDate;
-        //if the photo was posted today, it shows the time,
+        //if the photo was posted today, it shows the difference in hours, or minutes,
         //otherwise, it shows how many days or weeks ago it was posted
         if (daysBetween <= 0) {
             var dateTime = this.props.timestamp.split('T')[1].split('-')[0];
             if ((parseInt(dateTime.split(':')[0]) - 7) > 12) {
-                dateTime = parseInt(dateTime.split(':')[0]) - 12 + ':' + dateTime.split(':')[1];
-                dateTime = Math.abs(today - photo) / 36e5;
-            } else {
                 dateTime = parseInt(dateTime.split(':')[0]) - 7 + ':' + dateTime.split(':')[1];
+                //checks if photo was posted less than an hour ago
+                if (today.getHours() - parseInt(dateTime.split(':')[0]) === 0) {
+                    //get difference in minutes between current time and time the photo
+                    //was posted
+                    dateTime = today.getMinutes() - parseInt(dateTime.split(':')[1]);
+                    //sets timestamp to 'now' is photo is less than 1min old,
+                    //otherwise show minutes count
+                    if(dateTime === 0){
+                        dateTime = 'now';
+                    }else{
+                        dateTime += 'm';
+                    }
+                } else {
+                    //gets hours differential
+                    dateTime = today.getHours() - parseInt(dateTime.split(':')[0]) + 'h';
+                }
             }
             relativeDate = dateTime
         } else if (daysBetween < 7) {
