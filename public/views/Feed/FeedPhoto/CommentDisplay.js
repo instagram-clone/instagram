@@ -12,7 +12,7 @@ export default class CommentDisplay extends React.Component{
         const comments = this.state.commentArr.map((comment, i) => {
                         return (
                             <div key={i} className='commentInfo'>
-                                <Link to={`profile/${comment.username}`} className='bold username'>{comment.username}</Link>
+                                <Link to={`profile/${comment.username}`} className='bold commentUsername'>{comment.username}</Link>
                                 <span className='comment'>{comment.comment}</span>
                             </div>
                         )
@@ -35,7 +35,7 @@ export default class CommentDisplay extends React.Component{
             <div className='commentDisplay'>
                 <div className='bold'>{this.props.commentData.likes} likes</div>
                 <div className='postInfo'>
-                    <Link to={`profile/${this.props.commentData.username}`} className='bold username'>{this.props.commentData.username}</Link>
+                    <Link to={`profile/${this.props.commentData.username}`} className='bold commentUsername'>{this.props.commentData.username}</Link>
                     <span className='caption'>{this.props.commentData.caption}</span>
                 </div>
                 {this.state.comments}
