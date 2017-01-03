@@ -5,36 +5,37 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import FriendsCarousel from './FriendsCarousel';
 
+import {removeUser} from '../../ducks/userDuck';
+import {connect} from 'react-redux';
 
-export default class ProfileInfo extends React.Component{
-  constructor(props){
-    super(props);
-    this.state ={
-      showLogout: false,
-      friendsCarousel: false,
+class ProfileInfo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showLogout: false,
+            friendsCarousel: false
+        }
     }
-  }
+
+    logout() {
+        event.preventDefault();
+        Cookies.remove('user');
+        this.props.dispatch(removeUser());
+        window.location.href = '#/'
+    }
 
   toggleLogout(){
     this.setState({
       showLogout: !this.state.showLogout
     });
   }
+
   toggleFriendsCarousel(){
     this.setState({
       friendsCarousel: !this.state.friendsCarousel
     })
   }
 
-  logout(){
-    event.preventDefault();
-    Cookies.remove('user');
-    window.location.href = '#/'
-  }
-
-  componentWillMount(){
-
-  }
   componentWillReceiveProps(nextProps){
     console.log(nextProps, "this is the child");
 
@@ -171,3 +172,4 @@ export default class ProfileInfo extends React.Component{
     )
   }
 }
+export default connect(state => ({storeUser: state.storeUser}))(ProfileInfo);
