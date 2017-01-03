@@ -75,10 +75,7 @@ export default class ProfileInfo extends React.Component {
                                             </div>
                                         </span>
                                     : null}
-                            {this.props.currentuser
-                                ?
-                                    <span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
-                                :   null}
+                                {this.props.current}<span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
                             <div className={`appLinks ${this.state.showLogout
                                 ? "loginSpacing"
                                 : null}`}></div>
@@ -89,7 +86,6 @@ export default class ProfileInfo extends React.Component {
                               <Link className='showOnMobile' to="/editProfile">
                                 <button className="button buttonClear">Edit Profile</button>
                               </Link>
-                              <span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
                             </div>
                              : null}
                         <div className='counters'>
