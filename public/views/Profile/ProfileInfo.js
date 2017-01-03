@@ -50,7 +50,7 @@ export default class ProfileInfo extends React.Component {
                     <img className="profilePhoto" src={this.props.user.profilepic}/>
                     <div className="profileInfoRight">
                         <div className='profileTopRow'>
-                            <span className='username'>{this.props.user.username}</span>
+                            <span className='profileUsername'>{this.props.user.username}</span>
                                 {this.props.currentuser
                                     ?
                                         <span>
