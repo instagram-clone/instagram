@@ -95,7 +95,7 @@ componentDidMount() {
           <p>{this.props.timestamp}</p>
           <CommentDisplay className="expand-comment-display"
           commentData={{
-                    likes: this.props.info.likes.length - this.state.likesCount,
+                    likes: this.state.likesCount,
                     username: this.props.user.username,
                     caption: this.props.info.description,
                     comments: this.props.info.comments
