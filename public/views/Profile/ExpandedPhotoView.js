@@ -81,7 +81,7 @@ componentDidMount() {
         <span onClick={() => {this.props.close()}}>x</span>
         <div className="expanded-bg" onClick={() => {this.props.close()}}></div>
         <div id="expanded-content">
-        <figure className={this.props.filter}>
+        <figure id="expand-img" className={this.props.filter}>
           <img src={this.props.photourl} />
         </figure>
           <div className="expand-comments">

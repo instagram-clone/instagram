@@ -92,7 +92,7 @@
     }
   }
   .picItem {
-    width: 293px;
+    max-width: 293px;
     height: 29vh;
     background-color:#FAFAFA;
     overflow: hidden;
@@ -315,7 +315,7 @@
     padding-bottom:25px;
     position: relative;
     z-index: 9;
-    width: 30vw;
+    max-width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -357,5 +357,24 @@
     .picItem {
     margin-right: 3px;
     margin-bottom: 3px;
+    }
+    #expanded-content{
+    flex-direction: column;
+    }
+    .expand-comments{
+    position: relative;
+    z-index: 9;
+    max-width: 84vw;
+
+    img{
+      border-radius: 100px;
+      max-width: 35px;
+    }
+  }
+    .extend-content #expand-img{
+      max-width: 84vw;
+    }
+    .expanded-view figure{
+    max-width: 84vw;
     }
 }
