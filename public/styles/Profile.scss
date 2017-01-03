@@ -215,11 +215,22 @@
 
 .photoGrid {
     // border: 1px solid red;
-    width: 70%;
+    max-width: 1000px;
     height: auto;
-    margin: auto;
     margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, 0%);
   }
+.photoGrid:after {
+  content: "";
+  flex: auto;
+}
 
 .load-more {
     border: 2px solid #3897F0;
@@ -247,15 +258,14 @@
 
 .picItem {
     max-width: 293px;
-    height: 29vh;
+    max-height: 29vh;
     background-color:#FAFAFA;
     overflow: hidden;
     position: relative;
-    display: inline-block;
     flex-grow: 1;
-    margin-right: 28px;
-    margin-bottom: 28px;
     cursor: pointer;
+    margin-bottom: 2vw;
+    margin-right: 2vw;
 }
 
 #imgPost {
