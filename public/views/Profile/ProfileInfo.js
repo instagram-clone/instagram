@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import getLoggedInUser from '../../utils/getLoggedInUser';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import FriendsCarousel from './FriendsCarousel';
 
 
 export default class ProfileInfo extends React.Component{
@@ -10,6 +11,7 @@ export default class ProfileInfo extends React.Component{
     super(props);
     this.state ={
       showLogout: false,
+      friendsCarousel: false,
     }
   }
 
@@ -17,6 +19,11 @@ export default class ProfileInfo extends React.Component{
     this.setState({
       showLogout: !this.state.showLogout
     });
+  }
+  toggleFriendsCarousel(){
+    this.setState({
+      friendsCarousel: !this.state.friendsCarousel
+    })
   }
 
   logout(){
@@ -64,17 +71,16 @@ export default class ProfileInfo extends React.Component{
             </Link>
               : null}
               {this.props.showfollow ?
-
-              <span className="button" onClick={this.props.clickFollowHandler}>Follow</span>
-
+                  <div>
+                    <span className="button" onClick={this.props.clickFollowHandler}>Follow</span>
+                    <span><img onClick={this.toggleFriendsCarousel.bind(this)} className="button followingarrow" src="http://image.flaticon.com/icons/png/512/60/60995.png"/></span>
+                  </div>
               : null}
               {this.props.showfollowing ?
-              <div>
-              <span className="button" onClick={this.props.clickUnfollowHandler}>Following</span>
-              <span><img className=" button followingarrow" src="http://image.flaticon.com/icons/png/512/60/60995.png"/></span>
-              </div>
-
-
+                  <div>
+                    <span className="button" onClick={this.props.clickUnfollowHandler}>Following</span>
+                    <span><img onClick={this.toggleFriendsCarousel.bind(this)} className="button followingarrow" src="http://image.flaticon.com/icons/png/512/60/60995.png"/></span>
+                  </div>
               : null}
             </div>
             <div>
@@ -100,6 +106,16 @@ export default class ProfileInfo extends React.Component{
         </div>
 
       </div>
+
+        {this.state.friendsCarousel ?
+          <div className="friends-carousel">
+            <h1>Suggested</h1>
+            <FriendsCarousel user={this.props.user}/>
+          </div>
+
+
+          : null}
+
     </div>
 
     )

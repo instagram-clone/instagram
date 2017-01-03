@@ -200,7 +200,14 @@
   }
   .followingarrow{
     width: 32px;
-
+    // filter: invert(100%);
+  }
+  .friends-carousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
   }
 @media(max-width:735px) {
     .profilePhoto{
