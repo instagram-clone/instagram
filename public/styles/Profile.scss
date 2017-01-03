@@ -221,6 +221,7 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    left: 28px;
     margin-left: auto;
     margin-right: auto;
     // top: 50%;
@@ -230,6 +231,9 @@
 .photoGrid:after {
   content: "";
   flex: auto;
+}
+.photoGrid:nth-child(3){
+  margin-right: 0;
 }
 
 .load-more {
@@ -514,11 +518,52 @@
     }
 }
 @media(max-width:735px) {
-    .profilePhoto{
-      transform: scale(.6);
+    .picItem {
+        margin-right: 3px;
+        margin-bottom: 3px;
     }
-    .profile-username {
-      font-size: 21px;
+    #expanded-content{
+    flex-direction: column;
+    }
+    .expand-comments{
+    position: relative;
+    z-index: 9;
+    max-width: 84vw;
+
+    img{
+      border-radius: 100px;
+      max-width: 35px;
+    }
+  }
+    .extend-content #expand-img{
+      max-width: 84vw;
+    }
+    .expanded-view figure{
+    max-width: 84vw;
+    }
+}
+@media(min-width:800px) {
+    .profileInfo {
+        margin-top:0px;
+        padding-left: 40px;
+        max-width: 935px;
+        align-items: stretch;
+        margin-left: auto;
+        margin-right: auto;
+
+        .mobileCounters {
+            display: none;
+        }
+
+        .mobileBioContainer {
+            display: none;
+        }
+        .profileInfoRow {
+            .profilePhoto {
+                height: 152px;
+                width: 152px;
+            }
+
 
             .profileInfoRight {
                 padding-left: 50px;
@@ -570,65 +615,13 @@
                 }
             }
         }
+    }
+
     .picItem {
-        margin-right: 3px;
-        margin-bottom: 3px;
-    }
-    #expanded-content{
-    flex-direction: column;
-    }
-    .expand-comments{
-    position: relative;
-    z-index: 9;
-    max-width: 84vw;
-
-    img{
-      border-radius: 100px;
-      max-width: 35px;
-    }
-  }
-    .extend-content #expand-img{
-      max-width: 84vw;
-    }
-    .expanded-view figure{
-    max-width: 84vw;
+        margin-right: 2vw;
+        margin-bottom: 3vw;
     }
 }
-@media(min-width:800px) {
-    .profileInfo {
-        margin-top:0px;
-        padding-left: 40px;
-        max-width: 935px;
-        align-items: stretch;
-        margin-left: auto;
-        margin-right: auto;
-
-        .mobileCounters {
-            display: none;
-        }
-        .mobileBioContainer {
-            display: none;
-        }
-        .profileInfoRow {
-            .profilePhoto {
-                height: 152px;
-                width: 152px;
-            }
-
-  }
-  .counters li {
-    display: inline-block;
-    margin-right: 40px;
-  }
-  .bold-profile {
-    font-weight: bold;
-  }
-  #follow{
-    cursor: pointer;
-  }
-  }
-}
-  
   //expanded photo view
 
 }

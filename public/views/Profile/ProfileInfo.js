@@ -30,7 +30,7 @@ export default class ProfileInfo extends React.Component {
 
     render() {
         return (
-        <div>
+
             <div className='profileInfo'>
                 {this.state.showLogout
                     ? <div className="logoutOverlay">
@@ -145,16 +145,6 @@ export default class ProfileInfo extends React.Component {
                     </span>
                 </div>
             </div>
-
-            <div className="counters">
-                <ul>
-                <li><span className="bold-profile">{this.props.posts.length}</span> posts</li>
-                <li id="follow" onClick={this.props.followViewHandle}><span className="bold-profile">{this.props.user.followers ? this.props.user.followers.length : 0}</span> followers</li>
-                <li id="follow" onClick={this.props.followViewHandle}><span className="bold-profile">{this.props.user.following ? this.props.user.following.length : 0}</span> following</li>
-                </ul>
-            </div>
-            <div><span className="bold-profile">{this.props.user.fullname}</span>{this.props.user.bio}</div>
-    </div>
-    )
-  }
+        )
+    }
 }
