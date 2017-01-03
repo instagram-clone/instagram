@@ -65,11 +65,10 @@
 
   .photoGrid{
     // border: 1px solid red;
-    width: 965px;
+    width: 70%;
     height: auto;
     margin: auto;
     margin-top: 44px;
-    flex-shrink: 0;
   }
   .load-more{
     border: 2px solid #3897F0;
@@ -94,7 +93,7 @@
   }
   .picItem {
     width: 293px;
-    height: 293px;
+    height: 29vh;
     background-color:#FAFAFA;
     overflow: hidden;
     position: relative;
@@ -182,8 +181,6 @@
     flex-direction: row;
     line-height: 40px;
     margin-bottom: 20px;
-
-
   }
   .counters {
 
@@ -212,13 +209,13 @@
     align-items: center;
   }
   .expanded-view figure{
-    max-width: 700px;
+    max-width: 600px;
     z-index: 3;
   }
   .expanded-view img{
-    max-width: 700px;
+    max-width: 600px;
     position: relative;
-    z-index: 9;
+    z-index: 3;
   }
   #profile-caption{
     cursor: pointer;
