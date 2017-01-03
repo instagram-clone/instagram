@@ -3,6 +3,7 @@ import Nav from '../Nav/Nav';
 import axios from 'axios';
 import getLoggedInUser from '../../utils/getLoggedInUser';
 import Cookies from 'js-cookie';
+import { Link } from "react-router";
 
 
 export default class EditProfileView extends React.Component{
@@ -16,6 +17,7 @@ export default class EditProfileView extends React.Component{
       contact: '',
       gender: '',
       profilepic: '',
+      initialprofilepic: getLoggedInUser.getLoggedInUser().profilepic,
       initialusername: getLoggedInUser.getLoggedInUser().username,
     };
   }
@@ -49,6 +51,11 @@ export default class EditProfileView extends React.Component{
     this.setState({gender: event.target.value});
   }
 
+  handleProfilePicChange(event){
+    console.log(event.target.value);
+    this.setState({profilepic: event.target.value});
+  }
+
   handleSubmitChange(event){
     event.preventDefault();
       console.log('HELLOOO');
@@ -68,10 +75,11 @@ export default class EditProfileView extends React.Component{
           });
 
       } else {
-          alert('Cookie Did not change');
+
       }
 
     })
+    window.location.href = '#/profile/' + this.state.username;
   }
 
 
@@ -90,51 +98,93 @@ export default class EditProfileView extends React.Component{
 
       <div>
       <Nav/>
-        <h2>This is the Edit Profile View!</h2>
 
-      <div>
-      <img height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
-      </div>
+      <div className="editProfileContainer">
 
-      <div>
-      Name <input value={this.state.fullname} onChange={this.handleNameChange.bind(this)} type="text"/>
-      </div>
+        <div className="editProfileLinks">
+          <ul>
+            <li className="ulLink ulEditProfile"><a>Edit Profile</a></li>
+            <li className="ulLink"><Link to="/changePassword">Change Password</Link></li>
+          </ul>
+        </div>
 
-      <div>
-      Username <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
-      </div>
 
-      <div>
-      Website <input value={this.state.website} onChange={this.handleWebsiteChange.bind(this)} type="text"/>
-      </div>
+        <div className="editProfileContents">
+          <div className="username">
+            <img className="profilePic" height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
+          </div>
 
-      <div>
-      Bio <input value={this.state.bio} onChange={this.handleBioChange.bind(this)} type="text"/>
-      </div>
+          <form className="editForm">
+          <div className="formItem">
 
-      PRIVATE INFORMATION
 
-      <div>
-      Email <input value={this.state.contact} onChange={this.handleEmailChange.bind(this)} type="text"/>
-      </div>
+          </div>
 
-      <div>
-      Gender
-      <select value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
-        <option value="Not Specified">Not Specified</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      </div>
 
-      <div>
-      Similar Account Suggestions
-      <input type="checkbox"/>
-      Include your account when recommending similar accounts people might want to follow.<a href="#">[?]</a>
-      </div>
 
-      <div>
-      <button onClick={this.handleSubmitChange.bind(this)}>Submit</button><a href="#">Temporarily disable my account</a>
+          <div className="formItem">
+          <div className="formName">
+            Name
+          </div>
+            <input value={this.state.fullname} onChange={this.handleNameChange.bind(this)} type="text"/>
+          </div>
+
+
+
+
+          <div className="formItem">
+          <div className="formName">
+            Username
+          </div>
+            <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
+          </div>
+
+
+          <div className="formItem">
+          <div className="formName">
+            Website
+          </div>
+             <input value={this.state.website} onChange={this.handleWebsiteChange.bind(this)} type="text"/>
+          </div>
+
+          <div className="formItem">
+          <div className="formName">
+            Bio
+          </div>
+            <input className="bioInput" value={this.state.bio} onChange={this.handleBioChange.bind(this)} type="text"/>
+          </div>
+          <div className="formItem privateInfo">
+          PRIVATE INFORMATION
+          </div>
+
+          <div className="formItem">
+          <div className="formName">
+            Email
+          </div>
+             <input value={this.state.contact} onChange={this.handleEmailChange.bind(this)} type="text"/>
+          </div>
+
+          <div className="formItemGender">
+          Gender
+          <div className="genderHolder">
+            <select className="genderDrop" value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
+            <option value="Not Specified">Not Specified</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          </div>
+          </div>
+
+          <div className="formItemBtn">
+            <button className="submitBtn"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
+
+            <a className="disableAcc" href="#">Temporarily disable my account</a>
+          </div>
+          </form>
+
+
+        </div>
+
       </div>
 
       </div>
