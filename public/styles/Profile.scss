@@ -367,7 +367,7 @@
   }
   #profile-caption{
     cursor: pointer;
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 10px;
     position: relative;
     top: 0px;
@@ -375,6 +375,11 @@
   }
   .commentInfo{
     margin-bottom: 5px;
+  }
+  .commentInfo .username{
+    font-size: 14px;
+    margin-top: 0px;
+    display: inherit;
   }
   .expanded-view .commentBar{
     display: flex;
