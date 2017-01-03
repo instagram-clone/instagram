@@ -19,6 +19,7 @@ export default class CommentBar extends React.Component {
         }
     }
     render() {
+        console.log(this.props.alreadyFavorited)
         return (
             <div className='commentBar'>
                 <div id="profile-heart" onClick={() => {{this.props.alreadyFavorited ? this.props.unfavorite() : this.props.favorite()}}} className={`sprite ${this.props.alreadyFavorited

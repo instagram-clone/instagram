@@ -231,7 +231,7 @@
   .commentInfo{
     margin-bottom: 5px;
   }
-  .commentBar{
+  .expanded-view .commentBar{
     display: flex;
     margin-top: 10px;
   }
@@ -241,20 +241,29 @@
   #profile-post-info{
     margin-bottom: 10px;
   }
-  #profile-comment-display{
+  .expanded-view #profile-comment-display{
     margin-top: 20px;
     height: 60%;
   }
-  #profile-heart{
-    cursor: pointer;
-    background-image:url($spriteUrl);
-    background-size: 106px 108px;
-    background-position: 0px -18px;
-    height:26px;
-    width:40px;
-    margin-top:2px;
-    margin-right:10px;
+  .expanded-view {
+    #profile-heart{
+      cursor: pointer;
+      background-image:url($spriteUrl);
+      background-size:352px 311px;
+      height:26px;
+      width:35px;
+      margin-top:2px;
+      margin-right:10px;
+    }
+    #profile-heart.favoriteSprite{
+      background-position: -314px -176px;
+    }
+    #profile-heart.alreadyFavoritedSprite{
+      background-position: -152px -224px;
+    }
   }
+  
+
   #profile-sprite{
     background-image:url($spriteUrl);
     background-size: 352px 311px;

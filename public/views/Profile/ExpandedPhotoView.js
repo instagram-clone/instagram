@@ -1,15 +1,18 @@
 import React from 'react';
+import axios from 'axios';
 import CommentDisplay from './../Feed/FeedPhoto/CommentDisplay';
 import CommentBar from './../Feed/FeedPhoto/CommentBar';
+
 import {getAllUserData} from './../../utils/getLoggedInUser';
-import axios from 'axios';
+
 
 export default class ExpandedPhotoView extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
-      alreadyLiked: 'false'
+      alreadyLiked: 'false',
+      comments: this.props.photo.comments
     }
   }
 componentDidMount() {
@@ -25,9 +28,10 @@ componentDidMount() {
             this.setState({alreadyLiked, userData: res, likesCount: this.props.info.likes.length});
         });
     }
-      addFavorite() {
+    addFavorite() {
+        console.log('faved');
         axios.post('/api/favorite', {
-            photoID: this.props.photo._id,
+            photoID: this.props.photo.id,
             userID: this.state.userData.data._id
         });
         this.setState({
@@ -37,8 +41,9 @@ componentDidMount() {
     }
 
     removeFavorite() {
+        console.log('unfaved');
         axios.post('/api/unfavorite', {
-            photoID: this.props.photo._id,
+            photoID: this.props.photo.id,
             userID: this.state.userData.data._id
         });
         this.setState({
@@ -48,11 +53,11 @@ componentDidMount() {
     }
 
     postComment(comment) {
-        // console.log(this.state.userData)
+        console.log(this.props.photo);
         axios.post('/api/postComment', {
             comment,
             userid: this.state.userData.data._id,
-            photoid: this.props.photo._id,
+            photoid: this.props.photo.id,
             username: this.state.userData.data.username
         })
         let newComments = this.state.comments;
@@ -63,10 +68,10 @@ componentDidMount() {
         this.setState({
             comments : newComments
         })
+        //console.log(this.state);
     }
 
   render(){
-    console.log('expand handle', this.props)
     var bgImg = {
       backgroundImage: 'url(' + this.props.photourl +')',
       backgroundPosition: 'center'
@@ -90,7 +95,8 @@ componentDidMount() {
           <p>{this.props.timestamp}</p>
           <CommentDisplay className="expand-comment-display"
           commentData={{
-                    likes: this.props.info.likes.length,
+                    likes: this.props.info.likes.length - this.state.likesCount,
+                    username: this.props.user.username,
                     caption: this.props.info.description,
                     comments: this.props.info.comments
                 }}
@@ -100,10 +106,10 @@ componentDidMount() {
                     <div className='line'></div>
           </div>
           <CommentBar 
-          alreadyFavorited={this.state.alreadyLiked}
-          favorite={this.addFavorite.bind(this)}
-          unfavorite={this.removeFavorite.bind(this)}
-          postComment = {this.postComment.bind(this)}
+            alreadyFavorited={this.state.alreadyLiked}
+            favorite={this.addFavorite.bind(this)}
+            unfavorite={this.removeFavorite.bind(this)}
+            postComment={this.postComment.bind(this)}
           />
           </div>
           </div>
