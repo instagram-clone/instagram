@@ -251,7 +251,7 @@
       background-image:url($spriteUrl);
       background-size:352px 311px;
       height:26px;
-      width:35px;
+      width:30px;
       margin-top:2px;
       margin-right:10px;
     }
@@ -310,7 +310,7 @@
   }
   #comment-container{
     position: relative;
-    bottom: -10%;
+    margin-top: 30px;
   }
   .expand-comments{
     background-color:$darkBackground;
@@ -319,6 +319,9 @@
     position: relative;
     z-index: 9;
     width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     img{
       border-radius: 100px;
