@@ -67,4 +67,4 @@ class LoginForm extends React.Component {
         )
     }
 }
-export default connect(state => ({user: state.user}))(LoginForm);
+export default connect(state => ({storeUser: state.storeUser}))(LoginForm);
