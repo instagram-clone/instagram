@@ -3,30 +3,42 @@ import {Link} from "react-router";
 import getLoggedInUser from '../../utils/getLoggedInUser';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import FriendsCarousel from './FriendsCarousel';
 
-export default class ProfileInfo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showLogout: false
-        }
-    }
 
-    toggleLogout() {
-        this.setState({
-            showLogout: !this.state.showLogout
-        });
+export default class ProfileInfo extends React.Component{
+  constructor(props){
+    super(props);
+    this.state ={
+      showLogout: false,
+      friendsCarousel: false,
     }
+  }
 
-    logout() {
-        event.preventDefault();
-        Cookies.remove('user');
-        window.location.href = '#/'
-    }
+  toggleLogout(){
+    this.setState({
+      showLogout: !this.state.showLogout
+    });
+  }
+  toggleFriendsCarousel(){
+    this.setState({
+      friendsCarousel: !this.state.friendsCarousel
+    })
+  }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps, "this is the child");
-    }
+  logout(){
+    event.preventDefault();
+    Cookies.remove('user');
+    window.location.href = '#/'
+  }
+
+  componentWillMount(){
+
+  }
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps, "this is the child");
+
+  }
 
     render() {
         return (
@@ -62,7 +74,7 @@ export default class ProfileInfo extends React.Component {
                                 {this.props.showfollow
                                     ?  <div className='row'>
                                             <div className="button buttonBlue buttonClear" onClick={this.props.clickFollowHandler}>Follow</div>
-                                            <div className='button buttonClear buttonBlue followSpacing followSprite'>
+                                            <div onClick={this.toggleFriendsCarousel.bind(this)}  className='button buttonClear buttonBlue followSpacing followSprite'>
                                                 <div className="arrowSpriteFollow"> </div>
                                             </div>
                                         </div>
@@ -70,7 +82,7 @@ export default class ProfileInfo extends React.Component {
                                 {this.props.showfollowing
                                     ?  <span className='row'>
                                             <div className="following button followSpacing" onClick={this.props.clickUnfollowHandler}>Following</div>
-                                            <div className='following button followSprite'>
+                                            <div onClick={this.toggleFriendsCarousel.bind(this)} className='following button followSprite'>
                                                 <div className="arrowSpriteFollowing"> </div>
                                             </div>
                                         </span>
@@ -144,8 +156,18 @@ export default class ProfileInfo extends React.Component {
                         following
                     </span>
                 </div>
+                {this.state.friendsCarousel ?
+                  <div className="friends-carousel">
+                    <h1>Suggested</h1>
+                    <FriendsCarousel user={this.props.user}/>
+                  </div>
+
+
+                  : null}
             </div>
 
-        )
-    }
+
+
+    )
+  }
 }

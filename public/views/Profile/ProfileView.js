@@ -4,6 +4,7 @@ import ProfileInfo from './ProfileInfo';
 import {getProfileInfo} from './ProfileResource';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getPostCount} from './ProfileResource';
+import {getProfiles} from './ProfileResource';
 import axios from 'axios';
 // import {followUser} from './ProfileResource';
 
@@ -84,7 +85,7 @@ export default class ProfileView extends React.Component{
       axios.put(`/api/removefollower/${getLoggedInUser().username}`, {username: this.props.params.username});
     }
   render(){
-
+    
     return(
       <div className="profileView">
         <Nav/>
