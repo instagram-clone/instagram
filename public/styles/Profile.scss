@@ -71,11 +71,9 @@
                     display: flex;
                     flex-direction: row;
                 }
-
                 .followSprite{
-                    padding:11.5px 11px;
+                    padding:11px !important;
                 }
-
                 .buttonBlue{
                     line-height: 29px;
                     border:1px solid $blue;
@@ -630,4 +628,3 @@
   //expanded photo view
 
 }
-
