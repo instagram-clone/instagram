@@ -12,10 +12,10 @@ export default class CommentDisplay extends React.Component{
         const comments = this.state.commentArr.map((comment, i) => {
                         return (
                             <div key={i} className='commentInfo'>
-                                
+
                                 <Link to={`profile/${comment.username}`} className='bold username'>{comment.username}</Link>
                                 <span className='comment' id="comment-profile">{comment.comment}</span>
-                                
+
                             </div>
                         )
                    });

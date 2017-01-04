@@ -78,17 +78,17 @@
     .commentDisplay{
         background-color:$darkBackground;
         padding:24px;
-        // padding-bottom:25px;
+        padding-bottom:25px;
         margin-top:-3px;
         .postInfo{
             margin-bottom:10px;
         }
         .bold, .commentUsername{
-            // margin-bottom:7px;
             font-weight: 600;
             font-size:15px;
-            // margin-bottom:7px;
+            margin-bottom:7px;
             line-height:18px;
+            margin-right:.3em;
         }
         .commentUsername{
             margin-right:.3em;
@@ -136,7 +136,6 @@
             width:90%;
         }
     }
-
 }
 
 @media(min-width:600px) {
