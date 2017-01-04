@@ -387,23 +387,23 @@
     top: 0px;
     right: 0px;
   }
-  .commentInfo{
-    margin-bottom: 5px;
-  }
-  .commentInfo .username{
-    font-size: 14px;
-    display: inline;
-  }
-  .postInfo .username{
-    display: inline;
-    font-size: 17px;
-    font-weight: 900;
-    padding-right: 5px;
-  }
-  .expanded-view .commentBar{
-    display: flex;
-    margin-top: 10px;
-  }
+  // .commentInfo{
+  //   margin-bottom: 5px;
+  // }
+  // .commentInfo .username{
+  //   font-size: 14px;
+  //   display: inline;
+  // }
+  // .postInfo .username{
+  //   display: inline;
+  //   font-size: 17px;
+  //   font-weight: 900;
+  //   padding-right: 5px;
+  // }
+  // .expanded-view .commentBar{
+  //   display: flex;
+  //   margin-top: 10px;
+  // }
   #profile-likes{
     margin-bottom: 10px;
   }
@@ -481,7 +481,7 @@
   }
   .expand-comments{
     background-color:$darkBackground;
-    padding:24px;
+    // padding:24px;
     padding-bottom:10px;
     position: relative;
     z-index: 9;
@@ -630,4 +630,3 @@
   //expanded photo view
 
 }
-
