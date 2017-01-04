@@ -87,6 +87,35 @@ header {
         height: 10px;
     }
 }
+.notifications{
+    max-width: 362px;
+    min-height: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    display: block;
+    z-index: 11;
+    width: 500px;
+    white-space: normal;
+    position: absolute;
+    top: 65px;
+    margin-left: -311px;
+}
+    .triangle{
+        border-color: transparent transparent #fff;
+        border-style: solid;
+        border-width: 0 10px 10px;
+        height: 0;
+        position: absolute;
+        top: 56px;
+        left: 72px;
+        width: 0;
+        z-index: 12;
+    }
+ 
 @media(min-width:600px) {
     header{
         margin-bottom:60px;
