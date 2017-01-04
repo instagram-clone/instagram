@@ -11,28 +11,26 @@ export default class PhotoHeader extends React.Component {
     getDate() {
         // let date = this.props.timestamp.split('T')[0].split('-');
         // date = date.join('/');
-        let testDate = new Date(this.props.timestamp);
+        let photoDate = new Date(this.props.timestamp);
         let photo = Date.parse(this.props.timestamp);
         let today = new Date();
         let daysBetween = Math.floor((today - photo) / 86400000);
         let relativeDate;
         //if the photo was posted today, it shows the difference in hours, or minutes,
         //otherwise, it shows how many days or weeks ago it was posted
-        if (Math.round(Math.abs(today - testDate) / 36e5) < 24) {
+        if (Math.round(Math.abs(today - photoDate) / 36e5) < 24) {
             //checks if photo was posted less than an hour ago
-            if (Math.round(Math.abs(today - testDate) / 36e5) <= 0) {
-                let dateTime = this.props.timestamp.split('T')[1].split('-')[0];
-                dateTime = today.getMinutes() - parseInt(dateTime.split(':')[1]);
-                //sets timestamp to 'now' is photo is less than 1min old,
-                //otherwise show minutes count
-                if (dateTime === 0) {
+            console.log(Math.round(Math.abs(today - photoDate) / 36e5));
+            if (Math.round(Math.abs(today - photoDate) / 36e5) <= 0) {
+                let minsDiff = Math.round((today.getTime() - photoDate.getTime())/60000);
+                if (minsDiff === 0) {
                     relativeDate = 'now';
                 } else {
-                    relativeDate = dateTime + 'm';
+                    relativeDate = minsDiff + 'm';
                 }
             } else {
                 //get difference in hours
-                relativeDate = Math.round(Math.abs(today - testDate) / 36e5) + 'h';
+                relativeDate = Math.round(Math.abs(today - photoDate) / 36e5) + 'h';
             }
         } else if (daysBetween < 7) {
             relativeDate = daysBetween + 'd';
