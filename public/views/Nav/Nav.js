@@ -14,6 +14,12 @@ export default class Nav extends React.Component {
             loggedInUserName: loggedInUser.getLoggedInUser().username
         }
     }
+    onSearchChange(e) {
+        console.log(e.target.value);
+        if(e.target.charCode==13){
+            alert('Enter clicked!!!');
+        }
+    }
     onSearchActive() {
         this.setState({
             searchStyle: {
@@ -41,6 +47,7 @@ export default class Nav extends React.Component {
                     <div className='search'>
                         <input onBlur={this.onSearchLeave.bind(this)}
                                onMouseUp={this.onSearchActive.bind(this)}
+                               onChange={this.onSearchChange.bind(this)}
                                placeholder='Search'
                                className='searchField'
                                style={this.state.searchStyle}/>

@@ -7,10 +7,7 @@ export default class SearchView extends React.Component{
     return (
       <div>
         <Nav/>
-        <h3>the #tag that was searched</h3>
-        <p>number of posts/results</p>
         <PhotoGrid/>
-
       </div>
     )
   }
