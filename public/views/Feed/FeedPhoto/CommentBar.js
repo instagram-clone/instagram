@@ -19,13 +19,14 @@ export default class CommentBar extends React.Component {
         }
     }
     render() {
+        console.log(this.props.alreadyFavorited)
         return (
             <div className='commentBar'>
-                <div onClick={() => {{this.props.alreadyFavorited ? this.props.unfavorite() : this.props.favorite()}}} className={`sprite ${this.props.alreadyFavorited
+                <div id="profile-heart" onClick={() => {{this.props.alreadyFavorited ? this.props.unfavorite() : this.props.favorite()}}} className={`sprite ${this.props.alreadyFavorited
                     ? `alreadyFavoritedSprite`
                     : `favoriteSprite`}`}></div>
-                <input value={this.state.text} onChange={this.handleCommentChange.bind(this)} onKeyPress={this.handleCommentChange.bind(this)} type='text' placeholder='Add a comment...' className='commentInput'/>
-                <div className='sprite infoSprite'></div>
+                <input id="profile-input" value={this.state.text} onChange={this.handleCommentChange.bind(this)} onKeyPress={this.handleCommentChange.bind(this)} type='text' placeholder='Add a comment...' className='commentInput'/>
+                <div className='sprite infoSprite' id="profile-sprite"></div>
             </div>
         )
     }

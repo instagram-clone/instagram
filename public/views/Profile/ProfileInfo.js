@@ -167,8 +167,6 @@ class ProfileInfo extends React.Component {
                   : null}
             </div>
 
-
-
     )
   }
 }
