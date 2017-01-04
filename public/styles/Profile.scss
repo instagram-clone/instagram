@@ -263,6 +263,7 @@
 
 .picItem {
     max-width: 29vw;
+    max-height: 29vw;
     background-color:#FAFAFA;
     overflow: hidden;
     position: relative;
@@ -419,7 +420,7 @@
       background-image:url($spriteUrl);
       background-size:352px 311px;
       height:26px;
-      width:30px;
+      width:25px;
       margin-top:2px;
       margin-right:10px;
     }
