@@ -8,11 +8,10 @@ export default class PhotoGrid extends React.Component{
     }
   }
   componentWillReceiveProps(nextProps){
-    console.log(nextProps.posts, 'photo grid');
     this.setState({
       picInfo: nextProps.posts
-    }, () => {console.log(this.state, 'state')});
-    
+    });
+
   }
   render(){
     let posts = [];

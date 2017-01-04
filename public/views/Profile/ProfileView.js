@@ -25,6 +25,10 @@ export default class ProfileView extends React.Component{
   }
 
   getProfile(user) {
+    this.setState ({
+      showfollowing: false,
+      showfollow: false,
+    })
      if(user === getLoggedInUser().username){
        this.setState({
          currentuser: true,
@@ -57,19 +61,19 @@ export default class ProfileView extends React.Component{
    }
  componentWillMount(){
    this.getProfile(this.props.params.username);
+   console.log('mounted');
  }
 
  componentWillReceiveProps(nextProps) {
-   // if (this.props.params.username !== nextProps.params.username) {
-     this.getProfile(nextProps.params.username);
-   // } 
+    // window.location.href = '#/profile/' + nextProps.params.username;
+    this.getProfile(nextProps.params.username);
+
  }
     clickFollowHandler(){
       this.setState({
         showfollow: false,
         showfollowing: true,
       }, () => {
-        console.log(this.state.showfollow, this.state.showfollowing, 'following');
       });
       axios.put(`/api/followuser/${getLoggedInUser().username}`, {username: this.props.params.username});
       axios.put(`/api/addfollower/${getLoggedInUser().username}`, {username: this.props.params.username});
@@ -79,7 +83,6 @@ export default class ProfileView extends React.Component{
         showfollow: true,
         showfollowing: false,
       }, ()=> {
-        console.log(this.state.showfollow, this.state.showfollowing, 'unfollowing');
       });
       axios.put(`/api/unfollowuser/${getLoggedInUser().username}`, {username: this.props.params.username});
       axios.put(`/api/removefollower/${getLoggedInUser().username}`, {username: this.props.params.username});
@@ -89,7 +92,7 @@ export default class ProfileView extends React.Component{
     return(
       <div className="profileView">
         <Nav/>
-        <ProfileInfo clickFollowHandler={this.clickFollowHandler.bind(this)} clickUnfollowHandler={this.clickUnfollowHandler.bind(this)}{...this.state}/>
+        <ProfileInfo paramUserName={this.props.params.username} clickFollowHandler={this.clickFollowHandler.bind(this)} clickUnfollowHandler={this.clickUnfollowHandler.bind(this)}{...this.state}/>
         <PhotoGrid posts={this.state.posts}/>
         <div className="load-more">
         <p>Load More</p>
