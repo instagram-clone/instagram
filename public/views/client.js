@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+import store from '../store';
+import { Provider } from 'react-redux';
+
 import LoginView from './Login/LoginView';
 import FeedView from  './Feed/FeedView';
 import ProfileView from './Profile/ProfileView';
@@ -54,15 +57,17 @@ function requireNotLoggedIn(nextState, replace) {
 class App extends React.Component{
 	render() {
 		return (
-			<Router history={hashHistory}>
-					<Route path="/" component={LoginView} onEnter={requireNotLoggedIn}/>
-					<Route path="/feed" component={FeedView} onEnter={requireAuth}/>
-					<Route path="/profile/:username" component={ProfileView} />
-					<Route path="/upload"	component={UploadView} onEnter={requireAuth}/>
-					<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
-					<Route path="/search" component={SearchView}/>
-					<Route path="/changePassword" component={ChangePasswordView} onEnter={requireAuth}/>
-			</Router>
+			<Provider store={store}>
+				<Router history={hashHistory}>
+						<Route path="/" component={LoginView} onEnter={requireNotLoggedIn}/>
+						<Route path="/feed" component={FeedView} onEnter={requireAuth}/>
+						<Route path="/profile/:username" component={ProfileView} />
+						<Route path="/upload"	component={UploadView} onEnter={requireAuth}/>
+						<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
+						<Route path="/search" component={SearchView}/>
+						<Route path="/changePassword" component={ChangePasswordView} onEnter={requireAuth}/>
+				</Router>
+			</Provider>
 		)
 	}
 }

@@ -1,5 +1,7 @@
 const User = require('../../models/User');
 const Post = require('../../models/Post');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 module.exports = {
   readProfileInfo: function(req, res, next){
@@ -23,6 +25,22 @@ module.exports = {
         .exec((err, posts) =>{
           if(err) return res.status(500).json(err);
           return res.status(200).json(posts);
+        })
+    }
+  },
+  getProfiles: function(req, res, next){
+    if (req.query.ids){
+      let idArray = req.query.ids.split(',')
+        .map(e => new ObjectId(e));
+      User.find({_id: {$in: idArray}})
+        .select({
+          username: 1,
+          fullname: 1,
+          profilepic: 1,
+            })
+        .exec((err, profiles) =>{
+          if(err) return res.status(500).json(err);
+          return res.status(200).json(profiles);
         })
     }
   }

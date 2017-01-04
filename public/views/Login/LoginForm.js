@@ -3,7 +3,10 @@ import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import Cookies from 'js-cookie';
 
-export default class LoginForm extends React.Component {
+import {addUser} from '../../ducks/userDuck';
+import {connect} from 'react-redux';
+
+class LoginForm extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -25,6 +28,7 @@ export default class LoginForm extends React.Component {
 
         axios.get('/api/login?username=' + this.state.username).then((response) => {
             console.log(response);
+            this.props.dispatch(addUser(response.data[0]));
             if (response.data.length === 0) {
                 alert('No user found');
             } else {
@@ -63,3 +67,4 @@ export default class LoginForm extends React.Component {
         )
     }
 }
+export default connect(state => ({storeUser: state.storeUser}))(LoginForm);
