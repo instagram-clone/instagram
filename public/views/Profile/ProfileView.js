@@ -4,6 +4,7 @@ import ProfileInfo from './ProfileInfo';
 import {getProfileInfo} from './ProfileResource';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getPostCount} from './ProfileResource';
+import {getProfiles} from './ProfileResource';
 import axios from 'axios';
 import FollowView from './FollowView';
 // import {followUser} from './ProfileResource';
@@ -60,9 +61,9 @@ export default class ProfileView extends React.Component{
  }
 
  componentWillReceiveProps(nextProps) {
-   if (this.props.params.username !== nextProps.params.username) {
+   // if (this.props.params.username !== nextProps.params.username) {
      this.getProfile(nextProps.params.username);
-   }
+   // } 
  }
     clickFollowHandler(){
       this.setState({

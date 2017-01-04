@@ -9,23 +9,29 @@ export default class PhotoHeader extends React.Component {
         }
     }
     getDate() {
-        let date = this.props.timestamp.split('T')[0].split('-');
-        date = date.join('/');
-        let photo = new Date(date);
+        // let date = this.props.timestamp.split('T')[0].split('-');
+        // date = date.join('/');
+        let photoDate = new Date(this.props.timestamp);
+        let photo = Date.parse(this.props.timestamp);
         let today = new Date();
         let daysBetween = Math.floor((today - photo) / 86400000);
         let relativeDate;
-        //if the photo was posted today, it shows the time,
+        //if the photo was posted today, it shows the difference in hours, or minutes,
         //otherwise, it shows how many days or weeks ago it was posted
-        if (daysBetween <= 0) {
-            var dateTime = this.props.timestamp.split('T')[1].split('-')[0];
-            if ((parseInt(dateTime.split(':')[0]) - 7) > 12) {
-                dateTime = parseInt(dateTime.split(':')[0]) - 12 + ':' + dateTime.split(':')[1];
-                dateTime = Math.abs(today - photo) / 36e5;
+        if (Math.round(Math.abs(today - photoDate) / 36e5) < 24) {
+            //checks if photo was posted less than an hour ago
+            console.log(Math.round(Math.abs(today - photoDate) / 36e5));
+            if (Math.round(Math.abs(today - photoDate) / 36e5) <= 0) {
+                let minsDiff = Math.round((today.getTime() - photoDate.getTime())/60000);
+                if (minsDiff === 0) {
+                    relativeDate = 'now';
+                } else {
+                    relativeDate = minsDiff + 'm';
+                }
             } else {
-                dateTime = parseInt(dateTime.split(':')[0]) - 7 + ':' + dateTime.split(':')[1];
+                //get difference in hours
+                relativeDate = Math.round(Math.abs(today - photoDate) / 36e5) + 'h';
             }
-            relativeDate = dateTime
         } else if (daysBetween < 7) {
             relativeDate = daysBetween + 'd';
         } else if (daysBetween >= 7 && daysBetween <= 14) {
