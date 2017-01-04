@@ -12,8 +12,10 @@ export default class CommentDisplay extends React.Component{
         const comments = this.state.commentArr.map((comment, i) => {
                         return (
                             <div key={i} className='commentInfo'>
-                                <Link to={`profile/${comment.username}`} className='bold commentUsername'>{comment.username}</Link>
-                                <span className='comment'>{comment.comment}</span>
+                                
+                                <Link to={`profile/${comment.username}`} className='bold username'>{comment.username}</Link>
+                                <span className='comment' id="comment-profile">{comment.comment}</span>
+                                
                             </div>
                         )
                    });
@@ -25,6 +27,7 @@ export default class CommentDisplay extends React.Component{
         });
     }
     componentWillReceiveProps(){
+        console.log('comment display', this.props.commentData);
         this.setState({
             comments : this.createArr()
         });
@@ -32,13 +35,15 @@ export default class CommentDisplay extends React.Component{
     render(){
         console.log('render')
         return (
-            <div className='commentDisplay'>
-                <div className='bold'>{this.props.commentData.likes} likes</div>
-                <div className='postInfo'>
-                    <Link to={`profile/${this.props.commentData.username}`} className='bold commentUsername'>{this.props.commentData.username}</Link>
-                    <span className='caption'>{this.props.commentData.caption}</span>
+            <div className='commentDisplay' id="profile-comment-display">
+                <div className='bold' id="profile-likes">{this.props.commentData.likes} likes</div>
+                <div className='postInfo' id="profile-post-info">
+                    <Link to={`profile/${this.props.commentData.username}`} className='bold username'>{this.props.commentData.username}</Link>
+                    <span className='caption' id="profile-caption">{this.props.commentData.caption}</span>
                 </div>
+                <div id="comment-info-container">
                 {this.state.comments}
+                </div>
             </div>
         )
     }
