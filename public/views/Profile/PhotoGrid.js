@@ -16,7 +16,7 @@ export default class PhotoGrid extends React.Component{
     
   }
   expandHandle(picInfo){
-    console.log(picInfo);
+    console.log('pic', picInfo);
     this.setState({
       expandImg: picInfo
     })

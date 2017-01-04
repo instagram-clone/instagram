@@ -72,6 +72,7 @@ componentDidMount() {
     }
 
   render(){
+      console.log('user',this.props.user);
     var bgImg = {
       backgroundImage: 'url(' + this.props.photourl +')',
       backgroundPosition: 'center'
@@ -96,7 +97,7 @@ componentDidMount() {
           <CommentDisplay className="expand-comment-display"
           commentData={{
                     likes: this.state.likesCount,
-                    username: this.props.user.username,
+                    username: this.props.user[0].author.username,
                     caption: this.props.info.description,
                     comments: this.props.info.comments
                 }}

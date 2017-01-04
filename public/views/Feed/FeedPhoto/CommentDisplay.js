@@ -27,6 +27,7 @@ export default class CommentDisplay extends React.Component{
         });
     }
     componentWillReceiveProps(){
+        console.log('comment display', this.props.commentData);
         this.setState({
             comments : this.createArr()
         });
