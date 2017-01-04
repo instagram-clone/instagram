@@ -6,8 +6,8 @@ export default class SearchView extends React.Component{
   render(){
     return (
       <div>
-        <Nav/>
-        <PhotoGrid/>
+        <Nav />
+        <h1>{this.props.params.searchTerm}</h1>
       </div>
     )
   }
