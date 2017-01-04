@@ -1,5 +1,8 @@
 @import 'master';
 
+.editprofView {
+  padding-bottom: 60px;
+}
 
 .editProfileContainer {
   background-color: white;
@@ -10,6 +13,7 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 935px;
+  height: 550px;
 }
 
 .editProfileLinks {
@@ -30,8 +34,27 @@
   padding-right: 100px;
   input {
     width: 385px;
+    flex: 0 1 385px;
     font-size: 16px;
   }
+}
+
+.formPassItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 16px;
+  align-items: center;
+  padding-right: 175px;
+  input {
+    // width: 385px;
+    flex: 0 1 385px;
+    font-size: 16px;
+  }
+}
+
+.passInput {
+flex: 0 1 300px !important;
 }
 
 .formItemBtn {
@@ -40,23 +63,34 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 16px;
-  padding-left: 215px;
-  padding-right: 100px;
+  padding-left: 100px;
+  padding-right: 125px;
+  width: 100%;
 }
+
+.formItemPassBtn {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-right: 110px;
+  padding-top: 20px;
+}
+
 
 .formItemGender {
 
   display: flex;
   flex-direction: row;
-  // justify-content: space-between;
   margin-bottom: 16px;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
-  padding-right: 210px;
 }
 
-.genderHolder {
-  padding-left: 40px;
+
+
+.genderTitle {
+  padding-right: 35px;
+  width: 30%;
+  text-align: right;
 }
 
 
@@ -66,12 +100,20 @@
   padding-right: 20px;
 }
 
+.formPassName {
+  width: 30%;
+  text-align: right;
+
+}
+
 .editForm {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
   margin-top: 32px;
   justify-content: space-between;
+
+
 }
 
 .ulEditProfile {
@@ -86,12 +128,26 @@
   width: 40px;
   margin: 0 30px 0 150px;
 }
+
 .username {
   align-items: center;
   display: flex;
   flex-direction: row;
   font-size: 24px;
   margin-top: 30px;
+}
+
+.oldPassword {
+  padding-top: 15px;
+}
+
+.usernamePass {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .bioInput {
@@ -138,10 +194,118 @@
   padding: 0 30px 0 10px;
 }
 
+
 .disableAcc {
   color: #3897f0;
   font-size: 13px;
   letter-spacing: .5px;
   margin-left: 105px;
+}
+
+@media(max-width:1100px){
+  .disableAcc {
+    margin-left: 30px;
+  }
+}
+
+@media(max-width:1220px) {
+  .formPassItem {
+    padding-right: 50px;
+  }
+  .formItemPassBtn {
+    text-align: center;
+    margin-bottom: 16px;
+    padding-right: 0px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+    .disableAcc {
+      margin-left: 30px;
+    }
+}
+
+@media(max-width:1100px) {
+  .formPassItem {
+    padding-right: 0px;
+  }
+  .editProfileContainer {
+    width: 90%;
+  }
+  .formItemPassBtn {
+    padding-left: 100px;
+  }
+  .formItemBtn {
+    padding-right: 0px;
+  }
+}
+
+@media(max-width:800px) {
+    .editProfileLinks {
+      display: none;
+    }
+    .editProfileContainer {
+      width: 100%;
+      height: 700px;
+    }
+    .formPassItem {
+      display: inline-block;
+      padding-left: 20px;
+    }
+    .formItem {
+      display: inline-block;
+      padding-left: 20px;
+    }
+    .formPassName {
+      text-align: left;
+      padding-bottom: 15px;
+      width: 100%;
+    }
+    .formName {
+      text-align: left;
+      padding-bottom: 15px;
+      width: 100%;
+    }
+    .formItemPassBtn {
+      text-align: left;
+      width: 100%;
+      padding-left: 0px;
+      margin-left: 20px;
+    }
+    .profilePic {
+      margin: 0 20px 0 20px;
+    }
+    .privateInfo {
+      width: 100%;
+    }
+    .editProfileContents {
+      width: 100%;
+    }
+    .formItemGender {
+      align-items: center;
+      flex-direction: column;
+      display: inline-block;
+    }
+    .genderTitle {
+      text-align: left;
+      padding-left: 20px;
+      width: 100%;
+    }
+    .genderHolder {
+      padding-left: 20px;
+      padding-top: 10px;
+      display: inline-block;
+    }
+    .formItemBtn {
+      padding-left: 20px;
+      padding-right: 0;
+      display: inline-block;
+    }
+    .disableAcc {
+      text-align: right;
+    }
+    .submitBtnPass {
+      // margin-left: -75px;
+    }
+
 
 }

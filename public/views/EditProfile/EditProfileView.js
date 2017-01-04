@@ -4,6 +4,7 @@ import axios from 'axios';
 import getLoggedInUser from '../../utils/getLoggedInUser';
 import Cookies from 'js-cookie';
 import { Link } from "react-router";
+import Footer from '../Login/Footer';
 
 
 export default class EditProfileView extends React.Component{
@@ -96,7 +97,8 @@ export default class EditProfileView extends React.Component{
   render(){
     return(
 
-      <div>
+
+      <div className="editprofView">
       <Nav/>
 
       <div className="editProfileContainer">
@@ -128,8 +130,6 @@ export default class EditProfileView extends React.Component{
           </div>
             <input value={this.state.fullname} onChange={this.handleNameChange.bind(this)} type="text"/>
           </div>
-
-
 
 
           <div className="formItem">
@@ -165,7 +165,9 @@ export default class EditProfileView extends React.Component{
           </div>
 
           <div className="formItemGender">
+          <div className="genderTitle">
           Gender
+          </div>
           <div className="genderHolder">
             <select className="genderDrop" value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
             <option value="Not Specified">Not Specified</option>
@@ -176,7 +178,7 @@ export default class EditProfileView extends React.Component{
           </div>
 
           <div className="formItemBtn">
-            <button className="submitBtn"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
+            <button className="submitBtn submitBtnPass"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
 
             <a className="disableAcc" href="#">Temporarily disable my account</a>
           </div>
@@ -186,8 +188,10 @@ export default class EditProfileView extends React.Component{
         </div>
 
       </div>
-
+      <Footer/>
       </div>
+
+
     )
   }
 }
