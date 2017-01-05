@@ -64,7 +64,7 @@ class App extends React.Component{
 						<Route path="/profile/:username" component={ProfileView} />
 						<Route path="/upload"	component={UploadView} onEnter={requireAuth}/>
 						<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
-						<Route path="/search" component={SearchView}/>
+						<Route path="/search/:searchTerm" component={SearchView}/>
 						<Route path="/changePassword" component={ChangePasswordView} onEnter={requireAuth}/>
 				</Router>
 			</Provider>

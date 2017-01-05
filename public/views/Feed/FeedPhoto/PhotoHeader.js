@@ -7,6 +7,7 @@ export default class PhotoHeader extends React.Component {
         this.state = {
             relativeDate: this.getDate()
         }
+        console.log(this.props, "props!!!");
     }
     getDate() {
         // let date = this.props.timestamp.split('T')[0].split('-');
