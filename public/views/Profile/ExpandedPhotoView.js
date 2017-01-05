@@ -106,7 +106,7 @@ componentDidMount() {
           <div className='lineContainer'>
                     <div className='line'></div>
           </div>
-          <CommentBar 
+          <CommentBar
             alreadyFavorited={this.state.alreadyLiked}
             favorite={this.addFavorite.bind(this)}
             unfavorite={this.removeFavorite.bind(this)}
@@ -114,7 +114,7 @@ componentDidMount() {
           />
           </div>
           </div>
-        
+
         </div>
       </div>
     )

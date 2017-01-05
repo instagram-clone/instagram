@@ -24,7 +24,9 @@ export default class SearchView extends React.Component {
             <div>
                 <Nav/>
                 <h1>{this.props.params.searchTerm}</h1>
-                 <PhotoGrid posts={this.state.posts}/> 
+                <div className='profileView'>
+                    <PhotoGrid posts={this.state.posts}/>
+                </div>
             </div>
         )
     }
