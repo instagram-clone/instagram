@@ -20,7 +20,7 @@ class FeedView extends React.Component {
             default: 'https://scontent-fra3-1.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'
         }
     }
-    componentDidMount() {
+    componentWillMount() {
         let feed = [];
         axios.get('/api/feed?username=' + getLoggedInUser().username).then(response => {
             feed = response.data.map(userGrouping => {

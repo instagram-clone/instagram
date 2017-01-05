@@ -68,7 +68,6 @@ export default class ProfileView extends React.Component{
  componentWillReceiveProps(nextProps) {
     // window.location.href = '#/profile/' + nextProps.params.username;
     this.getProfile(nextProps.params.username);
-
  }
     clickFollowHandler(){
       this.setState({
@@ -92,15 +91,13 @@ export default class ProfileView extends React.Component{
       axios.put(`/api/removefollower/${getLoggedInUser().username}`, {username: this.props.params.username});
     }
   render(){
-
+      console.log('odkfs')
+      console.log(this.state.posts);
     return(
       <div className="profileView">
         <Nav/>
         <ProfileInfo paramUserName={this.props.params.username} clickFollowHandler={this.clickFollowHandler.bind(this)} clickUnfollowHandler={this.clickUnfollowHandler.bind(this)}{...this.state}/>
         <PhotoGrid posts={this.state.posts}/>
-
-
-
         <div className="load-more">
         <p>Load More</p>
         </div>

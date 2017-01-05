@@ -14,6 +14,18 @@ export default class Nav extends React.Component {
             loggedInUserName: loggedInUser.getLoggedInUser().username
         }
     }
+    handleSubmit(e){
+        e.preventDefault();
+        window.location.href = `/#/search/${this.state.searchText}`;
+        window.location.reload();
+        console.log(this.state.searchText);
+
+    }
+    onSearchChange(e) {
+        this.setState({
+            searchText: e.target.value
+        });
+    }
     onSearchActive() {
         this.setState({
             searchStyle: {
@@ -38,14 +50,15 @@ export default class Nav extends React.Component {
                     <Link to='feed'>
                         <div className='spriteLogo'></div>
                     </Link>
-                    <div className='search'>
+                    <form onSubmit={this.handleSubmit.bind(this)} className='search'>
                         <input onBlur={this.onSearchLeave.bind(this)}
                                onMouseUp={this.onSearchActive.bind(this)}
+                               onChange={this.onSearchChange.bind(this)}
                                placeholder='Search'
                                className='searchField'
                                style={this.state.searchStyle}/>
                         <span className='spriteSearch'></span>
-                    </div>
+                    </form>
                     <div className='right'>
                         <Link to='upload'>
                             <img src='http://i.imgur.com/xlrhCMf.png' className='plus'>
