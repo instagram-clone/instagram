@@ -8,6 +8,9 @@ export default class NotificationCard extends React.Component{
 
     }
   }
+  componentWillMount(){
+    console.log('stuff');
+  }
   render(){
     console.log('notification card', this.props);
     return (
