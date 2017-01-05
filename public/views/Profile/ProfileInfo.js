@@ -5,6 +5,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import FriendsCarousel from './FriendsCarousel';
 import AllTheirFollowers from './AllTheirFollowers';
+import AllTheyFollow from './AllTheyFollow';
 
 import {removeUser} from '../../ducks/userDuck';
 import {connect} from 'react-redux';
@@ -45,7 +46,7 @@ class ProfileInfo extends React.Component {
   }
   toggleShowWhoTheyFollow(){
     this.setState({
-      showWhoTheyFollow: !this.state.showTheyFollow
+      showWhoTheyFollow: !this.state.showWhoTheyFollow
     })
   }
 
@@ -134,7 +135,7 @@ class ProfileInfo extends React.Component {
                                         : 0}</span>
                                 followers
                             </span>
-                            <span>
+                            <span onClick={this.toggleShowWhoTheyFollow.bind(this)}>
                                 <span className="count">{this.props.user.following
                                         ? this.props.user.following.length + ' '
                                         : 0}</span>
@@ -161,13 +162,13 @@ class ProfileInfo extends React.Component {
                         </span>
                         posts
                     </span>
-                    <span className='col'>
+                    <span onClick={this.toggleShowTheirFollowers.bind(this)} className='col'>
                         <span className="label">{this.props.user.followers
                                 ? this.props.user.followers.length + ' '
                                 : 0}</span>
                         followers
                     </span>
-                    <span className='col'>
+                    <span className='col' onClick={this.toggleShowWhoTheyFollow.bind(this)}>
                         <span className="label">{this.props.user.following
                                 ? this.props.user.following.length + ' '
                                 : 0}</span>
@@ -186,6 +187,12 @@ class ProfileInfo extends React.Component {
                     <div>
                       <h1>Followers</h1>
                       <AllTheirFollowers user={this.props.user}/>
+                    </div>
+                  : null}
+                  {this.state.showWhoTheyFollow ?
+                    <div>
+                      <h1>Following</h1>
+                      <AllTheyFollow user={this.props.user}/>
                     </div>
                   : null}
 

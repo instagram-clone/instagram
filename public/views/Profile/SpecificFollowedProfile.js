@@ -3,8 +3,7 @@ import axios from 'axios';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getAllUserData} from '../../utils/getLoggedInUser';
 
-
-export default class SpecificFollower extends React.Component{
+export default class SpecificFollowedProfile extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -12,7 +11,6 @@ export default class SpecificFollower extends React.Component{
       showfollow: true,
     }
   }
-
   clickFollowHandler(){
     this.setState({
       showfollow: false,
@@ -33,8 +31,6 @@ export default class SpecificFollower extends React.Component{
       axios.put(`/api/unfollowuser/${getLoggedInUser().username}`, {username: this.props.username});
       axios.put(`/api/removefollower/${getLoggedInUser().username}`, {username: this.props.username});
     }
-
-
     componentWillMount(){
       getAllUserData().then(response =>{
         console.log('stepping into specificFollower');
@@ -48,38 +44,28 @@ export default class SpecificFollower extends React.Component{
               showfollow: false,
             })
           }
-          if(response.data._id === this.props._id){
-            this.setState({
-              showfollowing: false,
-              showfollow: false,
-            })
-          }
-
         }
       });
     }
   render(){
-
-
-
     return(
       <div className="followersModal">
-        <div className="followersModalPic"><img src={this.props.profilepic}/></div>
-        <div className="followersModalUsername">{this.props.username}</div>
-        <div className="followersModalFullname">{this.props.fullname}</div>
-        <div>
-        {this.state.showfollow
-            ?  <div className='row'>
-                    <div className="button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
-                </div>
-            : null}
+          <div className="followersModalPic"><img src={this.props.profilepic}/></div>
+          <div className="followersModalUsername">{this.props.username}</div>
+          <div className="followersModalFullname">{this.props.fullname}</div>
+          <div>
+          {this.state.showfollow
+              ?  <div className='row'>
+                      <div className="button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
+                  </div>
+              : null}
 
-        {this.state.showfollowing
-            ?  <span className='row'>
-                    <div className="following button followSpacing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
-                </span>
-            : null}
-          </div>
+          {this.state.showfollowing
+              ?  <span className='row'>
+                      <div className="following button followSpacing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
+                  </span>
+              : null}
+            </div>
       </div>
     )
   }
