@@ -1,16 +1,28 @@
 const app = require('../../index.js');
 const Post = require('../../models/Post');
+const User = require('../../models/User');
 
 module.exports = {
     favorite: function(req, res, next){
         console.log(req.body);
-        Post.update(
-            {_id: req.body.photoID},
+        Post.findByIdAndUpdate(req.body.photoID,
             {$addToSet: { likes : req.body.userID }},
+            {new: true},
             (err, post) => {
                 if(err) return res.status(500).json(err);
-                return res.status(200).json(post);
+                console.log("Post Author: ", post)
+                User.findByIdAndUpdate(
+                    post.author,
+                    {$push: {notifications: {user: req.body.userID, notification: 'liked your photo'}}}, 
+                    {new: true},
+                    (err, notifications) => {
+                        console.log("Error: ", err)
+                        console.log("Notification", notifications)
+                        return res.status(200).json(post);
+                    }
+                )  
             });
+  
     },
     unfavorite: function(req, res, next){
         console.log(req.body);

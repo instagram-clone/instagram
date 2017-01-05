@@ -21,11 +21,12 @@ export default class Notifications extends React.Component{
       notis = this.state.notifications.notifications;
       console.log('array beeing mapped', notis);
     }
-    const notificationsList = notis.map(noti => (
-      <NotificationCard
-        user={this.state.notifications}
-      />
-    ) );
+    const notificationsList = <NotificationCard user={this.state.notifications} />
+    // const notificationsList = notis.map(noti => (
+    //   <NotificationCard
+    //     user={this.state.notifications}
+    //   />
+    // ) );
     return(
       <div>
         <div className="triangle"></div>

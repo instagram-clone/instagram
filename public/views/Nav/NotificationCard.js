@@ -15,7 +15,7 @@ export default class NotificationCard extends React.Component{
     console.log('notification card', this.props);
     return (
       <div>
-
+        <h1>Test</h1>
       </div>
     )
   }
