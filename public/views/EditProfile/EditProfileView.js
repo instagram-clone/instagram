@@ -5,9 +5,10 @@ import getLoggedInUser from '../../utils/getLoggedInUser';
 import Cookies from 'js-cookie';
 import { Link } from "react-router";
 import Footer from '../Login/Footer';
+import { connect } from 'react-redux';
+import { addUser } from '../../ducks/userDuck';
 
-
-export default class EditProfileView extends React.Component{
+class EditProfileView extends React.Component{
   constructor(){
     super();
     this.state={
@@ -78,9 +79,10 @@ export default class EditProfileView extends React.Component{
       } else {
 
       }
-
+      this.props.dispatch(addUser(response.data));
+      window.location.href = '#/profile/' + this.state.username;
     })
-    window.location.href = '#/profile/' + this.state.username;
+
   }
 
 
@@ -95,12 +97,12 @@ export default class EditProfileView extends React.Component{
 
 
   render(){
+    console.log(this.props.storeUser);
     return(
 
 
-      <div className="editprofView">
+      <div>
       <Nav/>
-
       <div className="editProfileContainer">
 
         <div className="editProfileLinks">
@@ -138,6 +140,14 @@ export default class EditProfileView extends React.Component{
           </div>
             <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
           </div>
+
+          <div className="formItem">
+          <div className="formName">
+            Profile Image
+          </div>
+            <input value={this.state.profilepic} onChange={this.handleProfilePicChange.bind(this)} type="text"/>
+          </div>
+
 
 
           <div className="formItem">
@@ -195,3 +205,5 @@ export default class EditProfileView extends React.Component{
     )
   }
 }
+
+export default connect(state => ({storeUser: state.storeUser}))(EditProfileView);
