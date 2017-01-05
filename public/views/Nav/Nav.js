@@ -17,6 +17,7 @@ export default class Nav extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         window.location.href = `/#/search/${this.state.searchText}`;
+        window.location.reload();
         console.log(this.state.searchText);
 
     }

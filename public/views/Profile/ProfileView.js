@@ -63,7 +63,7 @@ export default class ProfileView extends React.Component{
  componentWillReceiveProps(nextProps) {
    // if (this.props.params.username !== nextProps.params.username) {
      this.getProfile(nextProps.params.username);
-   // } 
+   // }
  }
     clickFollowHandler(){
       this.setState({
@@ -89,7 +89,8 @@ export default class ProfileView extends React.Component{
       axios.put(`/api/removefollower/${getLoggedInUser().username}`, {username: this.props.params.username});
     }
   render(){
-
+      console.log('odkfs')
+      console.log(this.state.posts);
     return(
       <div className="profileView">
         <Nav/>
