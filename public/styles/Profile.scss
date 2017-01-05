@@ -45,6 +45,7 @@
                 flex-direction: column;
                 margin-top: 0;
                 align-items: center;
+
                 .optionsSprite {
                     background-image: url($spriteUrl);
                     background-size: 352px 311px;
@@ -53,53 +54,61 @@
                     background-position: -56px -176px;
                     cursor: pointer;
                 }
-                .followSpacing{
-                    margin-right:5px;
-                    margin-left:-10px;
+
+                .followSpacing {
+                    margin-right: 5px;
+                    margin-left: -10px;
                 }
-                .following{
+
+                .following {
                     line-height: 29px;
-                    padding-top:10px;
-                    font-size:16px;
-                    padding:0 11px;
+                    padding-top: 10px;
+                    font-size: 16px;
+                    padding: 0 11px;
                     font-weight: 600;
                     background-color: rgb(112, 192, 80);
                 }
 
-                .row{
+                .row {
                     align-items: center;
                     display: flex;
                     flex-direction: row;
                 }
-                .followSprite{
-                    padding:11px !important;
+
+                .followSprite {
+                    padding: 11px !important;
                 }
-                .buttonBlue{
+
+                .buttonBlue {
                     line-height: 29px;
-                    border:1px solid $blue;
-                    color:$blue;
-                    margin-right:20px;
+                    border: 1px solid $blue;
+                    color: $blue;
+                    margin-right: 20px;
                 }
-                .buttonBlue:active{
-                    border-color:$blueActive;
-                    color:$blueActive;
+
+                .buttonBlue:active {
+                    border-color: $blueActive;
+                    color: $blueActive;
                 }
-                .arrowSpriteFollowing{
+
+                .arrowSpriteFollowing {
                     background-image: url($spriteUrl);
                     background-size: 352px 311px;
-                    height:6px;
+                    height: 6px;
                     width: 9px;
                     background-position: -322px -103px;
                     cursor: pointer;
                 }
-                .arrowSpriteFollow{
+
+                .arrowSpriteFollow {
                     background-image: url($spriteUrl);
                     background-size: 352px 311px;
-                    height:6px;
+                    height: 6px;
                     width: 9px;
                     background-position: -312px -103px;
                     cursor: pointer;
                 }
+
                 .profileUsername {
                     font-size: 21px;
                     text-align: left;
@@ -120,7 +129,7 @@
 
                 .name {
                     font-weight: bold;
-                    margin-right:6px;
+                    margin-right: 6px;
                 }
             }
         }
@@ -226,13 +235,15 @@
     // top: 50%;
     // left: 50%;
     // transform: translate(-50%, 0%);
-  }
-.photoGrid:after {
-  content: "";
-  flex: auto;
 }
-.photoGrid:nth-child(3){
-  margin-right: 0;
+
+.photoGrid:after {
+    content: "";
+    flex: auto;
+}
+
+.photoGrid:nth-child(3) {
+    margin-right: 0;
 }
 
 .load-more {
@@ -259,372 +270,368 @@
         position: relative;
     }
 
-.picItem {
-    max-width: 29vw;
-    max-height: 29vw;
-    background-color:#FAFAFA;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 2vw;
-    margin-right: 2vw;
-}
-
-#imgPost {
-    max-width: 100%;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-}
-
-#imgPost img {
-    max-width: 100%;
-}
-
-#bg {
-    position: absolute;
-    left: 0;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0;
-}
-
-.picItem:hover #bg {
-    opacity: 0.3;
-}
-
-.picItem:hover .img-icon {
-    opacity: 1 !important;
-}
-
-.hover-box:hover p {
-    opacity: 1 !important;
-}
-
-.hover-box {
-    position: absolute;
-    z-index: 2;
-    width: 293px;
-    height: 293px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#icon-box {
-    // border: 1px solid red;
-    width: auto;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#icon-box img {
-    position: relative;
-    z-index: 4;
-    width: 30px;
-    height: 30px;
-    filter: invert(100%);
-    margin-right: 10px;
-    opacity: 0;
-}
-
-#icon-box p {
-    position: relative;
-    z-index: 4;
-    color: white;
-    margin-right: 10px;
-    opacity: 0;
-  }
-  .profilePhotoBox{
-    float: left;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 500px;
-    // margin-right: 80px;
-  }
-
-  .profile-username {
-    font-size: 34px;
-    text-align: left;
-    font-weight: lighter;
-    display: flex;
-    flex-direction: row;
-    line-height: 40px;
-    margin-bottom: 20px;
-  }
-  //expanded photo view
-  .expanded-view{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .expanded-view figure{
-    max-width: 600px;
-    z-index: 3;
-  }
-  .expanded-view img{
-    max-width: 600px;
-    position: relative;
-    z-index: 3;
-  }
-  #profile-caption{
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 10px;
-    position: relative;
-    top: 0px;
-    right: 0px;
-  }
-  .commentInfo{
-    margin-bottom: 5px;
-  }
-  .commentInfo .username{
-    font-size: 14px;
-    display: inline;
-  }
-  .postInfo .username{
-    display: inline;
-    font-size: 17px;
-    font-weight: 900;
-    padding-right: 5px;
-  }
-  .expanded-view .commentBar{
-    display: flex;
-    margin-top: 10px;
-  }
-  #profile-likes{
-    margin-bottom: 10px;
-  }
-  #profile-post-info{
-    margin-bottom: 10px;
-  }
-  .expanded-view #profile-comment-display{
-    margin-top: 5px;
-    height: 100%;
-  }
-  .expanded-view {
-    #profile-heart{
-      cursor: pointer;
-      background-image:url($spriteUrl);
-      background-size:352px 311px;
-      height:26px;
-      width:25px;
-      margin-top:2px;
-      margin-right:10px;
+    .picItem {
+        max-width: 29vw;
+        max-height: 29vw;
+        background-color: #FAFAFA;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 2vw;
+        margin-right: 2vw;
     }
-    #profile-heart.favoriteSprite{
-      background-position: -314px -176px;
-    }
-    #profile-heart.alreadyFavoritedSprite{
-      background-position: -152px -224px;
-    }
-  }
-  #profile-sprite{
-    background-image:url($spriteUrl);
-    background-size: 352px 311px;
-    background-position: -66px -180px;
-    height:33px;
-    width:33px;
-    margin-top:2px;
-    margin-right:10px;
-  }
-  #comment-info-container{
-    height: 66%;
-    overflow-y: scroll;
-  }
-  #comment-profile{
-    cursor: pointer;
-    font-size: 14px;
-    position: relative;
-    top: 0px;
-    right: -10px;
-  }
-  #profile-input{
-    width: 235px;
-    background: transparent;
-    border: none;
-  }
-  #expanded-content{
-    display: flex;
-    flex-direction: row;
-  }
-  .expanded-bg{
-    height: 165%;
-    width: 100%;
-    background-color: black;
-    position: absolute;
-    opacity: .5;
-  }
-  .expanded-view span{
-    cursor: pointer;
-    font-size: 30px;
-    position: absolute;
-    z-index: 9;
-    top: 10px;
-    right: 10px;
-  }
-  #comment-container{
-    position: relative;
-    margin-top: 30px;
-  }
-  .expand-comments{
-    background-color:$darkBackground;
-    padding:24px;
-    padding-bottom:10px;
-    position: relative;
-    z-index: 9;
-    max-width: 30vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-    img{
-      border-radius: 100px;
-      max-width: 35px;
+    #imgPost {
+        max-width: 100%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
     }
-  }
-  .lineContainer{
-        background-color:$white;
-        .line{
+
+    #imgPost img {
+        max-width: 100%;
+    }
+
+    #bg {
+        position: absolute;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0;
+    }
+
+    .picItem:hover #bg {
+        opacity: 0.3;
+    }
+
+    .picItem:hover .img-icon {
+        opacity: 1 !important;
+    }
+
+    .hover-box:hover p {
+        opacity: 1 !important;
+    }
+
+    .hover-box {
+        position: absolute;
+        z-index: 2;
+        width: 293px;
+        height: 293px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #icon-box {
+        // border: 1px solid red;
+        width: auto;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #icon-box img {
+        position: relative;
+        z-index: 4;
+        width: 30px;
+        height: 30px;
+        filter: invert(100%);
+        margin-right: 10px;
+        opacity: 0;
+    }
+
+    #icon-box p {
+        position: relative;
+        z-index: 4;
+        color: white;
+        margin-right: 10px;
+        opacity: 0;
+    }
+
+    .profilePhotoBox {
+        float: left;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 500px;
+        // margin-right: 80px;
+    }
+
+    .profile-username {
+        font-size: 34px;
+        text-align: left;
+        font-weight: lighter;
+        display: flex;
+        flex-direction: row;
+        line-height: 40px;
+        margin-bottom: 20px;
+    }
+    //expanded photo view
+    .expanded-view {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .expanded-view figure {
+        max-width: 600px;
+        z-index: 3;
+    }
+
+    .expanded-view img {
+        max-width: 600px;
+        position: relative;
+        z-index: 3;
+    }
+
+    #profile-caption {
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 10px;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .commentInfo {
+        margin-bottom: 5px;
+    }
+
+    .commentInfo .username {
+        font-size: 14px;
+        display: inline;
+    }
+
+    .postInfo .username {
+        display: inline;
+        font-size: 17px;
+        font-weight: 900;
+        padding-right: 5px;
+    }
+
+    #profile-likes {
+        margin-bottom: 10px;
+    }
+
+    #profile-post-info {
+        margin-bottom: 10px;
+    }
+
+    .expanded-view #profile-comment-display {
+        height: 100%;
+    }
+
+    .expanded-view {
+        #profile-heart {
+            cursor: pointer;
+            background-image: url($spriteUrl);
+            background-size: 352px 311px;
+            height: 26px;
+            width: 25px;
+            margin-top: 2px;
+            margin-right: 10px;
+        }
+
+        #profile-heart.favoriteSprite {
+            background-position: -314px -176px;
+        }
+
+        #profile-heart.alreadyFavoritedSprite {
+            background-position: -152px -224px;
+        }
+    }
+
+    #profile-sprite {
+        background-image: url($spriteUrl);
+        background-size: 352px 311px;
+        background-position: -66px -180px;
+        height: 33px;
+        width: 33px;
+        margin-top: 2px;
+        margin-right: 10px;
+    }
+
+    #comment-info-container {
+        height: 66%;
+        overflow-y: scroll;
+    }
+
+    #comment-profile {
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+        top: 0;
+        right: -10px;
+    }
+
+    #profile-input {
+        width: 235px;
+        background: transparent;
+        border: none;
+    }
+
+    #expanded-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .expanded-bg {
+        height: 165%;
+        width: 100%;
+        background-color: black;
+        position: absolute;
+        opacity: 0.5;
+    }
+
+    .expand-comments {
+        background-color: $darkBackground;
+        position: relative;
+        z-index: 9;
+        max-width: 30vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 0;
+        min-width:300px;
+        img {
+            border-radius: 100px;
+            max-width: 35px;
+        }
+    }
+
+    .lineContainer {
+        background-color: $white;
+
+        .line {
             background-color: $photoCardBorderColor;
-            height:1px;
-            width:90%;
+            height: 1px;
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
     }
-    #user-row{
-      display: flex;
-      align-items: center;
-      p{
-        margin-left: 20px;
-      }
-      margin-bottom: 10px;
+    @media(min-width:600px) {
+        .profileInfo {
+            margin-top: -30px;
+        }
     }
-    .followingarrow{
-      width: 32px;
-    }
-
-@media(min-width:600px){
-    .profileInfo{
-        margin-top:-30px;
-    }
-}
-@media(max-width:735px) {
-    .picItem {
-        margin-right: 3px;
-        margin-bottom: 3px;
-    }
-    #expanded-content{
-    flex-direction: column;
-    }
-    .expand-comments{
-    position: relative;
-    z-index: 9;
-    max-width: 84vw;
-
-    img{
-      border-radius: 100px;
-      max-width: 35px;
-    }
-  }
-    .extend-content #expand-img{
-      max-width: 84vw;
-    }
-    .expanded-view figure{
-    max-width: 84vw;
-    }
-}
-@media(min-width:800px) {
-    .profileInfo {
-        margin-top:0px;
-        padding-left: 40px;
-        max-width: 935px;
-        align-items: stretch;
-        margin-left: auto;
-        margin-right: auto;
-
-        .mobileCounters {
-            display: none;
+    @media(max-width:735px) {
+        .picItem {
+            margin-right: 3px;
+            margin-bottom: 3px;
         }
 
-        .mobileBioContainer {
-            display: none;
+        #expanded-content {
+            flex-direction: column;
         }
-        .profileInfoRow {
-            .profilePhoto {
-                height: 152px;
-                width: 152px;
+
+        .expand-comments {
+            position: relative;
+            z-index: 9;
+            max-width: 84vw;
+
+            img {
+                border-radius: 100px;
+                max-width: 35px;
+            }
+        }
+
+        .extend-content #expand-img {
+            max-width: 84vw;
+        }
+
+        .expanded-view figure {
+            max-width: 84vw;
+        }
+    }
+    @media(min-width:800px) {
+        .profileInfo {
+            margin-top: 0;
+            padding-left: 40px;
+            max-width: 935px;
+            align-items: stretch;
+            margin-left: auto;
+            margin-right: auto;
+
+            .mobileCounters {
+                display: none;
             }
 
+            .mobileBioContainer {
+                display: none;
+            }
 
-            .profileInfoRight {
-                padding-left: 50px;
-
-                .buttonClear{
-                    font-size:16px;
-                    padding:0 11px;
-                    line-height: 29px;
+            .profileInfoRow {
+                .profilePhoto {
+                    height: 152px;
+                    width: 152px;
                 }
-                .counters {
-                    display: flex;
-                    align-items: stretch;
-                    justify-content: space-between;
-                    margin-bottom: 20px;
-                    font-weight: 400;
 
-                    .count {
-                        font-weight: 600;
+                .profileInfoRight {
+                    padding-left: 50px;
+
+                    .buttonClear {
+                        font-size: 16px;
+                        padding: 0 11px;
+                        line-height: 29px;
                     }
-                }
 
-                .profileTopRow {
-                    flex-direction: row;
-                    justify-content:space-between;
-                    margin-bottom: 20px;
+                    .counters {
+                        display: flex;
+                        align-items: stretch;
+                        justify-content: space-between;
+                        margin-bottom: 20px;
+                        font-weight: 400;
 
-                    .profileUsername {
-                        font-weight: lighter;
-                        font-size: 34px;
-                        line-height: 40px;
-                        margin-right:20px;
+                        .count {
+                            font-weight: 600;
+                        }
                     }
-                }
 
-                .showOnMobile {
-                    display: none;
-                }
+                    .profileTopRow {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        margin-bottom: 20px;
 
-                .hideOnMobile {
-                    display: inline;
-                }
+                        .profileUsername {
+                            font-weight: lighter;
+                            font-size: 34px;
+                            line-height: 40px;
+                            margin-right: 20px;
+                        }
+                    }
 
-                .bioContainer {
-                    display: flex;
-                }
+                    .showOnMobile {
+                        display: none;
+                    }
 
-                .counters {
-                    display: flex;
+                    .hideOnMobile {
+                        display: inline;
+                    }
+
+                    .bioContainer {
+                        display: flex;
+                    }
+
+                    .counters {
+                        display: flex;
+                    }
                 }
             }
         }
-    }
 
-    .picItem {
-        margin-right: 2vw;
-        margin-bottom: 3vw;
+        .picItem {
+            margin-right: 2vw;
+            margin-bottom: 3vw;
+        }
     }
-}
-  //expanded photo view
-
+    //expanded photo view
 }
