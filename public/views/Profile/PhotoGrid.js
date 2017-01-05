@@ -20,7 +20,6 @@ export default class PhotoGrid extends React.Component{
     })
   }
   close(){
-    console.log('clicked');
     this.setState({
       expandImg: 0
     })
