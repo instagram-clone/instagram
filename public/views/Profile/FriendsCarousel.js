@@ -9,7 +9,7 @@ export default class FriendsCarousel extends React.Component{
     super(props);
     this.state = {
     }
-  };
+  }
   componentWillMount(){
     let suggestedFriends = [];
     let targetFollowers = this.props.user.followers;
@@ -17,8 +17,11 @@ export default class FriendsCarousel extends React.Component{
       let followedProfiles = response.data.following;
       console.log(followedProfiles, 'followed profiles');
       let filteredFriends = [];
-      let found = false;
         for(let i = 0; i < targetFollowers.length; i++){
+          let found = false;
+          if(targetFollowers[i]._id === response.data._id){
+            found = true;
+          }
           for(let j = 0; j < followedProfiles.length; j++){
             if(targetFollowers[i]._id === followedProfiles[j]){
               found = true;
@@ -46,11 +49,12 @@ export default class FriendsCarousel extends React.Component{
   }
 
   render(){
-    
+
 
     return(
       <div>
         {this.state.suggestedFriends}
+
       </div>
     )
   }

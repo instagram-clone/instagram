@@ -4,6 +4,7 @@ import getLoggedInUser from '../../utils/getLoggedInUser';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import FriendsCarousel from './FriendsCarousel';
+import AllTheirFollowers from './AllTheirFollowers';
 
 import {removeUser} from '../../ducks/userDuck';
 import {connect} from 'react-redux';
@@ -13,7 +14,9 @@ class ProfileInfo extends React.Component {
         super(props);
         this.state = {
             showLogout: false,
-            friendsCarousel: false
+            friendsCarousel: false,
+            showTheirFollowers: false,
+            showWhoTheyFollow: false
         }
     }
 
@@ -35,10 +38,24 @@ class ProfileInfo extends React.Component {
       friendsCarousel: !this.state.friendsCarousel
     })
   }
+  toggleShowTheirFollowers(){
+    this.setState({
+      showTheirFollowers: !this.state.showTheirFollowers
+    })
+  }
+  toggleShowWhoTheyFollow(){
+    this.setState({
+      showWhoTheyFollow: !this.state.showTheyFollow
+    })
+  }
 
   componentWillReceiveProps(nextProps){
-    console.log(nextProps, "this is the child");
-
+    console.log(nextProps, 'next props');
+    if(this.props.paramUserName !== nextProps.paramUserName){
+      this.setState({
+        friendsCarousel: false
+      })
+    }
   }
 
     render() {
@@ -111,7 +128,7 @@ class ProfileInfo extends React.Component {
                                 </span>
                                 posts
                             </span>
-                            <span>
+                            <span onClick={this.toggleShowTheirFollowers.bind(this)}>
                                 <span className="count">{this.props.user.followers
                                         ? this.props.user.followers.length + ' '
                                         : 0}</span>
@@ -165,6 +182,13 @@ class ProfileInfo extends React.Component {
 
 
                   : null}
+                  {this.state.showTheirFollowers ?
+                    <div>
+                      <h1>Followers</h1>
+                      <AllTheirFollowers user={this.props.user}/>
+                    </div>
+                  : null}
+
             </div>
 
     )
