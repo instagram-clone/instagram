@@ -84,11 +84,11 @@
             margin-bottom:10px;
         }
         .bold, .commentUsername{
-            margin-bottom:7px;
             font-weight: 600;
             font-size:15px;
             margin-bottom:7px;
             line-height:18px;
+            margin-right:.3em;
         }
         .commentUsername{
             margin-right:.3em;
@@ -121,7 +121,7 @@
             background-position: -314px -176px;
         }
         .alreadyFavoritedSprite{
-            background-position: -151px -224px;
+            background-position: -152px -224px;
         }
         .infoSprite{
             background-position:-56px -176px;
@@ -136,7 +136,6 @@
             width:90%;
         }
     }
-
 }
 
 @media(min-width:600px) {

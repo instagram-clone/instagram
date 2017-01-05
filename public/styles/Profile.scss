@@ -71,11 +71,9 @@
                     display: flex;
                     flex-direction: row;
                 }
-
                 .followSprite{
-                    padding:11.5px 11px;
+                    padding:11px !important;
                 }
-
                 .buttonBlue{
                     line-height: 29px;
                     border:1px solid $blue;
@@ -215,10 +213,26 @@
 
 .photoGrid {
     // border: 1px solid red;
-    width: 965px;
+    max-width: 1000px;
     height: auto;
-    margin: 44px auto auto;
-    flex-shrink: 0;
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    position: relative;
+    left: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, 0%);
+  }
+.photoGrid:after {
+  content: "";
+  flex: auto;
+}
+.photoGrid:nth-child(3){
+  margin-right: 0;
 }
 
 .load-more {
@@ -228,7 +242,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 44px auto auto;
+    flex-shrink: 0;
     border-radius: 100px;
     margin-top: 60px;
     cursor: pointer;
@@ -243,19 +258,16 @@
     footer {
         position: relative;
     }
-}
 
 .picItem {
-    width: 293px;
-    height: 293px;
-    background-color: #FAFAFA;
+    max-width: 29vw;
+    max-height: 29vw;
+    background-color:#FAFAFA;
     overflow: hidden;
     position: relative;
-    display: inline-block;
-    flex-grow: 1;
-    margin-right: 28px;
-    margin-bottom: 28px;
     cursor: pointer;
+    margin-bottom: 2vw;
+    margin-right: 2vw;
 }
 
 #imgPost {
@@ -328,11 +340,209 @@
     color: white;
     margin-right: 10px;
     opacity: 0;
-}
+  }
+  .profilePhotoBox{
+    float: left;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 500px;
+    // margin-right: 80px;
+  }
+
+  .profile-username {
+    font-size: 34px;
+    text-align: left;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: row;
+    line-height: 40px;
+    margin-bottom: 20px;
+  }
+  //expanded photo view
+  .expanded-view{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .expanded-view figure{
+    max-width: 600px;
+    z-index: 3;
+  }
+  .expanded-view img{
+    max-width: 600px;
+    position: relative;
+    z-index: 3;
+  }
+  #profile-caption{
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+  .commentInfo{
+    margin-bottom: 5px;
+  }
+  .commentInfo .username{
+    font-size: 14px;
+    display: inline;
+  }
+  .postInfo .username{
+    display: inline;
+    font-size: 17px;
+    font-weight: 900;
+    padding-right: 5px;
+  }
+  .expanded-view .commentBar{
+    display: flex;
+    margin-top: 10px;
+  }
+  #profile-likes{
+    margin-bottom: 10px;
+  }
+  #profile-post-info{
+    margin-bottom: 10px;
+  }
+  .expanded-view #profile-comment-display{
+    margin-top: 5px;
+    height: 100%;
+  }
+  .expanded-view {
+    #profile-heart{
+      cursor: pointer;
+      background-image:url($spriteUrl);
+      background-size:352px 311px;
+      height:26px;
+      width:25px;
+      margin-top:2px;
+      margin-right:10px;
+    }
+    #profile-heart.favoriteSprite{
+      background-position: -314px -176px;
+    }
+    #profile-heart.alreadyFavoritedSprite{
+      background-position: -152px -224px;
+    }
+  }
+  #profile-sprite{
+    background-image:url($spriteUrl);
+    background-size: 352px 311px;
+    background-position: -66px -180px;
+    height:33px;
+    width:33px;
+    margin-top:2px;
+    margin-right:10px;
+  }
+  #comment-info-container{
+    height: 66%;
+    overflow-y: scroll;
+  }
+  #comment-profile{
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    top: 0px;
+    right: -10px;
+  }
+  #profile-input{
+    width: 235px;
+    background: transparent;
+    border: none;
+  }
+  #expanded-content{
+    display: flex;
+    flex-direction: row;
+  }
+  .expanded-bg{
+    height: 165%;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: .5;
+  }
+  .expanded-view span{
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    z-index: 9;
+    top: 10px;
+    right: 10px;
+  }
+  #comment-container{
+    position: relative;
+    margin-top: 30px;
+  }
+  .expand-comments{
+    background-color:$darkBackground;
+    padding:24px;
+    padding-bottom:10px;
+    position: relative;
+    z-index: 9;
+    max-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    img{
+      border-radius: 100px;
+      max-width: 35px;
+    }
+  }
+  .lineContainer{
+        background-color:$white;
+        .line{
+            background-color: $photoCardBorderColor;
+            height:1px;
+            width:90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    #user-row{
+      display: flex;
+      align-items: center;
+      p{
+        margin-left: 20px;
+      }
+      margin-bottom: 10px;
+    }
+    .followingarrow{
+      width: 32px;
+    }
 
 @media(min-width:600px){
     .profileInfo{
         margin-top:-30px;
+    }
+}
+@media(max-width:735px) {
+    .picItem {
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+    #expanded-content{
+    flex-direction: column;
+    }
+    .expand-comments{
+    position: relative;
+    z-index: 9;
+    max-width: 84vw;
+
+    img{
+      border-radius: 100px;
+      max-width: 35px;
+    }
+  }
+    .extend-content #expand-img{
+      max-width: 84vw;
+    }
+    .expanded-view figure{
+    max-width: 84vw;
     }
 }
 @media(min-width:800px) {
@@ -411,7 +621,10 @@
     }
 
     .picItem {
-        margin-right: 3px;
-        margin-bottom: 3px;
+        margin-right: 2vw;
+        margin-bottom: 3vw;
     }
+}
+  //expanded photo view
+
 }

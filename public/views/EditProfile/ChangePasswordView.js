@@ -3,6 +3,9 @@ import Nav from '../Nav/Nav';
 import axios from 'axios';
 import getLoggedInUser from '../../utils/getLoggedInUser';
 import bcrypt from 'bcryptjs';
+import Cookies from 'js-cookie';
+import { Link } from "react-router";
+import Footer from '../Login/Footer';
 
 
 export default class EditProfileView extends React.Component {
@@ -10,7 +13,7 @@ export default class EditProfileView extends React.Component {
         super();
         this.state = {
             username: '',
-            profilepic: '',
+            profilepic: getLoggedInUser.getLoggedInUser().profilepic,
             username: getLoggedInUser.getLoggedInUser().username,
             newpassword1: '',
             newpassword2: '',
@@ -69,35 +72,74 @@ export default class EditProfileView extends React.Component {
     componentDidMount() {
         const username = getLoggedInUser.getLoggedInUser().username;
         axios.get('/api/currentUser/' + username).then(response => {
-            console.log(response);
+            this.setState({
+              profilepic: response.data.profilepic
+            });
         })
     }
 
 
-    render() {
-        return(
+    render(){
+      return(
 
-            <div>
+        <div>
+        <Nav/>
 
-            <Nav/>
-            <h2> This is the Change Password View! </h2>
+        <div className="editProfileContainer">
 
-            <div>
-            <img height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username} </div>
+          <div className="editProfileLinks">
+            <ul>
+              <li className="ulLink"><Link to="editProfile">Edit Profile</Link></li>
+              <li className="ulLink ulEditProfile">Change Password</li>
+            </ul>
+          </div>
 
-            <div>
-            Old Password <input onChange = {this.handleOldPassword.bind(this)} type = "text"/>
-            </div>
-            <div>
+
+          <div className="editProfileContents">
+
+          <div className="usernamePass">
+            <img className="profilePic" height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
+          </div>
+
+          <form className="editForm">
+
+          <div className="formPassItem oldPassword">
+          <div className="formPassName">
+            Old Password
+          </div>
+          <input className="passInput" onChange = {this.handleOldPassword.bind(this)} type = "text"/>
+          </div>
+
+          <div className="formPassItem">
+          <div className="formPassName">
             New Password
-            <input onChange = {this.newPassword1.bind(this)} type = "text"/>
-            </div>
-            <div>
+          </div>
+          <input className="passInput" onChange = {this.newPassword1.bind(this)} type = "text"/>
+          </div>
+
+          <div className="formPassItem">
+          <div className="formPassName passName">
             New Password, Again
-            <input onChange = {this.newPassword2.bind(this)} type = "text"/>
-            </div>
-            <button onClick = {this.handleSubmitPassword.bind(this)}> Change Password </button>
-            </div>
-        )
+          </div>
+          <input className = "passInput" onChange = {this.newPassword2.bind(this)} type = "text"/>
+          </div>
+
+
+          <div className="formItemPassBtn">
+          <button className="submitBtn"
+          onClick={this.handleSubmitPassword.bind(this)}>Change Password</button>
+          </div>
+
+          </form>
+
+
+
+
+          </div>
+
+        </div>
+        <Footer/>
+        </div>
+      )
     }
 }

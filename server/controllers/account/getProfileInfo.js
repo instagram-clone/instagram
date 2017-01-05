@@ -30,7 +30,7 @@ module.exports = {
   },
   getProfiles: function(req, res, next){
     if (req.query.ids){
-      let idArray = req.query.ids.split(',')
+      const idArray = req.query.ids.split(',')
         .map(e => new ObjectId(e));
       User.find({_id: {$in: idArray}})
         .select({

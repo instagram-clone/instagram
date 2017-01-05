@@ -6,6 +6,7 @@ import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getPostCount} from './ProfileResource';
 import {getProfiles} from './ProfileResource';
 import axios from 'axios';
+import FollowView from './FollowView';
 // import {followUser} from './ProfileResource';
 
 import PhotoGrid from './PhotoGrid';
@@ -78,6 +79,9 @@ export default class ProfileView extends React.Component{
       axios.put(`/api/followuser/${getLoggedInUser().username}`, {username: this.props.params.username});
       axios.put(`/api/addfollower/${getLoggedInUser().username}`, {username: this.props.params.username});
       }
+  followViewHandle(){
+    console.log('follow clicked');
+  }
     clickUnfollowHandler(){
       this.setState({
         showfollow: true,
@@ -94,6 +98,9 @@ export default class ProfileView extends React.Component{
         <Nav/>
         <ProfileInfo paramUserName={this.props.params.username} clickFollowHandler={this.clickFollowHandler.bind(this)} clickUnfollowHandler={this.clickUnfollowHandler.bind(this)}{...this.state}/>
         <PhotoGrid posts={this.state.posts}/>
+
+
+
         <div className="load-more">
         <p>Load More</p>
         </div>

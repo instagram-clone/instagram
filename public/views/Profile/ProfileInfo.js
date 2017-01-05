@@ -191,8 +191,6 @@ class ProfileInfo extends React.Component {
 
             </div>
 
-
-
     )
   }
 }

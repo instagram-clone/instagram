@@ -4,9 +4,11 @@ import axios from 'axios';
 import getLoggedInUser from '../../utils/getLoggedInUser';
 import Cookies from 'js-cookie';
 import { Link } from "react-router";
+import Footer from '../Login/Footer';
+import { connect } from 'react-redux';
+import { addUser } from '../../ducks/userDuck';
 
-
-export default class EditProfileView extends React.Component{
+class EditProfileView extends React.Component{
   constructor(){
     super();
     this.state={
@@ -77,9 +79,10 @@ export default class EditProfileView extends React.Component{
       } else {
 
       }
-
+      this.props.dispatch(addUser(response.data));
+      window.location.href = '#/profile/' + this.state.username;
     })
-    window.location.href = '#/profile/' + this.state.username;
+
   }
 
 
@@ -94,11 +97,12 @@ export default class EditProfileView extends React.Component{
 
 
   render(){
+    console.log(this.props.storeUser);
     return(
+
 
       <div>
       <Nav/>
-
       <div className="editProfileContainer">
 
         <div className="editProfileLinks">
@@ -130,14 +134,20 @@ export default class EditProfileView extends React.Component{
           </div>
 
 
-
-
           <div className="formItem">
           <div className="formName">
             Username
           </div>
             <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} type="text"/>
           </div>
+
+          <div className="formItem">
+          <div className="formName">
+            Profile Image
+          </div>
+            <input value={this.state.profilepic} onChange={this.handleProfilePicChange.bind(this)} type="text"/>
+          </div>
+
 
 
           <div className="formItem">
@@ -165,7 +175,9 @@ export default class EditProfileView extends React.Component{
           </div>
 
           <div className="formItemGender">
+          <div className="genderTitle">
           Gender
+          </div>
           <div className="genderHolder">
             <select className="genderDrop" value={this.state.gender} onChange={this.handleGenderChange.bind(this)} name="gender">
             <option value="Not Specified">Not Specified</option>
@@ -176,7 +188,7 @@ export default class EditProfileView extends React.Component{
           </div>
 
           <div className="formItemBtn">
-            <button className="submitBtn"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
+            <button className="submitBtn submitBtnPass"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
 
             <a className="disableAcc" href="#">Temporarily disable my account</a>
           </div>
@@ -186,8 +198,12 @@ export default class EditProfileView extends React.Component{
         </div>
 
       </div>
-
+      <Footer/>
       </div>
+
+
     )
   }
 }
+
+export default connect(state => ({storeUser: state.storeUser}))(EditProfileView);
