@@ -12,14 +12,12 @@ export default class SearchView extends React.Component {
     }
     componentDidMount(){
         axios.get('/api/search/' + this.props.params.searchTerm).then(res => {
-            console.log(res.data);
             this.setState({
                 posts: res.data
             });
         })
     }
     render() {
-        console.log('render')
         return (
             <div>
                 <Nav/>

@@ -236,6 +236,24 @@
     // left: 50%;
     // transform: translate(-50%, 0%);
 }
+.likeSprite{
+    background-image:url($spriteUrl);
+    background-position: 0px -273px;
+    background-size:352px 311px;
+    height:19px;
+    width:19px;
+    margin-right:10px;
+    opacity:0;
+}
+.commentSprite{
+    background-image:url($spriteUrl);
+    background-position: -40px -274px;
+    background-size:352px 311px;
+    height:19px;
+    width:19px;
+    margin-right:10px;
+    opacity:0;
+}
 
 .photoGrid:after {
     content: "";
@@ -294,25 +312,12 @@
         max-width: 100%;
     }
 
-    #bg {
-        position: absolute;
-        left: 0;
-        z-index: 3;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        opacity: 0;
-    }
-
-    .picItem:hover #bg {
-        opacity: 0.3;
-    }
-
-    .picItem:hover .img-icon {
+    .hover-box:hover .likeSprite, .hover-box:hover .commentSprite{
         opacity: 1 !important;
     }
 
     .hover-box:hover p {
+        font-weight: bold;
         opacity: 1 !important;
     }
 
@@ -324,8 +329,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color:rgba(0,0,0,0);
     }
-
+    .hover-box:hover{
+        background-color:rgba(0,0,0,.3)
+    }
     #icon-box {
         // border: 1px solid red;
         width: auto;
@@ -340,7 +348,6 @@
         z-index: 4;
         width: 30px;
         height: 30px;
-        filter: invert(100%);
         margin-right: 10px;
         opacity: 0;
     }

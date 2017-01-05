@@ -15,7 +15,6 @@ export default class PhotoGrid extends React.Component {
         });
     }
     expandHandle(picInfo) {
-        console.log('pic', picInfo);
         this.setState({expandImg: picInfo})
     }
     close() {
@@ -37,6 +36,7 @@ export default class PhotoGrid extends React.Component {
             filter={post.filter}
             photourl={post.photourl}
             timestamp={post.timestamp}
+            location={post.location}
             testFunc={this.expandHandle.bind(this)}
             />
         ) );

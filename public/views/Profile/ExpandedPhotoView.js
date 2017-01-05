@@ -84,7 +84,8 @@ export default class ExpandedPhotoView extends React.Component {
                     <div className="expand-comments photoCard">
                         <PhotoHeader username = {this.props.info.author.username}
                                      profilepic={this.props.info.author.profilepic}
-                                     timestamp={this.props.info.timestamp} />
+                                     timestamp={this.props.info.timestamp}
+                                     location={this.props.photo.location}/>
                         <CommentDisplay commentData={{
                             likes: this.state.likesCount,
                             username: this.props.user[0].author.username,
