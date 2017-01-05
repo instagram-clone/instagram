@@ -58,10 +58,7 @@ class EditProfileView extends React.Component{
     this.setState({profilepic: event.target.value});
   }
 
-  handleSubmitChange(event){
-    event.preventDefault();
-      console.log('HELLOOO');
-
+  updateProfile(){
     axios.post('/api/currentUser', this.state).then(response => {
       console.log(response);
       console.log('1');
@@ -75,14 +72,27 @@ class EditProfileView extends React.Component{
               expires: 1,
               path: '/'
           });
-
-      } else {
-
       }
+
       this.props.dispatch(addUser(response.data));
       window.location.href = '#/profile/' + this.state.username;
     })
+  }
 
+  handleSubmitChange(event){
+    event.preventDefault();
+      console.log('HELLOOO');
+
+
+      if (this.state.profilepic === ''){
+
+        this.setState({profilepic: 'https://scontent-fra3-1.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'}, () => {
+          this.updateProfile();
+        })
+
+      } else {
+        this.updateProfile();
+      }
   }
 
 
