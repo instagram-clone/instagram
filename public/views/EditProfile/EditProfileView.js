@@ -124,7 +124,7 @@ class EditProfileView extends React.Component{
 
 
         <div className="editProfileContents">
-          <div className="username">
+          <div className="editProfileUsername">
             <img className="profilePic" height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
           </div>
 
