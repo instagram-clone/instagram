@@ -9,11 +9,9 @@ export default class PhotoGrid extends React.Component{
     }
   }
   componentWillReceiveProps(nextProps){
-    console.log(nextProps.posts, 'photo grid');
     this.setState({
       picInfo: nextProps.posts.reverse()
     }, () => {console.log(this.state, 'state')});
-    
   }
   expandHandle(picInfo){
     console.log('pic', picInfo);
@@ -53,15 +51,15 @@ export default class PhotoGrid extends React.Component{
         </div>
         <div>
         {
-          this.state.expandImg 
+          this.state.expandImg
           ? <ExpandedPhotoView
               photo={this.state.expandImg}
               user={this.state.picInfo}
-              info={this.state.expandImg} 
-              photourl={this.state.expandImg.photourl} 
+              info={this.state.expandImg}
+              photourl={this.state.expandImg.photourl}
               filter={this.state.expandImg.filter}
               close={this.close.bind(this)}
-            /> 
+            />
           : null
         }
         </div>
