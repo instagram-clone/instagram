@@ -1,7 +1,40 @@
 @import 'master';
 
 .searchView{
-    .searchTerm{
-        
+    .head{
+        text-align: center;
+        margin-top:56px;
+        margin-bottom:44px;
+        font-size:17px;
+        .searchTerm{
+            font-size:34px;
+            margin-bottom:14px;
+            font-weight:300;
+            overflow:hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .postCount{
+            .bold{
+                font-weight:600;
+            }
+        }
+    }
+    .topPosts{
+        display:inline;
+        text-transform:uppercase;
+        font-size:14px;
+        color:$darkGrey;
+        font-weight:600;
+        margin-bottom:16px;
+        text-align: left;
+        width:100%;
+        display:flex;
+    }
+
+    .profileView{
+        .photoGrid{
+            margin-top:16px;
+        }
     }
 }

@@ -43,6 +43,9 @@ export default class PhotoGrid extends React.Component {
         return(
           <div>
             <div className="photoGrid">
+                <span className='topPosts'>
+                  top posts
+               </span>
               {imgList}
             </div>
             <div>

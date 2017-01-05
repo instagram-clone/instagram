@@ -9,6 +9,7 @@ export default class SearchView extends React.Component {
         this.state = {
             posts : []
         }
+        document.title = '#' + this.props.params.searchTerm + ' • Instagram photos and videos';
     }
     componentDidMount(){
         axios.get('/api/search/' + this.props.params.searchTerm).then(res => {
@@ -21,8 +22,13 @@ export default class SearchView extends React.Component {
         return (
             <div className='searchView'>
                 <Nav/>
-                <div className='searchTerm'>
-                    {this.props.params.searchTerm}
+                <div className='head'>
+                    <div className='searchTerm'>
+                        #{this.props.params.searchTerm}
+                    </div>
+                    <div className='postCount'>
+                        <span className='bold'>{this.state.posts.length}</span> posts
+                    </div>
                 </div>
                 <div className='profileView'>
                     <PhotoGrid posts={this.state.posts}/>

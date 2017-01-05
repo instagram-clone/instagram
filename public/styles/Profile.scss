@@ -235,6 +235,10 @@
     // top: 50%;
     // left: 50%;
     // transform: translate(-50%, 0%);
+
+    .topPosts{
+        display:none;
+    }
 }
 .likeSprite{
     background-image:url($spriteUrl);
@@ -304,12 +308,15 @@
         position: relative;
         top: 50%;
         left: 50%;
-        margin-right: -50%;
+        // margin-right: -50%;
         transform: translate(-50%, -50%);
+        height:100%;
+        width:100%;
     }
 
     #imgPost img {
-        max-width: 100%;
+        max-width: 293px;
+        max-height:293px;
     }
 
     .hover-box:hover .likeSprite, .hover-box:hover .commentSprite{
@@ -324,8 +331,8 @@
     .hover-box {
         position: absolute;
         z-index: 2;
-        width: 293px;
-        height: 293px;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -636,8 +643,8 @@
         }
 
         .picItem {
-            margin-right: 2vw;
-            margin-bottom: 3vw;
+            margin-right: 1.5vw;
+            margin-bottom: 1.5vw;
         }
     }
     //expanded photo view
