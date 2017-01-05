@@ -235,12 +235,9 @@
     flex-wrap: wrap;
     flex-grow: 1;
     position: relative;
-    left: 28px;
+    padding-left:28px;
     margin-left: auto;
     margin-right: auto;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, 0%);
 
     .topPosts{
         display:none;
