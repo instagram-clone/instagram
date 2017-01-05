@@ -31,7 +31,7 @@ const unfollowUserCtrl = require('./controllers/feed/unfollowUserCtrl');
 const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
 const favoriteCtrl = require('./controllers/photos/favoriteCtrl');
 const commentCtrl = require('./controllers/photos/postCommentCtrl');
-
+const searchCtrl = require('./controllers/search/getPostsCtrl');
 
 const app = module.exports = express();
 
@@ -114,6 +114,7 @@ app.put('/api/removefollower/:username', unfollowUserCtrl.removeFollower)
 app.get('/api/feed', feedCtrl.getFeed);
 app.post('/api/postComment', commentCtrl.postComment);
 app.get('/api/getprofiles', getProfileInfo.getProfiles);
+app.get('/api/search/:searchTerm', searchCtrl.getSearchResults);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
