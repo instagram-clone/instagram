@@ -123,6 +123,9 @@
                 margin-bottom: 20px;
                 flex-direction: row;
             }
+            .counters:hover {
+              cursor: pointer;
+            }
 
             .bioContainer {
                 display: none;
@@ -168,6 +171,9 @@
                 text-align: center;
             }
         }
+    }
+    .mobileCounters:hover {
+      cursor: pointer;
     }
 }
 //  Position absolute or relative. Top 0 right 0 . GIve div classname with styles Logout add button here.
@@ -570,6 +576,9 @@
 
             .mobileCounters {
                 display: none;
+            }
+            .mobileCounters:hover {
+              cursor: pointer;
             }
 
             .mobileBioContainer {
