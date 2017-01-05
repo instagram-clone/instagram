@@ -111,7 +111,7 @@ class EditProfileView extends React.Component{
     return(
 
 
-      <div>
+      <div className="editProfileViewMain">
       <Nav/>
       <div className="editProfileContainer">
 
@@ -203,8 +203,6 @@ class EditProfileView extends React.Component{
             <a className="disableAcc" href="#">Temporarily disable my account</a>
           </div>
           </form>
-
-
         </div>
 
       </div>

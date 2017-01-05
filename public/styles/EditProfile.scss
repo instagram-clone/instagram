@@ -236,6 +236,12 @@ flex: 0 1 300px !important;
 }
 
 @media(max-width:800px) {
+  .editProfileViewMain {
+    footer {
+      position: relative;
+      padding-top: 60px;
+    }
+  }
     .editProfileLinks {
       display: none;
     }
@@ -298,9 +304,6 @@ flex: 0 1 300px !important;
     }
     .disableAcc {
       text-align: right;
-    }
-    .submitBtnPass {
-      // margin-left: -75px;
     }
 
 
