@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class NotificationCard extends React.Component{
   constructor(props){
@@ -9,13 +10,18 @@ export default class NotificationCard extends React.Component{
     }
   }
   componentWillMount(){
-    console.log('stuff');
+    console.log('comp mount!', this.props.userAction);
+    axios.get('/api/profileinfo/:username').then((response) => {
+      console.log('response', response);
+    })
   }
   render(){
     console.log('notification card', this.props);
     return (
-      <div>
-        <h1>Test</h1>
+      <div className="notificationCard">
+        <div>
+        <p>{this.props.notification}</p>
+        </div>
       </div>
     )
   }

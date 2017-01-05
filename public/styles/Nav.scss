@@ -90,6 +90,7 @@ header {
 .notifications{
     max-width: 362px;
     min-height: 100px;
+    max-height: 362px;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #fff;
@@ -115,6 +116,11 @@ header {
         width: 0;
         z-index: 12;
     }
+.notificationCard{
+    padding: 12px;
+    position: relative;
+    min-height: 40px;
+}
  
 @media(min-width:600px) {
     header{

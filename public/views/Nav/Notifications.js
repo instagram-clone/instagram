@@ -1,5 +1,6 @@
 import React from 'react';
 import NotificationCard from './NotificationCard';
+import axios from 'axios';
 
 export default class Notifications extends React.Component{
   constructor(props){
@@ -18,15 +19,17 @@ export default class Notifications extends React.Component{
   render(){
     let notis = [];
     if(this.state.notifications){
-      notis = this.state.notifications.notifications;
+      notis = this.state.notifications.notifications.reverse();
       console.log('array beeing mapped', notis);
     }
-    const notificationsList = <NotificationCard user={this.state.notifications} />
-    // const notificationsList = notis.map(noti => (
-    //   <NotificationCard
-    //     user={this.state.notifications}
-    //   />
-    // ) );
+    const notificationsList = notis.map(noti => (
+      <NotificationCard
+        user={this.state.notifications}
+        notification={noti.notification}
+        userAction={noti.user}
+        key={noti._id}
+      />
+    ) );
     return(
       <div>
         <div className="triangle"></div>
