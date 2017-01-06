@@ -23,25 +23,30 @@ module.exports = {
   addFollower: function(req, res, next){
     if(req.params.username){
       User.findOne({username: req.params.username}, (err, follower) =>{
-        User.findOneAndUpdate({username: req.body.username}, {$addToSet: {followers: follower._id}}, {new: true})
+        User.findOneAndUpdate({username: req.body.username}, 
+          {
+            $addToSet: {followers: follower._id}, 
+            $push: {notifications: {user: follower._id, notification: 'started following you.', post: 'yay', time: new Date()}}
+          }, {new: true})
           .populate('followers')
           .exec((err, user)=>{
             if(err){
               return res.status(500).json(err);
             }
-            console.log("Post Author: ", user);
-              User.findOneAndUpdate(
-                user.username,
-                {$push: {notifications: {user: req.params.username, notification: 'started following you.', post: 'yay', time: new Date()}}}, 
-                {new: true},
-                (err, notifications) => {
-                console.log("Error: ", err)
-                console.log("Notification", notifications)
-              console.log('add follower worked?');
+            // console.log("Post Author: ", user);
+            //   User.findOneAndUpdate(
+            //     user,
+            //     {$push: {notifications: {user: follower._id, notification: 'started following you.', post: 'yay', time: new Date()}}}, 
+            //     {new: true},
+            //     (err, notifications) => {
+            //     console.log("Error: ", err)
+            //     console.log("Notification", notifications)
+            //   console.log('add follower worked?');
               return res.status(200).json(user);
-          })
+      //     })
+      // })
+            })
       })
-      })
+    }
   }
-}
 }

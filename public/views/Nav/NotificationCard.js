@@ -65,7 +65,10 @@ export default class NotificationCard extends React.Component{
             <p>{this.props.notification}</p>
             <p className="notiTime">{this.state.relativeDate}</p>
           </div>
-          <img className="postImg" src={this.props.post} />
+          {
+            this.props.post === 'yay' ? null : <img className="postImg" src={this.props.post} /> 
+          }
+          
         </div>
         
       </div>
