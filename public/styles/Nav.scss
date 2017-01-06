@@ -98,7 +98,7 @@ header {
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     display: block;
     z-index: 11;
-    width: 450%;
+    width: 425%;
     white-space: normal;
     position: absolute;
     top: 65px;
@@ -130,6 +130,8 @@ header {
     span{
         padding-right: 5px;
         font-weight: 900;
+        position: relative;
+        top: -11px;
     }
     p{
         padding-right: 5px;

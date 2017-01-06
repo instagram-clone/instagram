@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router';
 
 export default class NotificationCard extends React.Component{
   constructor(props){
@@ -60,8 +61,12 @@ export default class NotificationCard extends React.Component{
       <div className="notificationCard">
         <div>
           <div>
+
+          <a href={`#/profile/${this.state.user.username}`}>
             <img src={this.state.user.profilepic} />
             <span>{this.state.user.username}</span>
+          </a>  
+
             <p>{this.props.notification}</p>
             <p className="notiTime">{this.state.relativeDate}</p>
           </div>
