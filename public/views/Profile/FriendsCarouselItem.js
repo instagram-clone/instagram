@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
+import {Link} from 'react-router';
 
 export default class FriendsCarouselItem extends React.Component{
   constructor(props){
@@ -37,10 +38,12 @@ export default class FriendsCarouselItem extends React.Component{
 
   return(
     <div className="carouselCard">
+      <Link to={`/profile/${this.props.username}`}>
       <div className="carouselCardPic"><img src={this.props.profilepic}/></div>
       <div className="carouselCardUsername">{this.props.username}</div>
+      </Link>
       <div className="carouselCardFullname">{this.props.fullname}</div>
-      
+
 
 
       <div>
