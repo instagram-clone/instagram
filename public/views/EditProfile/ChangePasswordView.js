@@ -126,7 +126,7 @@ export default class EditProfileView extends React.Component {
 
 
           <div className="formItemPassBtn">
-          <button className="submitBtn"
+          <button className="submitBtn button w"
           onClick={this.handleSubmitPassword.bind(this)}>Change Password</button>
           </div>
 

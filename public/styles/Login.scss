@@ -160,9 +160,14 @@
     }
 }
 
+.loginFooter{
+    footer{
+        position: absolute;
+    }
+}
 footer {
     height: 60px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100vw;
     margin-top: 20px;
