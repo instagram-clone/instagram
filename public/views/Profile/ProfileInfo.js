@@ -193,7 +193,6 @@ class ProfileInfo extends React.Component {
                       <div onClick={this.toggleShowTheirFollowers.bind(this)} className="followModal-bg"></div>
                       <div className="followModal">
                         <div className="followModalHeader">Followers</div>
-                        <hr/>
                         <AllTheirFollowers user={this.props.user}/>
                       </div>
                     </div>
@@ -203,7 +202,6 @@ class ProfileInfo extends React.Component {
                       <div onClick={this.toggleShowWhoTheyFollow.bind(this)} className="followModal-bg"></div>
                       <div className="followModal">
                         <div className="followModalHeader">Following</div>
-                          <hr/>
                         <AllTheyFollow user={this.props.user}/>
                       </div>
                     </div>

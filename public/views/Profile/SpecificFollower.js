@@ -68,9 +68,11 @@ export default class SpecificFollower extends React.Component{
         <div className="followModalLeftCol">
         <Link to={`/profile/${this.props.username}`}>
         <div><img className="followModalPic" src={this.props.profilepic}/></div>
-        <div className="followModalUsername">{this.props.username}</div>
         </Link>
-        <div className="followModalFullname">{this.props.fullname}</div>
+        <div className="followModalLeftSubCol">
+          <div className="followModalUsername"><Link to={`/profile/${this.props.username}`}>{this.props.username}</Link></div>
+          <div className="followModalFullname">{this.props.fullname}</div>
+        </div>
         </div>
         <div className="followModalRightCol">
         {this.state.showfollow

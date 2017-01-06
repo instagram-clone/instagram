@@ -568,17 +568,25 @@
         }
         .followModalHeader{
           height: 49px;
-          padding: 20px;
+          padding-top: 15px;
+          padding-left: 5px;
         }
         .followModalElement{
           position: relative;
           height: 63px;
-          width: 600px;
-          border-bottom: 1px solid #efefef;
+          width: 100%;
+          border-top: .5px solid #efefef;
+          border-bottom: .5px solid #efefef;
           padding: 20px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
+        }
+        .followModalLeftCol{
+          text-align: left;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
         }
         .followModalPic{
           border-radius: 25px;
@@ -588,17 +596,28 @@
           float: left;
           border: 1px solid #efefef;
         }
+        .followModalLeftSubCol{
+          display: flex;
+          flex-direction: column;
+        }
         .followModalUsername{
           font-weight: bold;
           font-size: 15px;
-          line-height: 18px;
-          margin-bottom: 3px;
-          width: 40%;
+          line-height: 15px;
+          margin-bottom: 5px;
+          float: right;
+          text-align: left;
         }
         .followModalFullname{
           font-size: 12px;
-          line-height: 12px;
-          width: 40%;
+          font-weight: lighter;
+          line-height: 2px;
+          float: right;
+          text-align: left;
+          margin-bottom: 3px;
+        }
+        .followModalRightCol{
+          text-align: left;
         }
         .followModalButton{
           float: right;
@@ -608,7 +627,7 @@
           position: relative;
           z-index: 34;
           text-align: center;
-          margin-right: 20px;
+          margin-right: 12px;
         }
         .modalFollowing{
           line-height: 29px;
@@ -618,7 +637,9 @@
           font-weight: 600;
           background-color: rgb(112, 192, 80);
         }
-
+        .followList{
+          cursor: pointer;
+        }
     @media(min-width:600px) {
         .profileInfo {
             margin-top: -30px;

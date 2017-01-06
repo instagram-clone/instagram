@@ -57,12 +57,16 @@ export default class SpecificFollowedProfile extends React.Component{
   render(){
     return(
       <div className="followModalElement">
+        <div className="followModalLeftCol">
           <Link to={`/profile/${this.props.username}`}>
           <div><img className="followModalPic" src={this.props.profilepic}/></div>
-          <div className="followModalUsername">{this.props.username}</div>
           </Link>
-          <div className="followModalFullname">{this.props.fullname}</div>
-          <div>
+          <div className="followModalLeftSubCol">
+            <div className="followModalUsername"><Link to={`/profile/${this.props.username}`}>{this.props.username}</Link></div>
+            <div className="followModalFullname">{this.props.fullname}</div>
+          </div>
+        </div>
+          <div className="followModalRightCol">
           {this.state.showfollow
               ?  <div className='row'>
                       <div className="followModalButton button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
@@ -70,9 +74,9 @@ export default class SpecificFollowedProfile extends React.Component{
               : null}
 
           {this.state.showfollowing
-              ?  <span className='row'>
+              ?  <div className='row'>
                       <div className="followModalButton modalFollowing button" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
-                  </span>
+                  </div>
               : null}
             </div>
       </div>
