@@ -111,7 +111,7 @@ class EditProfileView extends React.Component{
     return(
 
 
-      <div>
+      <div className="editProfileViewMain">
       <Nav/>
       <div className="editProfileContainer">
 
@@ -124,7 +124,7 @@ class EditProfileView extends React.Component{
 
 
         <div className="editProfileContents">
-          <div className="username">
+          <div className="editProfileUsername">
             <img className="profilePic" height="20" width="20" alt="" src={this.state.profilepic}/>{this.state.username}
           </div>
 
@@ -203,8 +203,6 @@ class EditProfileView extends React.Component{
             <a className="disableAcc" href="#">Temporarily disable my account</a>
           </div>
           </form>
-
-
         </div>
 
       </div>
