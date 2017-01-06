@@ -565,6 +565,7 @@
           position: absolute;
           top: 15%;
           z-index: 32;
+          overflow: scroll;
         }
         .followModalHeader{
           height: 49px;
@@ -644,6 +645,11 @@
         .profileInfo {
             margin-top: -30px;
         }
+    }
+    @media(max-width:600px){
+      .followModal{
+        width: 100%;
+      }
     }
     @media(max-width:735px) {
         .picItem {
