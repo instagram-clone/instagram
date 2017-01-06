@@ -526,6 +526,7 @@
         background-color: black;
         position: absolute;
         opacity: 0.5;
+        z-index:3;
     }
 
     .expand-comments {
@@ -572,6 +573,7 @@
           height: 200vh;
           width: 200vw;
           position: absolute;
+          z-index:20;
         }
         .followModal{
           font-size: 16px;

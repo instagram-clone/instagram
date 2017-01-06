@@ -22,6 +22,7 @@ export default class PhotoGrid extends React.Component {
         });
     }
     expandHandle(picInfo) {
+        console.log("11!1!!!", picInfo);
         this.setState({expandImg: picInfo})
     }
     close() {
@@ -32,21 +33,26 @@ export default class PhotoGrid extends React.Component {
         if (this.state.picInfo) {
             posts = this.state.picInfo
         }
-        const imgList = posts.map(post => (
-          <PhotoGridItem
-            author={post.author}
-            comments={post.comments}
-            likes={post.likes}
-            id={post._id}
-            key={post._id}
-            description={post.description}
-            filter={post.filter}
-            photourl={post.photourl}
-            timestamp={post.timestamp}
-            location={post.location}
-            testFunc={this.expandHandle.bind(this)}
-            />
-        ) );
+        let imgList = [];
+        imgList = posts.map(post => {
+          return <PhotoGridItem
+                    author={post.author}
+                    comments={post.comments}
+                    likes={post.likes}
+                    id={post._id}
+                    key={post._id}
+                    description={post.description}
+                    filter={post.filter}
+                    photourl={post.photourl}
+                    timestamp={post.timestamp}
+                    location={post.location}
+                    testFunc={this.expandHandle.bind(this)}
+                />
+        }).sort((a, b) => {
+            a = new Date(a.props.timestamp)
+            b = new Date(b.props.timestamp);
+            return a > b ? -1 : a < b ? 1 : 0;
+        })
         return(
           <div>
             <div className="photoGrid">

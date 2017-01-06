@@ -7,7 +7,7 @@ module.exports = {
         const feed = [];
         setTimeout(() => {
             return res.status(200).json(feed);
-        }, 400);
+        }, 430);
         User.findOne({username: req.query.username}, (err, user) => {
             //gets posts for each user the person follows
             //also gets the user's posts

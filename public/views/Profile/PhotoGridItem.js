@@ -5,7 +5,7 @@ export default class PhotoGridItem extends React.Component {
         super(props);
     }
     render() {
-        var bgImg = {
+        let bgImg = {
             backgroundImage: 'url(' + this.props.photourl + ')',
             backgroundSize: 'cover',
             width: '293px',
@@ -17,14 +17,12 @@ export default class PhotoGridItem extends React.Component {
                 this.props.testFunc(this.props)
             }}>
                 <div className="hover-box">
-                    <div className="hover-box">
                     <div id="icon-box">
                         <div className="likeSprite"></div>
                         <p>{this.props.likes.length}</p>
                         <div className="commentSprite"></div>
                         <p>{this.props.comments.length}</p>
                     </div>
-                </div>
                 </div>
                 <figure id="imgPost" className={this.props.filter}>
                     <div style={bgImg}></div>

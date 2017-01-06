@@ -8,7 +8,7 @@ module.exports = {
         setTimeout(()=>{
             console.log(searchResults);
             return res.json(searchResults);
-        }, 140)
+        }, 300)
         Post.find( { $text : {$search: req.params.searchTerm } }, (err, response) => {
             searchResults.posts = response;
             console.log(searchResults);
