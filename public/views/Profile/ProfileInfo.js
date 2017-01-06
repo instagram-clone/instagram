@@ -54,7 +54,9 @@ class ProfileInfo extends React.Component {
     console.log(nextProps, 'next props');
     if(this.props.paramUserName !== nextProps.paramUserName){
       this.setState({
-        friendsCarousel: false
+        friendsCarousel: false,
+        showTheirFollowers: false,
+        showWhoTheyFollow: false,
       })
     }
   }
@@ -64,8 +66,10 @@ class ProfileInfo extends React.Component {
 
             <div className='profileInfo'>
                 {this.state.showLogout
-                    ? <div className="logoutOverlay">
-                            <div>
+                    ? <div className="logOutToggle">
+                    <div className="logoutOverlay" onMouseDown={this.toggleLogout.bind(this)}>
+                      </div>
+                            <div className="buttonHolder">
                                 <ul className="logoutUl">
                                     <li className="logoutLi">
                                         <button onClick={this.logout.bind(this)} className="logoutButton">Log out</button>
@@ -75,7 +79,8 @@ class ProfileInfo extends React.Component {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                          </div>
+
                     : null}
                 <div className='profileInfoRow'>
                     <img className="profilePhoto" src={this.props.user.profilepic}/>
@@ -184,15 +189,23 @@ class ProfileInfo extends React.Component {
 
                   : null}
                   {this.state.showTheirFollowers ?
-                    <div>
-                      <h1>Followers</h1>
-                      <AllTheirFollowers user={this.props.user}/>
+                    <div className="followModalContainer">
+                      <div onClick={this.toggleShowTheirFollowers.bind(this)} className="followModal-bg"></div>
+                      <div className="followModal">
+                        <div className="followModalHeader">Followers</div>
+                        <hr/>
+                        <AllTheirFollowers user={this.props.user}/>
+                      </div>
                     </div>
                   : null}
                   {this.state.showWhoTheyFollow ?
-                    <div>
-                      <h1>Following</h1>
-                      <AllTheyFollow user={this.props.user}/>
+                    <div className="followModalContainer">
+                      <div onClick={this.toggleShowWhoTheyFollow.bind(this)} className="followModal-bg"></div>
+                      <div className="followModal">
+                        <div className="followModalHeader">Following</div>
+                          <hr/>
+                        <AllTheyFollow user={this.props.user}/>
+                      </div>
                     </div>
                   : null}
 

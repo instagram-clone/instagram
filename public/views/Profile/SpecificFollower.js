@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getAllUserData} from '../../utils/getLoggedInUser';
+import {Link} from 'react-router';
 
 
 export default class SpecificFollower extends React.Component{
@@ -63,21 +64,25 @@ export default class SpecificFollower extends React.Component{
 
 
     return(
-      <div className="followersModal">
-        <div className="followersModalPic"><img src={this.props.profilepic}/></div>
-        <div className="followersModalUsername">{this.props.username}</div>
-        <div className="followersModalFullname">{this.props.fullname}</div>
-        <div>
+      <div className="followModalElement">
+        <div className="followModalLeftCol">
+        <Link to={`/profile/${this.props.username}`}>
+        <div><img className="followModalPic" src={this.props.profilepic}/></div>
+        <div className="followModalUsername">{this.props.username}</div>
+        </Link>
+        <div className="followModalFullname">{this.props.fullname}</div>
+        </div>
+        <div className="followModalRightCol">
         {this.state.showfollow
-            ?  <div className='row'>
-                    <div className="button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
+            ?  <div>
+                    <div className="followModalButton button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
                 </div>
             : null}
 
         {this.state.showfollowing
-            ?  <span className='row'>
-                    <div className="following button followSpacing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
-                </span>
+            ?  <div>
+                    <div className="followModalButton button modalFollowing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
+                </div>
             : null}
           </div>
       </div>
