@@ -116,8 +116,10 @@ header {
         z-index: 12;
     }
 .notificationCard{
-    padding: 12px 12px 0px;
+    margin: 12px;
+    padding-bottom: 12px;
     position: relative;
+    border-bottom: 1px solid #efefef;
 
     img{
         width: 34px;

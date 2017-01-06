@@ -32,13 +32,11 @@ export default class NotificationCard extends React.Component{
             <img src={this.state.user.profilepic} />
             <span>{this.state.user.username}</span>
             <p>{this.props.notification}</p>
+            <p>{this.props.time}</p>
           </div>
           <img className="postImg" src={this.props.post} />
         </div>
         
-        <div id="lineNoti" className='lineContainer'>
-            <div className='line'></div>
-        </div>
       </div>
     )
   }
