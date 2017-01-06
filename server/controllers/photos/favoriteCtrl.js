@@ -13,7 +13,7 @@ module.exports = {
                 console.log("Post Author: ", post)
                 User.findByIdAndUpdate(
                     post.author,
-                    {$push: {notifications: {user: req.body.userID, notification: 'liked your photo'}}}, 
+                    {$push: {notifications: {user: req.body.userID, notification: 'liked your photo', post: post.photourl, time: new Date()}}}, 
                     {new: true},
                     (err, notifications) => {
                         console.log("Error: ", err)

@@ -88,7 +88,6 @@ header {
     }
 }
 .notifications{
-    max-width: 362px;
     min-height: 100px;
     max-height: 362px;
     overflow-x: hidden;
@@ -99,7 +98,7 @@ header {
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     display: block;
     z-index: 11;
-    width: 500px;
+    width: 360%;
     white-space: normal;
     position: absolute;
     top: 65px;
@@ -117,10 +116,36 @@ header {
         z-index: 12;
     }
 .notificationCard{
-    padding: 12px;
+    padding: 12px 12px 0px;
     position: relative;
-    min-height: 40px;
+
+    img{
+        width: 34px;
+        height: 34px;
+        border-radius: 50px;
+        padding-right: 5px;
+    }
+    span{
+        padding-right: 5px;
+        font-weight: 900;
+    }
+    p{
+        padding-right: 5px;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .postImg{
+        border-radius: inherit;
+        width: 55px;
+        height: auto;
+    }
 }
+    #lineNoti{
+        display: inherit;
+    }
  
 @media(min-width:600px) {
     header{

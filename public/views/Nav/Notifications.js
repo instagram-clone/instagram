@@ -28,6 +28,8 @@ export default class Notifications extends React.Component{
         notification={noti.notification}
         userAction={noti.user}
         key={noti._id}
+        post={noti.post}
+        time={noti.time}
       />
     ) );
     return(

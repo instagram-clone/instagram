@@ -9,18 +9,35 @@ export default class NotificationCard extends React.Component{
 
     }
   }
+  getProfiles(user){
+    axios.get(`/api/getprofiles/${user}`).then((response) => {
+      console.log('axios', response.data);
+      this.setState({
+        user: response.data
+      })
+    });
+  }
   componentWillMount(){
-    console.log('comp mount!', this.props.userAction);
-    axios.get('/api/profileinfo/:username').then((response) => {
-      console.log('response', response);
-    })
+    this.getProfiles(this.props.userAction);
   }
   render(){
-    console.log('notification card', this.props);
+    console.log('photcard', this.props);
+    if(!this.state.user){
+      this.state.user = " "
+    }
     return (
       <div className="notificationCard">
         <div>
-        <p>{this.props.notification}</p>
+          <div>
+            <img src={this.state.user.profilepic} />
+            <span>{this.state.user.username}</span>
+            <p>{this.props.notification}</p>
+          </div>
+          <img className="postImg" src={this.props.post} />
+        </div>
+        
+        <div id="lineNoti" className='lineContainer'>
+            <div className='line'></div>
         </div>
       </div>
     )

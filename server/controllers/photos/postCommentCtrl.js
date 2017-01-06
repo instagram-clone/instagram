@@ -8,13 +8,14 @@ module.exports = {
                     {$addToSet: { comments : {
                         username: req.body.username,
                         userid: req.body.userid,
-                        comment: req.body.comment
+                        comment: req.body.comment,
+                        time: new Date()
                     }}}, (err, post) => {
                         if(err) return res.status(500).json(err);
                         console.log("Post Author: ", post);
                         User.findByIdAndUpdate(
                             post.author,
-                            {$push: {notifications: {user: req.body.userid, notification: 'commented: ' + req.body.comment}}}, 
+                            {$push: {notifications: {user: req.body.userid, notification: 'commented: ' + req.body.comment, post: post.photourl, time: new Date()}}}, 
                             {new: true},
                             (err, notifications) => {
                         console.log("Error: ", err)
