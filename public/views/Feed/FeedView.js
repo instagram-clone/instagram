@@ -38,7 +38,7 @@ class FeedView extends React.Component {
             window.setTimeout(() => {
                 this.setState({feed, feedSet: true})
                 console.log(feed);
-            }, 100)
+            }, 30)
         });
         getAllUserData().then(res => {
             this.setState({

@@ -80,68 +80,76 @@ class ProfileInfo extends React.Component {
                 <div className='profileInfoRow'>
                     <img className="profilePhoto" src={this.props.user.profilepic}/>
                     <div className="profileInfoRight">
-                        <div className='profileTopRow'>
-                            <span className='profileUsername'>{this.props.user.username}</span>
+                        <section className='topRowPosition'>
+                            <div className='profileTopRow'>
+                                {this.props.currentuser ?
+                                        <span className='row'>
+                                            <span className='profileUsername'>{this.props.user.username}</span>
+                                            <span onClick={this.toggleLogout.bind(this)} className='mobileOptions optionsSprite'></span>
+                                        </span>
+                                        :   <span className='profileUsername'>{this.props.user.username}</span>
+                                    }
+                                    {this.props.currentuser
+                                        ?
+                                            <span>
+                                                <Link to="/editProfile">
+                                                    <button className="hideOnMobile button buttonClear">Edit Profile</button>
+                                                </Link>
+                                            </span>
+                                        : null}
+                                    {this.props.showfollow
+                                        ?  <div className='row'>
+                                                <div className="button buttonBlue buttonClear" onClick={this.props.clickFollowHandler}>Follow</div>
+                                                <div onClick={this.toggleFriendsCarousel.bind(this)}  className='button buttonClear buttonBlue followSpacing followSprite'>
+                                                    <div className="arrowSpriteFollow"> </div>
+                                                </div>
+                                            </div>
+                                        : null}
+                                    {this.props.showfollowing
+                                        ?  <span className='row'>
+                                                <div className="following button followSpacing" onClick={this.props.clickUnfollowHandler}>Following</div>
+                                                <div onClick={this.toggleFriendsCarousel.bind(this)} className='following button followSprite'>
+                                                    <div className="arrowSpriteFollowing"> </div>
+                                                </div>
+                                            </span>
+                                        : null}
                                 {this.props.currentuser
                                     ?
-                                        <span>
-                                            <Link to="/editProfile">
-                                                <button className="hideOnMobile button buttonClear">Edit Profile</button>
-                                            </Link>
-                                        </span>
-                                    : null}
-                                {this.props.showfollow
-                                    ?  <div className='row'>
-                                            <div className="button buttonBlue buttonClear" onClick={this.props.clickFollowHandler}>Follow</div>
-                                            <div onClick={this.toggleFriendsCarousel.bind(this)}  className='button buttonClear buttonBlue followSpacing followSprite'>
-                                                <div className="arrowSpriteFollow"> </div>
-                                            </div>
-                                        </div>
-                                    : null}
-                                {this.props.showfollowing
-                                    ?  <span className='row'>
-                                            <div className="following button followSpacing" onClick={this.props.clickUnfollowHandler}>Following</div>
-                                            <div onClick={this.toggleFriendsCarousel.bind(this)} className='following button followSprite'>
-                                                <div className="arrowSpriteFollowing"> </div>
-                                            </div>
-                                        </span>
-                                    : null}
+                                        <span onClick={this.toggleLogout.bind(this)} className='fullOptions optionsSprite'></span>
+                                    :   null}
+                                <div className={`appLinks ${this.state.showLogout
+                                    ? "loginSpacing"
+                                    : null}`}></div>
+                            </div>
                             {this.props.currentuser
                                 ?
-                                    <span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
-                                :   null}
-                            <div className={`appLinks ${this.state.showLogout
-                                ? "loginSpacing"
-                                : null}`}></div>
-                        </div>
-                        {this.props.currentuser
-                            ?
-                            <div>
-                              <Link className='showOnMobile' to="/editProfile">
-                                <button className="button buttonClear">Edit Profile</button>
-                              </Link>
-                              <span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
-                            </div>
-                             : null}
-                        <div className='counters'>
-                            <span>
-                                <span className="count">{this.props.posts.length + ' '}
+                                <div>
+                                  <Link className='showOnMobile' to="/editProfile">
+                                    <button className="button buttonClear">Edit Profile</button>
+                                  </Link>
+                                  <span onClick={this.toggleLogout.bind(this)} className='optionsSprite'></span>
+                                </div>
+                                 : null}
+                            <div className='counters'>
+                                <span>
+                                    <span className="count">{this.props.posts.length + ' '}
+                                    </span>
+                                    posts
                                 </span>
-                                posts
-                            </span>
-                            <span onClick={this.toggleShowTheirFollowers.bind(this)}>
-                                <span className="count">{this.props.user.followers
-                                        ? this.props.user.followers.length + ' '
-                                        : 0}</span>
-                                followers
-                            </span>
-                            <span onClick={this.toggleShowWhoTheyFollow.bind(this)}>
-                                <span className="count">{this.props.user.following
-                                        ? this.props.user.following.length + ' '
-                                        : 0}</span>
-                                following
-                            </span>
-                        </div>
+                                <span onClick={this.toggleShowTheirFollowers.bind(this)}>
+                                    <span className="count">{this.props.user.followers
+                                            ? this.props.user.followers.length + ' '
+                                            : 0}</span>
+                                    followers
+                                </span>
+                                <span onClick={this.toggleShowWhoTheyFollow.bind(this)}>
+                                    <span className="count">{this.props.user.following
+                                            ? this.props.user.following.length + ' '
+                                            : 0}</span>
+                                    following
+                                </span>
+                            </div>
+                        </section>
                         <span className='bioContainer'>
                             <span className='name'>
                                 {this.props.user.fullname}

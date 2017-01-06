@@ -12,7 +12,9 @@
             width: 77px;
             margin-right: 28px;
         }
-
+        .topRowPosition{
+            max-width: 300px;
+        }
         .profileInfoRight {
             display: flex;
             flex-direction: column;
@@ -44,8 +46,12 @@
                 display: flex;
                 flex-direction: column;
                 margin-top: 0;
-                align-items: center;
-
+                .mobileOptions{
+                    display:inline;
+                }
+                .fullOptions{
+                    display:none;
+                }
                 .optionsSprite {
                     background-image: url($spriteUrl);
                     background-size: 352px 311px;
@@ -67,6 +73,7 @@
                     padding: 0 11px;
                     font-weight: 600;
                     background-color: rgb(112, 192, 80);
+                    margin-left:0px;
                 }
 
                 .row {
@@ -620,8 +627,14 @@
                     .profileTopRow {
                         flex-direction: row;
                         justify-content: space-between;
+                        align-items: center;
                         margin-bottom: 20px;
-
+                        .mobileOptions{
+                            display:none;
+                        }
+                        .fullOptions{
+                            display:inline;
+                        }
                         .profileUsername {
                             font-weight: lighter;
                             font-size: 34px;
