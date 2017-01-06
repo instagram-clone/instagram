@@ -19,6 +19,7 @@ class FeedView extends React.Component {
             feedSet: false,
             default: 'https://scontent-fra3-1.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'
         }
+        document.title='Instagram';
     }
     componentWillMount() {
         let feed = [];

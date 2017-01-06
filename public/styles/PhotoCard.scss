@@ -4,7 +4,7 @@
     background-color: $darkBackground;
     display:flex;
     flex-direction: column;
-    margin-bottom:40px;
+    margin-bottom:20px;
 
     a{
         color:$black;
@@ -107,27 +107,30 @@
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
+
         .sprite{
             background-image:url($spriteUrl);
             background-size:352px 311px;
             height:26px;
             width:26px;
             margin-top:2px;
-            margin-right:10px;
         }
         .sprite:hover{
             cursor:pointer;
         }
         .favoriteSprite{
             background-position: -314px -176px;
+            padding-left:6px;
         }
         .alreadyFavoritedSprite{
             background-position: -152px -224px;
+            padding-left:6px;
         }
         .infoSprite{
             background-position:-56px -176px;
             height:44px;
             width:44px;
+            margin-right:25px;
         }
         input{
             font-size:15px;
@@ -144,7 +147,7 @@
         width: 600px;
         margin-left: auto;
         margin-right: auto;
-
+        margin-bottom:40px;
         .photoHeader {
             background-color: $lightBackground;
             border: 1px solid $photoCardBorderColor;
