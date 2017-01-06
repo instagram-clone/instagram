@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {getLoggedInUser} from '../../utils/getLoggedInUser';
 import {getAllUserData} from '../../utils/getLoggedInUser';
+import {Link} from 'react-router';
 
 export default class SpecificFollowedProfile extends React.Component{
   constructor(props){
@@ -44,26 +45,38 @@ export default class SpecificFollowedProfile extends React.Component{
               showfollow: false,
             })
           }
+          if(response.data._id === this.props._id){
+            this.setState({
+              showfollowing: false,
+              showfollow: false,
+            })
+          }
         }
       });
     }
   render(){
     return(
-      <div className="followersModal">
-          <div className="followersModalPic"><img src={this.props.profilepic}/></div>
-          <div className="followersModalUsername">{this.props.username}</div>
-          <div className="followersModalFullname">{this.props.fullname}</div>
-          <div>
+      <div className="followModalElement">
+        <div className="followModalLeftCol">
+          <Link to={`/profile/${this.props.username}`}>
+          <div><img className="followModalPic" src={this.props.profilepic}/></div>
+          </Link>
+          <div className="followModalLeftSubCol">
+            <div className="followModalUsername"><Link to={`/profile/${this.props.username}`}>{this.props.username}</Link></div>
+            <div className="followModalFullname">{this.props.fullname}</div>
+          </div>
+        </div>
+          <div className="followModalRightCol">
           {this.state.showfollow
               ?  <div className='row'>
-                      <div className="button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
+                      <div className="followModalButton button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
                   </div>
               : null}
 
           {this.state.showfollowing
-              ?  <span className='row'>
-                      <div className="following button followSpacing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
-                  </span>
+              ?  <div className='row'>
+                      <div className="followModalButton modalFollowing button" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
+                  </div>
               : null}
             </div>
       </div>

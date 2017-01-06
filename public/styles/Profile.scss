@@ -190,41 +190,53 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .logOutToggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+  }
+  .buttonHolder{
+    position: absolute;
+    top: 40%;
+    z-index: 32;
+  }
 
-    .logoutUl {
-        width: 515px;
-    }
+  .logoutLi {
+      border-bottom: 1px solid #dbdbdb;
+      width: 515px;
+      position: relative;
+  }
 
-    .logoutLi {
-        border-bottom: 1px solid #dbdbdb;
-        width: 515px;
-    }
+  .logoutButton {
+      font-family: $font;
+      background-color: white;
+      border: none;
+      color: #262626;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 50px;
+      margin: 0;
+      padding: 0 16px;
+      text-align: center;
+      width: 515px;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 999;
+  }
 
-    .logoutButton {
-        font-family: $font;
-        background-color: white;
-        border: none;
-        color: #262626;
-        cursor: pointer;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 50px;
-        margin: 0;
-        padding: 0 16px;
-        text-align: center;
-        width: 515px;
-        letter-spacing: 1px;
-    }
+  .logoutButton:active {
+      background-color: #dbdbdb;
+      color: $blackActive;
+  }
 
-    .logoutButton:active {
-        background-color: #dbdbdb;
-        color: $blackActive;
-    }
+  .logoutButton:focus {
+      outline: 0;
+  }
 
-    .logoutButton:focus {
-        outline: 0;
-    }
-}
+
 
 .photoGrid {
     // border: 1px solid red;
@@ -536,10 +548,119 @@
             margin-right: auto;
         }
     }
+
+    .followModalContainer {
+          height: 100vh;
+          width: 100vw;
+          position: absolute;
+          left: 0;
+          top: 0;
+          text-align: left;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+    }
+        .followModal-bg{
+          background-color: rgba(0,0,0,0.5);
+          height: 200vh;
+          width: 200vw;
+          position: absolute;
+        }
+        .followModal{
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px;
+          background-color: #FFFFFF;
+          width: 600px;
+          height: 600px;
+          position: absolute;
+          top: 15%;
+          z-index: 32;
+          overflow: scroll;
+        }
+        .followModalHeader{
+          height: 49px;
+          padding-top: 15px;
+          padding-left: 5px;
+        }
+        .followModalElement{
+          position: relative;
+          height: 63px;
+          width: 100%;
+          border-top: .5px solid #efefef;
+          border-bottom: .5px solid #efefef;
+          padding: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .followModalLeftCol{
+          text-align: left;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+        }
+        .followModalPic{
+          border-radius: 25px;
+          height: 28px;
+          width: 28px;
+          margin-right: 8px;
+          float: left;
+          border: 1px solid #efefef;
+        }
+        .followModalLeftSubCol{
+          display: flex;
+          flex-direction: column;
+        }
+        .followModalUsername{
+          font-weight: bold;
+          font-size: 15px;
+          line-height: 15px;
+          margin-bottom: 5px;
+          float: right;
+          text-align: left;
+        }
+        .followModalFullname{
+          font-size: 12px;
+          font-weight: lighter;
+          line-height: 2px;
+          float: right;
+          text-align: left;
+          margin-bottom: 3px;
+        }
+        .followModalRightCol{
+          text-align: left;
+        }
+        .followModalButton{
+          float: right;
+          line-height: 15px;
+          width: 110px;
+          height: 26px;
+          position: relative;
+          z-index: 34;
+          text-align: center;
+          margin-right: 12px;
+        }
+        .modalFollowing{
+          line-height: 29px;
+          padding-top: 10px;
+          font-size: 16px;
+          padding: 0 11px;
+          font-weight: 600;
+          background-color: rgb(112, 192, 80);
+        }
+        .followList{
+          cursor: pointer;
+        }
     @media(min-width:600px) {
         .profileInfo {
             margin-top: -30px;
         }
+    }
+    @media(max-width:600px){
+      .followModal{
+        width: 100%;
+      }
     }
     @media(max-width:735px) {
         .picItem {
