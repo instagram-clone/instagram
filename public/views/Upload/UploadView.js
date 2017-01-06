@@ -12,6 +12,7 @@ export default class UploadView extends React.Component {
         this.state = {
             displayPreview: false
         }
+        document.title = 'Upload';
     }
 
     handleCaptionChange(e) {

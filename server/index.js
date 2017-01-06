@@ -31,7 +31,7 @@ const unfollowUserCtrl = require('./controllers/feed/unfollowUserCtrl');
 const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
 const favoriteCtrl = require('./controllers/photos/favoriteCtrl');
 const commentCtrl = require('./controllers/photos/postCommentCtrl');
-const searchCtrl = require('./controllers/search/getPostsCtrl');
+const searchCtrl = require('./controllers/search/getSearchResults');
 
 const app = module.exports = express();
 
