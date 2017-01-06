@@ -6,8 +6,39 @@ export default class NotificationCard extends React.Component{
     super(props);
 
     this.state = {
-
+      relativeDate: this.getDate()
     }
+  }
+  getDate(){
+    let photoDate = new Date(this.props.time);
+    let photo = Date.parse(this.props.time);
+    let today = new Date();
+    let daysBetween = Math.floor((today - photo) / 86400000);
+    let relativeDate;
+    //if the photo was posted today, it shows the difference in hours, or minutes,
+        //otherwise, it shows how many days or weeks ago it was posted
+    if (Math.round(Math.abs(today - photoDate) / 36e5) < 24) {
+            //checks if photo was posted less than an hour ago
+            console.log(Math.round(Math.abs(today - photoDate) / 36e5));
+            if (Math.round(Math.abs(today - photoDate) / 36e5) <= 0) {
+                let minsDiff = Math.round((today.getTime() - photoDate.getTime())/60000);
+                if (minsDiff === 0) {
+                    relativeDate = 'now';
+                } else {
+                    relativeDate = minsDiff + 'm';
+                }
+            } else {
+                //get difference in hours
+                relativeDate = Math.round(Math.abs(today - photoDate) / 36e5) + 'h';
+            }
+        } else if (daysBetween < 7) {
+            relativeDate = daysBetween + 'd';
+        } else if (daysBetween >= 7 && daysBetween <= 14) {
+            relativeDate = '1w'
+        } else {
+            relativeDate = Math.round(daysBetween / 7) + 'w'
+        }
+        return relativeDate;
   }
   getProfiles(user){
     axios.get(`/api/getprofiles/${user}`).then((response) => {
@@ -32,7 +63,7 @@ export default class NotificationCard extends React.Component{
             <img src={this.state.user.profilepic} />
             <span>{this.state.user.username}</span>
             <p>{this.props.notification}</p>
-            <p>{this.props.time}</p>
+            <p className="notiTime">{this.state.relativeDate}</p>
           </div>
           <img className="postImg" src={this.props.post} />
         </div>

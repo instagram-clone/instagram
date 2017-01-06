@@ -29,10 +29,19 @@ module.exports = {
             if(err){
               return res.status(500).json(err);
             }
+            console.log("Post Author: ", user);
+              User.findOneAndUpdate(
+                user.username,
+                {$push: {notifications: {user: req.params.username, notification: 'started following you.', post: 'yay', time: new Date()}}}, 
+                {new: true},
+                (err, notifications) => {
+                console.log("Error: ", err)
+                console.log("Notification", notifications)
               console.log('add follower worked?');
               return res.status(200).json(user);
           })
       })
-    }
+      })
   }
-};
+}
+}

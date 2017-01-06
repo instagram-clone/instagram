@@ -148,6 +148,11 @@ header {
     #lineNoti{
         display: inherit;
     }
+    .notiTime{
+        font-weight: bold;
+        font-family: sans-serif;
+        color: #9F9999;
+    }
  
 @media(min-width:600px) {
     header{
