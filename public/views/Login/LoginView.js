@@ -46,7 +46,9 @@ export default class LoginView extends React.Component {
                         </div>
                     </div>
                 </main>
-                <Footer/>
+                <span className='loginFooter'>
+                    <Footer/>
+                </span>
             </div>
         )
     }
