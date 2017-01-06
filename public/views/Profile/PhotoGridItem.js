@@ -5,6 +5,13 @@ export default class PhotoGridItem extends React.Component {
         super(props);
     }
     render() {
+        let bgImg = {
+            backgroundImage: 'url(' + this.props.photourl + ')',
+            backgroundSize: 'cover',
+            width: '293px',
+            height: '293px',
+            backgroundPosition: 'center'
+        }
         return (
             <div className="picItem" onClick={() => {
                 this.props.testFunc(this.props)
@@ -18,7 +25,7 @@ export default class PhotoGridItem extends React.Component {
                     </div>
                 </div>
                 <figure id="imgPost" className={this.props.filter}>
-                    <img className='photo' src={this.props.photourl} />
+                    <div style={bgImg}></div>
                 </figure>
             </div>
         )

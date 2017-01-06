@@ -2,26 +2,30 @@
 
 .photoCard {
     background-color: $darkBackground;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
-    a{
-        color:$black;
+    a {
+        color: $black;
     }
-    a:active{
-        color:$blackActive;
+
+    a:active {
+        color: $blackActive;
     }
-    .lineContainer{
-        background-color:$white;
-        .line{
+
+    .lineContainer {
+        background-color: $white;
+
+        .line {
             background-color: $photoCardBorderColor;
-            height:1px;
-            width:90%;
+            height: 1px;
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
     }
+
     .photoHeader {
         display: flex;
         flex-direction: row;
@@ -42,8 +46,9 @@
                 margin-right: 10px;
                 margin-left: 5px;
             }
-            img:active{
-                opacity:.5;
+
+            img:active {
+                opacity: 0.5;
             }
 
             .nameContainer {
@@ -67,87 +72,98 @@
         }
     }
 
-    .photoContainer{
+    .photoContainer {
         position: relative;
-        img{
-            top:0;
-            left:0;
-            width:100%;
+
+        img {
+            top: 0;
+            left: 0;
+            width: 100%;
         }
     }
 
-    .commentDisplay{
-        background-color:$darkBackground;
-        padding:24px;
-        padding-bottom:25px;
-        margin-top:-3px;
-        .postInfo{
-            margin-bottom:10px;
+    .commentDisplay {
+        background-color: $darkBackground;
+        padding: 24px 24px 25px;
+        margin-top: -3px;
+
+        .postInfo {
+            margin-bottom: 10px;
         }
-        .bold, .commentUsername{
+
+        .bold,
+        .commentUsername {
             font-weight: 600;
-            font-size:15px;
-            margin-bottom:7px;
-            line-height:18px;
-            margin-right:.3em;
+            font-size: 15px;
+            margin-bottom: 7px;
+            line-height: 18px;
+            margin-right: 0.3em;
         }
-        .commentUsername{
-            margin-right:.3em;
+
+        .commentUsername {
+            margin-right: 0.3em;
         }
     }
 
-    .commentBar{
-        padding-left:24px;
-        padding-left:24px;
-        padding-top:15px;
-        padding-bottom:15px;
-        background-color:$darkBackground;
-        min-height:68px;
-        display:flex;
+    .commentBar {
+        padding-left: 24px;
+        padding-left: 24px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: $darkBackground;
+        min-height: 68px;
+        display: flex;
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
 
-        .sprite{
-            background-image:url($spriteUrl);
-            background-size:352px 311px;
-            height:26px;
-            width:26px;
-            margin-top:2px;
+        .sprite {
+            background-image: url($spriteUrl);
+            background-size: 352px 311px;
+            height: 26px;
+            width: 26px;
+            margin-top: 2px;
         }
-        .sprite:hover{
-            cursor:pointer;
+
+        .sprite:hover {
+            cursor: pointer;
         }
-        .favoriteSprite{
+
+        .favoriteSprite {
             background-position: -314px -176px;
-            padding-left:6px;
+            padding-left: 6px;
+            padding-right: 4px;
         }
-        .alreadyFavoritedSprite{
+
+        .alreadyFavoritedSprite {
             background-position: -152px -224px;
-            padding-left:6px;
+            padding-left: 6px;
+            padding-right:3px;
         }
-        .infoSprite{
-            background-position:-56px -176px;
-            height:44px;
-            width:44px;
-            margin-right:25px;
+
+        .infoSprite {
+            background-position: -56px -176px;
+            height: 44px;
+            width: 44px;
+            margin-right: 25px;
         }
-        input{
-            font-size:15px;
-            line-height:18px;
-            background-color:$darkBackground;
-            border:none;
-            width:90%;
+
+        input {
+            font-size: 15px;
+            line-height: 18px;
+            background-color: $darkBackground;
+            border: none;
+            width: 90%;
         }
     }
 }
-
 @media(min-width:600px) {
-    .photoCard{
+    .photoCard {
         width: 600px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom:40px;
+        margin-bottom: 40px;
+
         .photoHeader {
             background-color: $lightBackground;
             border: 1px solid $photoCardBorderColor;
@@ -155,17 +171,20 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
-        .commentDisplay{
+
+        .commentDisplay {
             background-color: $lightBackground;
-            border:1px solid $photoCardBorderColor;
-            border-bottom:none;
+            border: 1px solid $photoCardBorderColor;
+            border-bottom: none;
         }
-        .commentBar{
+
+        .commentBar {
             background-color: $lightBackground;
-            border:1px solid $photoCardBorderColor;
-            border-top:none;
-            input{
-                background-color:$lightBackground
+            border: 1px solid $photoCardBorderColor;
+            border-top: none;
+
+            input {
+                background-color: $lightBackground;
             }
         }
     }

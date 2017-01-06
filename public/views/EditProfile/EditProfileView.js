@@ -198,7 +198,7 @@ class EditProfileView extends React.Component{
           </div>
 
           <div className="formItemBtn">
-            <button className="submitBtn submitBtnPass"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
+            <button className="submitBtn submitBtnPass button buttonClear"  onClick={this.handleSubmitChange.bind(this)}>Submit</button>
 
             <a className="disableAcc" href="#">Temporarily disable my account</a>
           </div>
