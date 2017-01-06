@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import loggedInUser from '../../utils/getLoggedInUser';
+import Notifications from './Notifications';
 
 
 export default class Nav extends React.Component {
@@ -11,7 +12,8 @@ export default class Nav extends React.Component {
                 backgroundColor: 'rgb(250,250,250)',
                 textAlign: 'center'
             },
-            loggedInUserName: loggedInUser.getLoggedInUser().username
+            loggedInUserName: loggedInUser.getLoggedInUser().username,
+            userData: null
         }
     }
     handleSubmit(e){
@@ -42,7 +44,18 @@ export default class Nav extends React.Component {
             }
         })
     }
-
+    getUserNotifications(){
+        loggedInUser.getAllUserData().then((response) => {
+                this.setState({
+                    userData: response.data
+                })
+        })
+    }
+    closeNotifications(){
+        this.setState({
+            userData: 0
+        })
+    }
     render() {
         return (
             <header>
@@ -68,8 +81,11 @@ export default class Nav extends React.Component {
                             <div className='spriteDiscover'>
                             </div>
                         </Link>
-                        <Link to='#'>
-                            <div className='spriteNotifs'>
+                        <Link>
+                            <div className='spriteNotifs' onClick={!this.state.userData ? this.getUserNotifications.bind(this) : this.closeNotifications.bind(this)}>
+                                {
+                                    this.state.userData ? <Notifications user={this.state.userData} /> : null
+                                }
                             </div>
                         </Link>
                         <Link to={this.state.loggedInUserName ? `profile/${this.state.loggedInUserName}` : '#'}>

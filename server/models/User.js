@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Post = require('./Post');
 const User = mongoose.Schema({
     username: {type: String, required: true, unique: true},
     fullname: {type: String, required: true},
@@ -11,7 +12,9 @@ const User = mongoose.Schema({
     notifications:[
         {
           user: {type: mongoose.Schema.Types.ObjectId, ref:"User"},
-          notification: {type: String}
+          notification: {type: String},
+          post: {type: String},
+          time: {type: Date} 
         }
       ],
     following: [{type: mongoose.Schema.Types.ObjectId, ref:"User"}],

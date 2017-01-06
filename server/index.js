@@ -113,7 +113,7 @@ app.put('/api/unfollowuser/:username', unfollowUserCtrl.unfollowUser);
 app.put('/api/removefollower/:username', unfollowUserCtrl.removeFollower)
 app.get('/api/feed', feedCtrl.getFeed);
 app.post('/api/postComment', commentCtrl.postComment);
-app.get('/api/getprofiles', getProfileInfo.getProfiles);
+app.get('/api/getprofiles/:user', getProfileInfo.getProfiles);
 app.get('/api/search/:searchTerm', searchCtrl.getSearchResults);
 
 app.listen(3000, function(){

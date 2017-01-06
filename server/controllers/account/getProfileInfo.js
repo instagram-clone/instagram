@@ -29,20 +29,19 @@ module.exports = {
     }
   },
   getProfiles: function(req, res, next){
-    if (req.query.ids){
-      const idArray = req.query.ids.split(',')
-        .map(e => new ObjectId(e));
-      User.find({_id: {$in: idArray}})
-        .select({
-          username: 1,
-          fullname: 1,
-          profilepic: 1,
-            })
-        .exec((err, profiles) =>{
-          if(err) return res.status(500).json(err);
-          return res.status(200).json(profiles);
-        })
-    }
+    console.log("USER!: ", req.params.user)
+    User.findById(req.params.user)
+      .select({
+        username: 1,
+        fullname: 1,
+        profilepic: 1,
+          })
+      .exec((err, profiles) =>{
+        console.log("ERROR: ", err)
+        if(err) return res.status(500).json(err);
+        return res.status(200).json(profiles);
+      })
+    
   }
 
 

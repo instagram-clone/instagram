@@ -1,16 +1,28 @@
 const app = require('../../index.js');
 const Post = require('../../models/Post');
+const User = require('../../models/User');
 
 module.exports = {
     postComment: function(req, res, next){
-        Post.update({_id: req.body.photoid},
+        Post.findByIdAndUpdate({_id: req.body.photoid},
                     {$addToSet: { comments : {
                         username: req.body.username,
                         userid: req.body.userid,
-                        comment: req.body.comment
+                        comment: req.body.comment,
+                        time: new Date()
                     }}}, (err, post) => {
                         if(err) return res.status(500).json(err);
+                        console.log("Post Author: ", post);
+                        User.findByIdAndUpdate(
+                            post.author,
+                            {$push: {notifications: {user: req.body.userid, notification: 'commented: ' + req.body.comment, post: post.photourl, time: new Date()}}}, 
+                            {new: true},
+                            (err, notifications) => {
+                        console.log("Error: ", err)
+                        console.log("Notification", notifications)
                         return res.status(200).json(post);
-                    })
+                    }
+                )
+        });
     }
 }

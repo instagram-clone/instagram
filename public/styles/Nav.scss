@@ -87,6 +87,75 @@ header {
         height: 10px;
     }
 }
+.notifications{
+    min-height: 100px;
+    max-height: 362px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    display: block;
+    z-index: 11;
+    width: 425%;
+    white-space: normal;
+    position: absolute;
+    top: 65px;
+    margin-left: -470px;
+}
+    .triangle{
+        border-color: transparent transparent #fff;
+        border-style: solid;
+        border-width: 0 10px 10px;
+        height: 0;
+        position: absolute;
+        top: 56px;
+        left: 72px;
+        width: 0;
+        z-index: 12;
+    }
+.notificationCard{
+    margin: 12px;
+    padding-bottom: 12px;
+    position: relative;
+    border-bottom: 1px solid #efefef;
+
+    img{
+        width: 34px;
+        height: 34px;
+        border-radius: 50px;
+        margin-right: 7px;
+    }
+    span{
+        padding-right: 5px;
+        font-weight: 900;
+        position: relative;
+        top: -11px;
+    }
+    p{
+        padding-right: 5px;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .postImg{
+        border-radius: inherit;
+        width: 55px;
+        height: auto;
+    }
+}
+    #lineNoti{
+        display: inherit;
+    }
+    .notiTime{
+        font-weight: bold;
+        font-family: sans-serif;
+        color: #9F9999;
+    }
+ 
 @media(min-width:600px) {
     header{
         margin-bottom:60px;
