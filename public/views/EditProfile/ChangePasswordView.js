@@ -82,7 +82,7 @@ export default class EditProfileView extends React.Component {
     render(){
       return(
 
-        <div>
+        <div className="editProfileViewMain">
         <Nav/>
 
         <div className="editProfileContainer">

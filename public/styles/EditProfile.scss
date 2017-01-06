@@ -125,9 +125,9 @@ flex: 0 1 300px !important;
   margin: 0 30px 0 150px;
 }
 
-.username {
+.editProfileUsername {
   align-items: center;
-  // display: flex;
+  display: flex;
   flex-direction: row;
   font-size: 24px;
   margin-top: 30px;
@@ -236,6 +236,12 @@ flex: 0 1 300px !important;
 }
 
 @media(max-width:800px) {
+  .editProfileViewMain {
+    footer {
+      position: relative;
+      padding-top: 60px;
+    }
+  }
     .editProfileLinks {
       display: none;
     }
@@ -298,9 +304,6 @@ flex: 0 1 300px !important;
     }
     .disableAcc {
       text-align: right;
-    }
-    .submitBtnPass {
-      // margin-left: -75px;
     }
 
 
