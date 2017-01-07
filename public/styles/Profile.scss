@@ -556,7 +556,50 @@
             margin-right: auto;
         }
     }
-
+    .friendsCarousel{
+      display: -webkit-inline-box;
+      flex-direction: row;
+      position: relative;
+      align-items: center;
+      width: 935px;
+      height: 265px;
+      background-color: white;
+      overflow: scroll;
+      padding: 20px;
+      flex-wrap: nowrap;
+    }
+    .carouselCard{
+      position: relative;
+      height: 197px;
+      width: 176px !important;
+      border: 1px solid #efefef;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      // align-items: center;
+      // align-content: space-between;
+    }
+    .carouselCardPic{
+      height: 52px;
+      width: 52px;
+      border-radius: 25px;
+      border: 1px solid #efefef;
+    }
+    .carouselCardUsername{
+      font-size: 15px;
+      color: #262626;
+    }
+    .carouselCardFullname{
+      font-size: 16px;
+      color: #999999;
+    }
+    .carouselFollowButton{
+      height: 31px;
+      width: 134px;
+    }
     .followModalContainer {
           height: 100vh;
           width: 100vw;
