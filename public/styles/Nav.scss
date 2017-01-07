@@ -124,12 +124,22 @@ header {
     padding-bottom: 12px;
     position: relative;
     border-bottom: 1px solid #efefef;
-
+    font-size:14px;
+    max-width:100%;
+    a{
+        color:$black;
+    }
+    a:active{
+        color:$blackActive;
+    }
     img{
         width: 34px;
         height: 34px;
         border-radius: 50px;
         margin-right: 7px;
+    }
+    img:active{
+        opacity: .5;
     }
     span{
         padding-right: 5px;
@@ -139,6 +149,10 @@ header {
     }
     p{
         padding-right: 5px;
+    }
+    p #notifText{
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     div{
         display: flex;

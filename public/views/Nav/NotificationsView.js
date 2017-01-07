@@ -1,26 +1,26 @@
 import React from 'react';
 import Nav from './Nav';
 import NotificationCard from './NotificationCard';
+import loggedInUser from '../../utils/getLoggedInUser';
 import Notifications from './Notifications';
 
 export default class NotificationsView extends React.Component {
     constructor(props) {
         super(props);
+        this.state={};
     }
-
-    componentWillMount() {
-        console.log('props component will mount', this.props);
-        this.setState({
-            notifications: this.props.user
-        }, () => {
-            console.log(this.state, 'noti props')
+    componentDidMount() {
+        loggedInUser.getAllUserData().then((response) => {
+                console.log(response);
+                this.setState({
+                    notifications: response.data.notifications.reverse()
+                })
         });
     }
-
     render() {
         let notis = [];
         if(this.state.notifications){
-          notis = this.state.notifications.notifications.reverse();
+          notis = this.state.notifications;
           console.log('array beeing mapped', notis);
         }
         const notificationsList = notis.map(noti => (
