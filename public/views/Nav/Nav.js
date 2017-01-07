@@ -81,11 +81,15 @@ export default class Nav extends React.Component {
                             <div className='spriteDiscover'>
                             </div>
                         </Link>
-                        <Link>
+                        <Link className='desktopNotifs'>
                             <div className='spriteNotifs' onClick={!this.state.userData ? this.getUserNotifications.bind(this) : this.closeNotifications.bind(this)}>
                                 {
                                     this.state.userData ? <Notifications user={this.state.userData} /> : null
                                 }
+                            </div>
+                        </Link>
+                        <Link to='notifications' className='mobileNotifs'>
+                            <div className='spriteNotifs'>
                             </div>
                         </Link>
                         <Link to={this.state.loggedInUserName ? `profile/${this.state.loggedInUserName}` : '#'}>

@@ -34,7 +34,7 @@ export default class UploadView extends React.Component {
         reader.onloadend = (loadEvent) => {
             this.setState({file: file, imgUrl: reader.result});
             const newImage = {
-                imageName: file.name,
+                imageName: file.name.split('.')[0] + new Date().getTime() + '.jpg',
                 imageBody: loadEvent.target.result,
                 imageExtension: file.type
             }

@@ -18,11 +18,15 @@ header {
     width: 100vw;
     text-align: right;
     padding: 26px 40px;
-
+    .desktopNotifs{
+        display:none;
+    }
+    .mobileNotifs{
+        display:inline;
+    }
     .search {
         display: none;
     }
-
     .right {
         display: flex;
         flex-direction: row;
@@ -155,7 +159,7 @@ header {
         font-family: sans-serif;
         color: #9F9999;
     }
- 
+
 @media(min-width:600px) {
     header{
         margin-bottom:60px;
@@ -165,7 +169,12 @@ header {
             margin-left: 0;
         }
         max-width: 1010px;
-
+        .desktopNotifs{
+            display:inline;
+        }
+        .mobileNotifs{
+            display:none;
+        }
         .search {
             display: inline;
             height: 28px;

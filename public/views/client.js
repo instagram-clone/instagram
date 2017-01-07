@@ -12,7 +12,7 @@ import UploadView from './Upload/UploadView';
 import EditProfileView from './EditProfile/EditProfileView';
 import SearchView from './Search/SearchView';
 import ChangePasswordView from './EditProfile/ChangePasswordView';
-
+import NotificationsView from './nav/NotificationsView';
 import auth from '../utils/getLoggedInUser';
 
 import Reset from '../styles/Reset.scss';
@@ -66,6 +66,7 @@ class App extends React.Component{
 						<Route path="/editProfile" component={EditProfileView} onEnter={requireAuth}/>
 						<Route path="/search/:searchTerm" component={SearchView}/>
 						<Route path="/changePassword" component={ChangePasswordView} onEnter={requireAuth}/>
+						<Route path="/notifications" component={NotificationsView} onEnter={requireAuth}/>
 				</Router>
 			</Provider>
 		)
