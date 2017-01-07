@@ -49,13 +49,13 @@ export default class FriendsCarouselItem extends React.Component{
       <div>
       {this.state.showfollow
           ?  <div >
-                  <div className="button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
+                  <div className="button buttonBlue buttonClear carouselFollowButton" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
               </div>
           : null}
 
       {this.state.showfollowing
           ?  <span >
-                  <div className="following button followSpacing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
+                  <div className="following button followSpacing carouselFollowButton carouselFollowingButton" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
               </span>
           : null}
         </div>

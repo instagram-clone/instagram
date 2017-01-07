@@ -52,10 +52,11 @@ export default class FriendsCarousel extends React.Component{
 
 
     return(
-      <div className="friendsCarousel">
-        <div>SUGGESTED</div>
+      <div className="carouselContainer">
+        <div className="carouselHeader">SUGGESTED</div>
+        <div className="friendsCarousel">
         {this.state.suggestedFriends}
-
+        </div>
       </div>
     )
   }
