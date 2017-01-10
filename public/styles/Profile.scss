@@ -641,7 +641,7 @@
     }
     .followModalContainer {
           height: 100vh;
-          width: 100vw;
+          width: 100%;
           position: absolute;
           left: 0;
           top: 0;
@@ -653,7 +653,7 @@
         .followModal-bg{
           background-color: rgba(0,0,0,0.5);
           height: 200vh;
-          width: 200vw;
+          width: 100%;
           position: absolute;
           z-index:20;
         }
@@ -784,7 +784,7 @@
     }
     @media(max-width:800px) {
       .carouselContainer{
-        width: 100vw;
+        width: 100%;
         left: 0px;
       }
     }
