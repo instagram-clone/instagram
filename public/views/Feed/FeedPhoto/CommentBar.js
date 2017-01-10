@@ -1,10 +1,13 @@
 import React from 'react';
+import axios from 'axios';
+import {getAllUserData} from '../../../utils/getLoggedInUser';
 
 export default class CommentBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ''
+            text: '',
+            showDelete: false
         }
     }
     handleCommentChange(event){
@@ -18,6 +21,21 @@ export default class CommentBar extends React.Component {
             })
         }
     }
+    // deletePhoto(){
+    //     console.log('deleting photo' + this.props.photoID);
+    //     axios.delete('/api/delete/' + this.props.photoID).then(res =>{
+    //         console.log(res);
+    //         alert('deleted photo');
+    //     }).catch(err => {
+    //         console.log('error');
+    //     })
+    // }
+    // toggleDelete(){
+    //     this.setState({
+    //         showDelete:!this.state.showDelete
+    //     });
+    //     console.log(this.state.showDelete);
+    // }
     render() {
         console.log(this.props.alreadyFavorited)
         return (

@@ -18,11 +18,15 @@ header {
     width: 100vw;
     text-align: right;
     padding: 26px 40px;
-
+    .desktopNotifs{
+        display:none;
+    }
+    .mobileNotifs{
+        display:inline;
+    }
     .search {
         display: none;
     }
-
     .right {
         display: flex;
         flex-direction: row;
@@ -120,12 +124,22 @@ header {
     padding-bottom: 12px;
     position: relative;
     border-bottom: 1px solid #efefef;
-
+    font-size:14px;
+    max-width:100%;
+    a{
+        color:$black;
+    }
+    a:active{
+        color:$blackActive;
+    }
     img{
         width: 34px;
         height: 34px;
         border-radius: 50px;
         margin-right: 7px;
+    }
+    img:active{
+        opacity: .5;
     }
     span{
         padding-right: 5px;
@@ -135,6 +149,10 @@ header {
     }
     p{
         padding-right: 5px;
+    }
+    p #notifText{
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     div{
         display: flex;
@@ -155,7 +173,7 @@ header {
         font-family: sans-serif;
         color: #9F9999;
     }
- 
+
 @media(min-width:600px) {
     header{
         margin-bottom:60px;
@@ -165,7 +183,12 @@ header {
             margin-left: 0;
         }
         max-width: 1010px;
-
+        .desktopNotifs{
+            display:inline;
+        }
+        .mobileNotifs{
+            display:none;
+        }
         .search {
             display: inline;
             height: 28px;

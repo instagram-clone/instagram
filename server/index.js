@@ -32,6 +32,7 @@ const feedCtrl = require('./controllers/feed/getUsersPostsCtrl');
 const favoriteCtrl = require('./controllers/photos/favoriteCtrl');
 const commentCtrl = require('./controllers/photos/postCommentCtrl');
 const searchCtrl = require('./controllers/search/getSearchResults');
+const deleteCtrl = require('./controllers/photos/deletePostCtrl');
 
 const app = module.exports = express();
 
@@ -115,6 +116,7 @@ app.get('/api/feed', feedCtrl.getFeed);
 app.post('/api/postComment', commentCtrl.postComment);
 app.get('/api/getprofiles/:user', getProfileInfo.getProfiles);
 app.get('/api/search/:searchTerm', searchCtrl.getSearchResults);
+app.delete('/api/delete/:photoID', deleteCtrl.deletePhoto);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');

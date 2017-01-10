@@ -65,18 +65,20 @@ export default class NotificationCard extends React.Component{
           <a href={`#/profile/${this.state.user.username}`}>
             <img src={this.state.user.profilepic} />
             <span>{this.state.user.username}</span>
-          </a>  
+          </a>
 
-            <p>{this.props.notification}</p>
+            <div className='notiText'>
+                <p>{this.props.notification}</p>
+            </div>
             <p className="notiTime">{this.state.relativeDate}</p>
           </div>
           {
-            this.props.post === 'yay' ? null : <img className="postImg" src={this.props.post} /> 
+            this.props.post === 'yay' ? null : <img className="postImg" src={this.props.post} />
           }
-          
+
         </div>
-        
+
       </div>
     )
   }
-} 
+}
