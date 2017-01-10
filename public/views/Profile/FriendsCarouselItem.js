@@ -39,7 +39,7 @@ export default class FriendsCarouselItem extends React.Component{
   return(
     <div className="carouselCard">
       <Link to={`/profile/${this.props.username}`}>
-      <div className="carouselCardPic"><img src={this.props.profilepic}/></div>
+      <div><img className="carouselCardPic" src={this.props.profilepic}/></div>
       <div className="carouselCardUsername">{this.props.username}</div>
       </Link>
       <div className="carouselCardFullname">{this.props.fullname}</div>
@@ -48,14 +48,14 @@ export default class FriendsCarouselItem extends React.Component{
 
       <div>
       {this.state.showfollow
-          ?  <div className='row'>
-                  <div className="button buttonBlue buttonClear" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
+          ?  <div >
+                  <div className="button buttonBlue buttonClear carouselFollowButton" onClick={this.clickFollowHandler.bind(this)}>Follow</div>
               </div>
           : null}
 
       {this.state.showfollowing
-          ?  <span className='row'>
-                  <div className="following button followSpacing" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
+          ?  <span >
+                  <div className="following button followSpacing carouselFollowButton carouselFollowingButton" onClick={this.clickUnfollowHandler.bind(this)}>Following</div>
               </span>
           : null}
         </div>

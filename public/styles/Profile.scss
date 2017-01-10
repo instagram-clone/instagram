@@ -556,7 +556,89 @@
             margin-right: auto;
         }
     }
+    .carouselContainer{
+      display: flex;
+      flex-direction: column;
+      background: white;
+      width: 103%;
+      height: 265px;
+      padding: 20px;
+      position: relative;
+      left: -44px;
+      margin-top: 20px;
+    }
+    .friendsCarousel::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+    }
+    .friendsCarousel{
+      display: -webkit-inline-box;
+      flex-direction: row;
+      position: relative;
+      align-items: center;
+      // width: 935px;
+      // height: 265px;
+      width: 102%;
+      height: 265px;
+      background-color: white;
+      flex-wrap: nowrap;
+      overflow: scroll;
+    }
 
+    .carouselHeader{
+      color: #999999;
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: 11px;
+      margin-bottom: 10px;
+    }
+    .carouselCard{
+      position: relative;
+      height: 197px;
+      width: 176px !important;
+      border: 1px solid #efefef;
+      border-radius: 3px;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      align-items: center;
+      overflow: hidden;
+      // align-content: space-between;
+    }
+    .carouselCardPic{
+      height: 52px;
+      width: 52px;
+      border-radius: 25px;
+      border: 1px solid #efefef;
+    }
+    .carouselCardUsername{
+      font-size: 15px;
+      color: #262626;
+      margin-top: 10px;
+    }
+    .carouselCardFullname{
+      font-size: 16px;
+      color: #999999;
+      margin-top: 6px;
+    }
+    .carouselFollowButton{
+      margin-top: 16px;
+      height: 31px;
+      width: 134px;
+      line-height: 20px;
+    }
+    .carouselFollowingButton{
+      line-height: 32px;
+      padding-top: 10px;
+      font-size: 16px;
+      padding: 0 11px;
+      font-weight: 600;
+      background-color: rgb(112, 192, 80);
+      margin-left:0px;
+    }
     .followModalContainer {
           height: 100vh;
           width: 100vw;
@@ -699,6 +781,12 @@
         .expanded-view figure {
             max-width: 84vw;
         }
+    }
+    @media(max-width:800px) {
+      .carouselContainer{
+        width: 100vw;
+        left: 0px;
+      }
     }
     @media(min-width:800px) {
         .profileInfo {

@@ -189,8 +189,7 @@ class ProfileInfo extends React.Component {
                     </span>
                 </div>
                 {this.state.friendsCarousel ?
-                  <div className="friends-carousel">
-                    <h1>Suggested</h1>
+                  <div>
                     <FriendsCarousel user={this.props.user}/>
                   </div>
 
