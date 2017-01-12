@@ -64,7 +64,8 @@
 
     .filterContainer{
         padding-right:5px;
-        overflow:scroll;
+        overflow-x: scroll;
+        overflow-y: hidden;
         width:100%;
         margin-top:20px;
         display:flex;
