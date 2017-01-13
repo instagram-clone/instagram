@@ -107,21 +107,21 @@ export default class EditProfileView extends React.Component {
           <div className="formPassName">
             Old Password
           </div>
-          <input className="passInput" onChange = {this.handleOldPassword.bind(this)} type = "text"/>
+          <input className="passInput" onChange = {this.handleOldPassword.bind(this)} type = "password"/>
           </div>
 
           <div className="formPassItem">
           <div className="formPassName">
             New Password
           </div>
-          <input className="passInput" onChange = {this.newPassword1.bind(this)} type = "text"/>
+          <input className="passInput" onChange = {this.newPassword1.bind(this)} type = "password"/>
           </div>
 
           <div className="formPassItem">
           <div className="formPassName passName">
             New Password, Again
           </div>
-          <input className = "passInput" onChange = {this.newPassword2.bind(this)} type = "text"/>
+          <input className = "passInput" onChange = {this.newPassword2.bind(this)} type = "password"/>
           </div>
 
 
