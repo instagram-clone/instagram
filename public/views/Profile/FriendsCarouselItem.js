@@ -16,8 +16,6 @@ export default class FriendsCarouselItem extends React.Component{
     this.setState({
       showfollow: false,
       showfollowing: true,
-    }, () => {
-      console.log(this.state.showfollow, this.state.showfollowing, 'following');
     });
     axios.put(`/api/followuser/${getLoggedInUser().username}`, {username: this.props.username});
     axios.put(`/api/addfollower/${getLoggedInUser().username}`, {username: this.props.username});

@@ -11,7 +11,6 @@ export default class NotificationsView extends React.Component {
     }
     componentDidMount() {
         loggedInUser.getAllUserData().then((response) => {
-                console.log(response);
                 this.setState({
                     notifications: response.data.notifications.reverse()
                 })
@@ -21,7 +20,6 @@ export default class NotificationsView extends React.Component {
         let notis = [];
         if(this.state.notifications){
           notis = this.state.notifications;
-          console.log('array beeing mapped', notis);
         }
         const notificationsList = notis.map(noti => (
           <NotificationCard

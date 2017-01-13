@@ -27,13 +27,11 @@ export default class CommentDisplay extends React.Component{
         });
     }
     componentWillReceiveProps(){
-        console.log('comment display', this.props.commentData);
         this.setState({
             comments : this.createArr()
         });
     }
     render(){
-        console.log('render')
         return (
             <div className='commentDisplay' id="profile-comment-display">
                 <div className='bold' id="profile-likes">{this.props.commentData.likes} likes</div>

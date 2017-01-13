@@ -15,7 +15,6 @@ export default class SearchView extends React.Component {
     }
     componentDidMount() {
         axios.get('/api/search/' + this.props.params.searchTerm).then(res => {
-            console.log('searchres', res);
             this.setState({
                 loaded: true,
                 posts: res.data.posts,

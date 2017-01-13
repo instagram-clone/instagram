@@ -51,7 +51,6 @@ class ProfileInfo extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log(nextProps, 'next props');
     if(this.props.paramUserName !== nextProps.paramUserName){
       this.setState({
         friendsCarousel: false,
