@@ -7,7 +7,6 @@ export default class PhotoHeader extends React.Component {
         this.state = {
             relativeDate: this.getDate()
         }
-        console.log(this.props, "props!!!");
     }
     getDate() {
         // let date = this.props.timestamp.split('T')[0].split('-');
@@ -21,7 +20,6 @@ export default class PhotoHeader extends React.Component {
         //otherwise, it shows how many days or weeks ago it was posted
         if (Math.round(Math.abs(today - photoDate) / 36e5) < 24) {
             //checks if photo was posted less than an hour ago
-            console.log(Math.round(Math.abs(today - photoDate) / 36e5));
             if (Math.round(Math.abs(today - photoDate) / 36e5) <= 0) {
                 let minsDiff = Math.round((today.getTime() - photoDate.getTime())/60000);
                 if (minsDiff === 0) {

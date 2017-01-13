@@ -13,8 +13,6 @@ import AddProfileImg from './AddProfileImg';
 class FeedView extends React.Component {
     constructor(props) {
         super(props);
-        console.log('constructor');
-        console.log(this.props.storeUser);
         this.state = {
             feedSet: false,
             default: 'https://scontent-fra3-1.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'
@@ -37,7 +35,6 @@ class FeedView extends React.Component {
             })
             window.setTimeout(() => {
                 this.setState({feed, feedSet: true})
-                console.log(feed);
             }, 30)
         });
         getAllUserData().then(res => {

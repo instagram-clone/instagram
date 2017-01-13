@@ -62,7 +62,6 @@ export default class ProfileView extends React.Component{
    }
  componentWillMount(){
    this.getProfile(this.props.params.username);
-   console.log('mounted');
  }
 
  componentWillReceiveProps(nextProps) {
@@ -78,9 +77,6 @@ export default class ProfileView extends React.Component{
       axios.put(`/api/followuser/${getLoggedInUser().username}`, {username: this.props.params.username});
       axios.put(`/api/addfollower/${getLoggedInUser().username}`, {username: this.props.params.username});
       }
-  followViewHandle(){
-    console.log('follow clicked');
-  }
     clickUnfollowHandler(){
       this.setState({
         showfollow: true,
@@ -91,8 +87,6 @@ export default class ProfileView extends React.Component{
       axios.put(`/api/removefollower/${getLoggedInUser().username}`, {username: this.props.params.username});
     }
   render(){
-      console.log('odkfs')
-      console.log(this.state.posts);
     return(
       <div className="profileView">
         <Nav/>

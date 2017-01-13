@@ -26,7 +26,6 @@ export default class PhotoCard extends React.Component {
                     }
                 });
             }
-            console.log(alreadyLiked)
             this.setState({alreadyLiked, userData: res, likesCount: this.props.photo.likes.length});
         });
     }
@@ -68,7 +67,6 @@ export default class PhotoCard extends React.Component {
         this.setState({
             comments : newComments
         })
-        console.log(this.state);
     }
 
     render() {

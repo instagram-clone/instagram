@@ -27,7 +27,6 @@ export default class UploadView extends React.Component {
 
         let reader = new FileReader();
         let file = e.target.files[0];
-        console.log(file);
 
         this.setState({date: new Date()});
 
@@ -39,7 +38,6 @@ export default class UploadView extends React.Component {
                 imageExtension: file.type
             }
             axios.post('/api/s3', newImage).then((response) => {
-                console.log(response);
                 this.setState({
                     imgUrl: response.data.Location,
                     displayPreview: true
@@ -66,7 +64,6 @@ export default class UploadView extends React.Component {
         this.setState({
             filter
         });
-        console.log(this.state.date);
     }
 
     render() {

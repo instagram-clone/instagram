@@ -20,7 +20,6 @@ export default class NotificationCard extends React.Component{
         //otherwise, it shows how many days or weeks ago it was posted
     if (Math.round(Math.abs(today - photoDate) / 36e5) < 24) {
             //checks if photo was posted less than an hour ago
-            console.log(Math.round(Math.abs(today - photoDate) / 36e5));
             if (Math.round(Math.abs(today - photoDate) / 36e5) <= 0) {
                 let minsDiff = Math.round((today.getTime() - photoDate.getTime())/60000);
                 if (minsDiff === 0) {
@@ -43,7 +42,6 @@ export default class NotificationCard extends React.Component{
   }
   getProfiles(user){
     axios.get(`/api/getprofiles/${user}`).then((response) => {
-      console.log('axios', response.data);
       this.setState({
         user: response.data
       })
@@ -53,7 +51,6 @@ export default class NotificationCard extends React.Component{
     this.getProfiles(this.props.userAction);
   }
   render(){
-    console.log('photcard', this.props);
     if(!this.state.user){
       this.state.user = " "
     }

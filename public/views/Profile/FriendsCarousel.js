@@ -15,7 +15,6 @@ export default class FriendsCarousel extends React.Component{
     let targetFollowers = this.props.user.followers;
     getAllUserData().then(response =>{
       let followedProfiles = response.data.following;
-      console.log(followedProfiles, 'followed profiles');
       let filteredFriends = [];
         for(let i = 0; i < targetFollowers.length; i++){
           let found = false;
@@ -31,7 +30,6 @@ export default class FriendsCarousel extends React.Component{
             filteredFriends.push(targetFollowers[i]);
           }
         }
-        console.log(filteredFriends, 'these are filtered friends');
        suggestedFriends = filteredFriends
         .map(suggestedFriend => (
         <FriendsCarouselItem

@@ -10,19 +10,14 @@ export default class PhotoGrid extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.setState({
             picInfo: nextProps.posts.reverse()
-        }, () => {
-            console.log(this.state, 'state')
         });
     }
     componentWillMount(){
         this.setState({
             picInfo: this.props.posts.reverse()
-        }, () => {
-            console.log(this.state, 'state')
         });
     }
     expandHandle(picInfo) {
-        console.log("11!1!!!", picInfo);
         this.setState({expandImg: picInfo})
     }
     close() {

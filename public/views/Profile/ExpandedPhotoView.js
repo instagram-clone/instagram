@@ -61,11 +61,9 @@ export default class ExpandedPhotoView extends React.Component {
         let newComments = this.state.comments;
         newComments.push({username: this.state.userData.data.username, comment})
         this.setState({comments: newComments})
-        //console.log(this.state);
     }
 
     render() {
-        console.log(this.props, "props");
         var bgImg = {
             backgroundImage: 'url(' + this.props.photourl + ')',
             backgroundPosition: 'center'

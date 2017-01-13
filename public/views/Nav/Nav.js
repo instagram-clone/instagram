@@ -20,8 +20,6 @@ export default class Nav extends React.Component {
         e.preventDefault();
         window.location.href = `/#/search/${this.state.searchText}`;
         window.location.reload();
-        console.log(this.state.searchText);
-
     }
     onSearchChange(e) {
         this.setState({
